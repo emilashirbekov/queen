@@ -8,9 +8,8 @@ interface ProtectedRoutesProps {
 
 const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ children }) => {
     const navigate = useNavigate();
+    const isStaff = isAdmin;
     useEffect(() => {
-        const isStaff = isAdmin;
-    
         if (isStaff !== false) {
             setTimeout(() => {
                 navigate('/admin_panel_products');
@@ -21,7 +20,7 @@ const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ children }) => {
             }, 700);
         }
     }, [isAdmin]);
-
+    
     return children;
 };
 
