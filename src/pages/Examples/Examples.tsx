@@ -1,6 +1,7 @@
+import React, { useState } from 'react';
 import Button from '../../shared/ui/Buttons/Button';
 import InputField from '../../shared/ui/Inputs/InputField';
-import React, { useState } from 'react';
+import MultiSelect from './Test';
 
 const Examples = () => {
     const [state, setState] = useState('');
@@ -57,6 +58,7 @@ const Examples = () => {
                 }
                 placeholder={'password'}
             />
+            <MultiSelect />
         </div>
     );
 };

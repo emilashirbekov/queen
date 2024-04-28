@@ -12,6 +12,7 @@ const AdminPanelProducts = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const { data, isLoading, error } = useGetProductsQuery(currentPage);
     const products = data?.results;
+    
     return (
         <section className="padding-admin-container max-admin-container">
             <AdminPanelHeader text="Товары" />

@@ -12,7 +12,7 @@ interface ProductItemProps {
 }
 
 export const ProductItem: React.FC<ProductItemProps> = props => {
-    const { images1, title, price, id, description, brand, color, size, characteristics } =
+    const { images1, title, price, id, description, brand, color, size, characteristics, discount } =
         props.product;
     const [deleteProduct] = useDeleteProductMutation();
     const pathname = window.location.pathname.startsWith('/admin');
@@ -21,62 +21,90 @@ export const ProductItem: React.FC<ProductItemProps> = props => {
     const handleSetFavouriteProduct = () => {
         createFavourite(uniqueKey);
     };
+    
+    //@ts-ignore
+    const priceWithDiscount = price - discount;
     return (
-        <li key={uniqueKey} className="text-primary cursor-pointer">
-            <Link className="relative" to={`${window.location.href}/one_item/${id}`}>
-                <img
-                    src={images1}
-                    alt={title}
-                    className="h-[302px] w-[302px] object-cover rounded-3xl mb-4"
-                />
-                <p className="text-xl font-semibold mb-2">
-                    {pathname && <span>Название</span>} {title || <span>Нет</span>}
-                </p>
-                <p className="text-base font-semibold my-2">
-                    {pathname && <span>Цена</span>} {price || <span>Нет</span>} сом
-                </p>
-                {!pathname && (
-                    <Heart
-                        onClick={handleSetFavouriteProduct}
-                        className="absolute top-5 right-5 text-red bg-light rounded-[33px] p-2 fill-red"
-                        size={45}
-                    />
-                )}
-            </Link>
-            {pathname && (
-                <>
-                    <p className="text-base font-semibold my-2">
-                        Описание: {description || <span>Нет</span>}
-                    </p>
-                    <p className="text-base font-semibold my-2">
-                        Брэнд: {brand || <span>Нет</span>}
-                    </p>
-                    <p className="text-base font-semibold my-2">
-                        Цвета: {color?.join(' ') || <span>Нет</span>}
-                    </p>
-                    <p className="text-base font-semibold my-2">
-                        Размеры: {size?.join('') || <span>Нет</span>}
-                    </p>
-                    <p className="text-base font-semibold my-2">
-                        Характеристики: {characteristics || <span>Нет</span>}
-                    </p>
+			<li key={uniqueKey} className='full-width text-primary cursor-pointer'>
+				<Link
+					className='relative'
+					to={`${window.location.href}/one_item/${id}`}
+				>
+					<img
+						src={images1}
+						alt={title}
+						className='h-[302px] w-[302px] object-cover rounded-3xl mb-4'
+					/>
+					<p className='text-xl font-semibold mb-2'>
+						{pathname && <span>Название</span>} {title || <span>Нет</span>}
+					</p>
+					{discount ? (
+						<p className='text-base font-semibold my-2'>
+							{pathname && <span>Цена</span>}
+							{(
+								<span>
+									<span className='line-through opacity-50 mr-5'>
+										{price} сом
+									</span>
+									<span className='font-bold'>{priceWithDiscount} сом</span>
+								</span>
+							) || <span>Нет</span>}{' '}
+						</p>
+					) : (
+						<p className='text-base font-semibold my-2'>
+							{pathname && <span>Цена</span>}
+							{<span>{price}</span> || <span>Нет</span>} сом
+						</p>
+					)}
 
-                    <div className="flexCenter gap-5">
-                        <Link className="admin-button" to={`/admin_change_products/${id}`}>
-                            Изменить
-                        </Link>
+					{!pathname && (
+						<Heart
+							onClick={handleSetFavouriteProduct}
+							className='absolute top-5 right-5 text-red bg-light rounded-[33px] p-2 fill-red'
+							size={45}
+						/>
+					)}
+				</Link>
+				{pathname && (
+					<>
+						<p className='text-base font-semibold my-2'>
+							Описание: {description || <span>Нет</span>}
+						</p>
+						<p className='text-base font-semibold my-2'>
+							Брэнд: {brand || <span>Нет</span>}
+						</p>
+						<p className='text-base font-semibold my-2'>
+							Цвета: {color?.join(' ') || <span>Нет</span>}
+						</p>
+						<p className='text-base font-semibold my-2'>
+							Размеры: {size?.join('') || <span>Нет</span>}
+						</p>
+						<p className='text-base font-semibold my-2'>
+							Характеристики: {characteristics || <span>Нет</span>}
+						</p>
+						<p className='text-base font-semibold my-2'>
+							Скидка: {discount || <span>Нет</span>}
+						</p>
 
-                        <Button
-                            onClick={() => deleteProduct(id)}
-                            type="button"
-                            typeButton=""
-                            style="admin-button text-base"
-                        >
-                            Удалить
-                        </Button>
-                    </div>
-                </>
-            )}
-        </li>
-    );
+						<div className='flexCenter gap-5'>
+							<Link
+								className='admin-button'
+								to={`/admin_change_products/${id}`}
+							>
+								Изменить
+							</Link>
+
+							<Button
+								onClick={() => deleteProduct(id)}
+								type='button'
+								typeButton=''
+								style='admin-button text-base'
+							>
+								Удалить
+							</Button>
+						</div>
+					</>
+				)}
+			</li>
+		);
 };
