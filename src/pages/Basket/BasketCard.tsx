@@ -70,7 +70,7 @@ const BasketCard: React.FC<Props> = ({ basket, deleteCard, refreshBasket, index 
         border-[rgba(0, 0, 0, 0.1)] justify-between"
             >
                 <img
-                    className="w-[125px] h-[125px] rounded-[12.5px]"
+                    className="w-[125px] h-[125px] rounded-[12.5px] mix-blend-darken"
                     src={`https://back.queen-shops.com${basket.images1}`}
                     alt=""
                 />

@@ -60,7 +60,7 @@ const Desc = ({ product }: IDesc) => {
                     description: product.description,
                     images1: product.images1,
                     count: count,
-                    discount: product.discount,
+                    discount: product.discount !== null ? product.discount : 0,
                 };
                 basket.push(newItem);
                 localStorage.setItem('basket', JSON.stringify(basket));
