@@ -25,6 +25,9 @@ export const theme = {
             'bg-image-main3': "url('/offerS2.webp')",
             'bg-image-main4': "url('/catalog-3.webp')",
         },
+        zIndex: {
+            '100': '100'
+        }
     },
 };
 export const darkMode = 'class';

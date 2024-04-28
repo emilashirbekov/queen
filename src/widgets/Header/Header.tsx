@@ -98,7 +98,7 @@ const Header = () => {
                         onClick={() => setBurgerMenu(prevState => !prevState)}
                     />
                     {burgerMenu ? (
-                        <div className="md:hidden absolute min-w-[274px] box-border top-[66px] right-[0]">
+                        <div className="md:hidden absolute min-w-[274px] box-border top-[66px] right-[0] z-100">
                             <BurgerMenu onClose={() => setMenu(prevState => !prevState)} />
                         </div>
                     ) : null}
