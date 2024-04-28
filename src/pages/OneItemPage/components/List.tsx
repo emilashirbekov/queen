@@ -17,14 +17,14 @@ const List = ({ product, setImg }: IList) => {
                 onClick={() => setImg(product.images1)}
                 src={`https://back.queen-shops.com${product.images1}`}
                 alt="item"
-                className="w-[80px] h-[80px]  sm:w-[112px] sm:h-[112px] rounded-[8px] cursor-pointer"
+                className="w-[80px] h-[80px]  sm:w-[112px] sm:h-[112px] rounded-[8px] cursor-pointer mix-blend-darken"
             />
             {product?.images2 ? (
                 <img
                     onClick={() => setImg(product.images2)}
                     src={`https://back.queen-shops.com${product.images2}`}
                     alt="item"
-                    className="w-[80px] h-[80px] sm:w-[112px] sm:h-[112px] rounded-[8px] cursor-pointer"
+                    className="w-[80px] h-[80px] sm:w-[112px] sm:h-[112px] rounded-[8px] cursor-pointer mix-blend-darken"
                 />
             ) : null}
             {product?.images3 ? (
@@ -32,7 +32,7 @@ const List = ({ product, setImg }: IList) => {
                     onClick={() => setImg(product.images3)}
                     src={`https://back.queen-shops.com${product.images3}`}
                     alt="item"
-                    className="w-[80px] h-[80px] sm:w-[112px] sm:h-[112px] rounded-[8px] cursor-pointer"
+                    className="w-[80px] h-[80px] sm:w-[112px] sm:h-[112px] rounded-[8px] cursor-pointer mix-blend-darken"
                 />
             ) : null}
             <ArrowRight size={30} />
