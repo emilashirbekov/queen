@@ -24,4 +24,9 @@ export interface PersonalUser {
     phone_number: string;
 }
 
+export interface NewPassword {
+    new_password: string,
+    confirming_new_password: string,
+}
+
 export type PersonalUserMutation = Omit<PersonalUser, 'id'>;

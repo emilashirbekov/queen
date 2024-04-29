@@ -26,6 +26,7 @@ import { AdminPanelCharacteristics } from '@/pages/AdminPanelPages/AdminPanelCha
 import { AdminPanelOrders } from '@/pages/AdminPanelPages/AdminPanelOrders';
 import { FAQ } from '@/widgets/FAQ';
 import MainPage from '@/pages/MainPage';
+import ChangePassword from "@/pages/MyRoomPage/ui/ChangePassword";
 
 export enum AppRoutes {
     MAIN = 'main',
@@ -38,6 +39,7 @@ export enum AppRoutes {
     EXAMPLES = 'examples',
     ORDERS = 'orders',
     FAQ = 'faq',
+    CHANGE_PASSWORD = 'changePassword',
 
     ADMIN_PANEL_PRODUCTS = 'admin_panel_products',
     ADMIN_CHANGE_PRODUCTS = 'admin_change_products/:id',
@@ -154,6 +156,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     [AppRoutes.FAQ]: {
         path: '/faq',
         element: <FAQ />,
+    },
+    [AppRoutes.CHANGE_PASSWORD]: {
+        path: '/changePassword',
+        element: <ChangePassword />
     },
     [AppRoutes.NOT_FOUND]: {
         path: '*',

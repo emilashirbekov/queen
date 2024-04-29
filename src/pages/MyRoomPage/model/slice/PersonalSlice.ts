@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import {
+    changePassword,
     getFavourites,
     getOrders,
     getSingleOrder,
@@ -16,6 +17,7 @@ interface PersonalState {
     favouritesLoading: boolean;
     personalUserLoading: boolean;
     ordersLoading: boolean;
+    newPasswordLoading: boolean;
 }
 
 const initialState: PersonalState = {
@@ -26,6 +28,7 @@ const initialState: PersonalState = {
     favouritesLoading: false,
     personalUserLoading: false,
     ordersLoading: false,
+    newPasswordLoading: false,
 };
 
 const personalSlice = createSlice({
@@ -85,6 +88,17 @@ const personalSlice = createSlice({
         builder.addCase(getSingleOrder.rejected, state => {
             state.ordersLoading = false;
         });
+
+
+        builder.addCase(changePassword.pending, state => {
+            state.newPasswordLoading = true;
+        });
+        builder.addCase(changePassword.fulfilled, state => {
+            state.newPasswordLoading = false;
+        });
+        builder.addCase(changePassword.rejected, state => {
+            state.newPasswordLoading = false;
+        });
     },
 });
 
@@ -95,3 +109,4 @@ export const selectFavourites = (state: RootState) => state.personal.favourites;
 export const selectOrders = (state: RootState) => state.personal.orders;
 export const selectOrdersLoading = (state: RootState) => state.personal.ordersLoading;
 export const selectOrder = (state: RootState) => state.personal.order;
+export const selectNewPasswordLoading = (state: RootState) => state.personal.newPasswordLoading;
