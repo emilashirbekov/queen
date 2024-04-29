@@ -169,7 +169,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 		element: <NotFound />,
 	},
 	[AppRoutes.DELIVERY]: {
-		path: '*',
+		path: '/delivery',
 		element: <DeliveryPage />,
 	},
 };
