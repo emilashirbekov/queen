@@ -22,6 +22,7 @@ export const LoginPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const error = useAppSelector(selectLoginError);
+  const [emptyField, setEmptyField] = useState(false);
   const loading = useAppSelector(selectLoginLoading);
 
   const changeField = (event: ChangeEvent<HTMLInputElement>) => {
@@ -34,12 +35,16 @@ export const LoginPage = () => {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    await dispatch(login(state)).unwrap();
-    setState({
-      email: "",
-      password: "",
-    });
-    navigate("/my-room");
+    if (state.email.trim() === "" || state.password.trim() === "") {
+      setEmptyField(true);
+    } else {
+      await dispatch(login(state)).unwrap();
+      setState({
+        email: "",
+        password: "",
+      });
+      navigate("/my-room");
+    }
   };
 
   return (
@@ -76,6 +81,11 @@ export const LoginPage = () => {
           {error && (
             <p className="text-red text-[16px]">
               Не правильно пароль или почта!
+            </p>
+          )}
+          {emptyField && (
+            <p className="text-red text-[16px]">
+              Поле не должен содержать пробелы!
             </p>
           )}
           <Button typeButton="primary" type="submit" disabled={loading}>
