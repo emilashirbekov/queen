@@ -48,7 +48,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="py-3 px-4">
+                <Link to="/paymentMethod" className="py-3 px-4">
                   Оплата
                 </Link>
               </li>
