@@ -28,20 +28,22 @@ import { RouteProps } from 'react-router-dom';
 import CatalogPage from '../../../../pages/Catalog/ui/CatalogPage';
 import Examples from '../../../../pages/Examples/Examples';
 import NotFound from '../../../../pages/NotFound';
+import ChangePassword from "@/pages/MyRoomPage/ui/ChangePassword";
 
 export enum AppRoutes {
-	MAIN = 'main',
-	ABOUT = 'about',
-	CATALOG = 'catalog',
-	REGISTER = 'register',
-	LOGIN = 'login',
-	MY_ROOM = 'my-room',
-	NOT_FOUND = 'not_found',
-	BASKET = 'basket',
-	EXAMPLES = 'examples',
-	ORDERS = 'orders',
-  FAQ = 'faq',
-  DELIVERY = 'delivery',
+    MAIN = 'main',
+    ABOUT = 'about',
+    CATALOG = 'catalog',
+    REGISTER = 'register',
+    LOGIN = 'login',
+    MY_ROOM = 'my-room',
+    NOT_FOUND = 'not_found',
+    BASKET = 'basket',
+    EXAMPLES = 'examples',
+    ORDERS = 'orders',
+    FAQ = 'faq',
+    CHANGE_PASSWORD = 'changePassword',
+    DELIVERY = 'delivery',
 
 	ADMIN_PANEL_PRODUCTS = 'admin_panel_products',
 	ADMIN_CHANGE_PRODUCTS = 'admin_change_products/:id',
@@ -164,7 +166,11 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
 		path: '/faq',
 		element: <FAQ />,
 	},
-	[AppRoutes.NOT_FOUND]: {
+	[AppRoutes.CHANGE_PASSWORD]: {
+        path: '/changePassword',
+        element: <ChangePassword />
+    },
+    [AppRoutes.NOT_FOUND]: {
 		path: '*',
 		element: <NotFound />,
 	},
