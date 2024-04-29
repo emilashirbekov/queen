@@ -1,6 +1,4 @@
-import { Link } from "react-router-dom";
-import logo from "../../../public/logo.svg";
-import cls from "./header.module.scss";
+import { BurgerMenu } from "@/widgets/BurgerMenu";
 import { UserPanel } from "@/widgets/UserPanel";
 import {
   CaretDown,
@@ -10,9 +8,11 @@ import {
   ShoppingCartSimple,
   User,
 } from "@phosphor-icons/react";
-import openList from "../../../public/Icons/openBurgerMenu.svg";
 import { useState } from "react";
-import { BurgerMenu } from "@/widgets/BurgerMenu";
+import { Link } from "react-router-dom";
+import openList from "../../../public/Icons/openBurgerMenu.svg";
+import logo from "../../../public/logo.svg";
+import cls from "./header.module.scss";
 
 const Header = () => {
   const [menu, setMenu] = useState(false);
@@ -43,7 +43,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="py-3 px-4">
+                <Link to="/delivery" className="py-3 px-4">
                   Доставка
                 </Link>
               </li>
@@ -53,7 +53,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="py-3 px-4">
+                <Link to="/about" className="py-3 px-4">
                   О нас
                 </Link>
               </li>
