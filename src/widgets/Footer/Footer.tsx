@@ -22,13 +22,13 @@ const Footer = () => {
                 <div className="max-w-[213px] h-[114px] flex flex-col justify-between sm:mt-0 mt-8">
                     <div className="flex items-center">
                         <PhoneCall size={24} />
-                        <a href="#" className="ml-3">
+                        <a href="tel:+996123123" className="ml-3">
                             +996 123 123
                         </a>
                     </div>
                     <div className="flex items-center">
                         <EnvelopeSimple size={24} />
-                        <a href="#" className="ml-3">
+                        <a href="mailto:gmail.com" className="ml-3">
                             Exampledigitale@.com
                         </a>
                     </div>
@@ -42,16 +42,16 @@ const Footer = () => {
                 <nav className="hidden md:block">
                     <ul>
                         <li className="mb-2">
-                            <a href="#">О нас</a>
+                            <Link to='/about'>О нас</Link>
                         </li>
                         <li className="mb-2">
-                            <a href="#">Доставка</a>
+                            <Link to="/delivery">Доставка</Link>
                         </li>
                         <li className="mb-2">
-                            <a href="#">Оплата</a>
+                            <Link to="/faq">Оплата</Link>
                         </li>
                         <li className="mb-2">
-                            <a href="#">Каталог</a>
+                            <Link to="/catalog">Каталог</Link>
                         </li>
                     </ul>
                 </nav>
@@ -76,13 +76,13 @@ const Footer = () => {
                         Социальные сети
                     </p>
                     <div className="w-[139px] flex justify-around mt-6">
-                        <Link to="/">
+                        <Link to="https://wa.me/996<">
                             <WhatsappLogo size={24} />
                         </Link>
-                        <Link to="/">
+                        <Link to="https://www.instagram.com/">
                             <InstagramLogo size={24} />
                         </Link>
-                        <Link to="/">
+                        <Link to="https://telegram.me/">
                             <TelegramLogo size={24} />
                         </Link>
                     </div>
