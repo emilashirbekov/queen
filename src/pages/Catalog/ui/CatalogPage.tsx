@@ -47,7 +47,7 @@ const CatalogPage = () => {
         },
         [selectedCategories, dispatch],
     );
-
+    
     const clearFilterType = useCallback(
         (item: string) => {
             const newSelectedFilter = clearFilter(selectedCategories, item);
