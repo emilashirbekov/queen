@@ -43,7 +43,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/faq" className="py-3 px-4">
+                <Link to="/delivery" className="py-3 px-4">
                   Доставка
                 </Link>
               </li>
