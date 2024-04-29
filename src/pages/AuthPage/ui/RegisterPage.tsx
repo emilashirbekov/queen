@@ -125,6 +125,9 @@ export const RegisterPage = () => {
         <form className="w-[80%] lg:w-[30%]" onSubmit={handleSubmit}>
           {step === "A" ? (
             <div className="bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center">
+              <div className="flex justify-end cursor-pointer">
+                <XCircle size={22} onClick={() => navigate("/")} />
+              </div>
               <div className="flex flex-col gap-y-[12px]">
                 <h2 className="font-bold text-primary text-[32px]">
                   Регистрация
@@ -142,7 +145,7 @@ export const RegisterPage = () => {
                 placeholder={"text@mail.com"}
                 required={true}
               />
-              {error && <p className="text-red">Заполните поля</p>}
+              {error && <p className="text-red">Заполните поле</p>}
               <Button
                 typeButton="primary"
                 type="button"
@@ -154,6 +157,9 @@ export const RegisterPage = () => {
           ) : null}
           {step === "B" ? (
             <div className="bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center">
+              <div className="flex justify-end cursor-pointer">
+                <XCircle size={22} onClick={() => navigate("/")} />
+              </div>
               <div className="flex flex-col gap-y-[12px]">
                 <h2 className="font-bold text-primary text-[32px]">
                   Личные данные
@@ -178,7 +184,7 @@ export const RegisterPage = () => {
                 onChange={changeField}
                 placeholder={"+996"}
               />
-              {error && <p className="text-red">Заполните поля</p>}
+              {error && <p className="text-red">Заполните поле</p>}
               <Button
                 typeButton="primary"
                 type="button"
@@ -190,6 +196,9 @@ export const RegisterPage = () => {
           ) : null}
           {step === "C" ? (
             <div className="bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center">
+              <div className="flex justify-end cursor-pointer">
+                <XCircle size={22} onClick={() => navigate("/")} />
+              </div>
               <div className="flex flex-col gap-y-[12px]">
                 <h2 className="font-bold text-primary text-[32px]">
                   Личные данные
@@ -216,7 +225,7 @@ export const RegisterPage = () => {
                 placeholder={"confirm password"}
                 required={true}
               />
-              {error && <p className="text-red">Заполните поля</p>}
+              {error && <p className="text-red">Заполните поле</p>}
               <Button typeButton="primary" type="submit">
                 Далее
               </Button>
@@ -225,6 +234,9 @@ export const RegisterPage = () => {
         </form>
         {step === "D" ? (
           <div className="w-[30%] bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center">
+            <div className="flex justify-end cursor-pointer">
+              <XCircle size={22} onClick={() => navigate("/")} />
+            </div>
             <div className="flex flex-col gap-y-[12px]">
               <h2 className="font-bold text-primary text-[32px]">
                 Введите код
