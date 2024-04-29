@@ -15,8 +15,8 @@ const Footer = () => {
         <footer className="max-h-[570px] mt-24 mb-24 bg-tertiary-800 text-primary p-10">
             <div className="max-w-[1200px] sm:pb-40 pb-7 border-b-2 border-primary-800 mx-auto flex flex-col sm:flex-row justify-between font-montserrat text-base font-medium leading-4 tracking-normal">
                 <div>
-                    <a href="#">
-                        <img src={logo} alt="" />
+                    <a href="/">
+                        <img src={logo} alt="Логотип Queen" />
                     </a>
                 </div>
                 <div className="max-w-[213px] h-[114px] flex flex-col justify-between sm:mt-0 mt-8">
