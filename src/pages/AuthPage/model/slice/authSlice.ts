@@ -24,6 +24,9 @@ const authSlice = createSlice({
     logoutState: (state) => {
       state.user = null;
     },
+    clearError: (state) => {
+      state.loginError = null;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(register.pending, (state) => {
@@ -66,7 +69,7 @@ const authSlice = createSlice({
 });
 
 export const authReducer = authSlice.reducer;
-export const { logoutState } = authSlice.actions;
+export const { logoutState, clearError } = authSlice.actions;
 export const selectUser = (state: RootState) => state.auth.user;
 export const selectLoginLoading = (state: RootState) => state.auth.loginLoading;
 export const selectRegisterLoading = (state: RootState) =>

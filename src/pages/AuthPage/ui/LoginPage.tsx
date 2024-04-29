@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import InputField from "@/shared/ui/Inputs/InputField";
 import Button from "@/shared/ui/Buttons/Button";
 import { LoginMutation } from "@/pages/AuthPage/model/types/LoginModel";
@@ -7,8 +7,9 @@ import {
   useAppSelector,
 } from "@/app/providers/StoreProvider/config/hooks";
 import { login } from "@/pages/AuthPage/api/authThunk";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
+  clearError,
   selectLoginError,
   selectLoginLoading,
 } from "@/pages/AuthPage/model/slice/authSlice";
@@ -24,6 +25,7 @@ export const LoginPage = () => {
   const error = useAppSelector(selectLoginError);
   const [emptyField, setEmptyField] = useState(false);
   const loading = useAppSelector(selectLoginLoading);
+  const location = useLocation();
 
   const changeField = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -32,6 +34,14 @@ export const LoginPage = () => {
       [name]: value,
     }));
   };
+
+  console.log(location);
+
+  useEffect(() => {
+    if (location.pathname === "/login") {
+      dispatch(clearError());
+    }
+  }, [location.pathname, dispatch]);
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
