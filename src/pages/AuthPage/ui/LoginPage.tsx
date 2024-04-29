@@ -35,8 +35,6 @@ export const LoginPage = () => {
     }));
   };
 
-  console.log(location);
-
   useEffect(() => {
     if (location.pathname === "/login") {
       dispatch(clearError());
