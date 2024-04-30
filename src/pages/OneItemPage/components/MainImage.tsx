@@ -19,8 +19,6 @@ const MainImage = ({ product, mainImage }: IMainImg) => {
   const user = useAppSelector(selectUser);
   const dispatch = useAppDispatch();
 
-  console.log(product);
-
   return (
     <div className="bg-secondary lg:bg-auto  relative max-w-[335px] max-h-[335px] sm:w-[500px] sm:max-h-[500px] rounded-[50px] border-amber-[rgba(207, 224, 250, 1)] border-[1px] border-solid overflow-hidden">
       <img
