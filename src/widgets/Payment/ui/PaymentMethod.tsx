@@ -4,7 +4,7 @@ import { paymentMethodItem } from "./paymentMethod.constants";
 export const PaymentMethod: FC = () => {
   return (
     <div className="w-full h-full flex items-center justify-center py-[100px] px-[70px]">
-      <div className="w-[1300px] h-[331px] rounded-[30px] bg-[#FAF8F4] px-[50px] py-[40px]">
+      <div className="w-[1300px] h-[331px] rounded-[30px] bg-[#FAF8F4] px-[50px] py-[40px] h-screen md:h-auto">
         <h1 className="font-montserrat text-2xl font-semibold leading-[39.01px] text-[#212121]">
           НЕСКОЛЬКО СПОСОБОВ ОПЛАТЫ ЗА ЗАКАЗ ТОВАРА
         </h1>
