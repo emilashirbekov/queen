@@ -18,6 +18,7 @@ import RequestProcessing from '@/widgets/RequestProcessing/RequestProcessing';
 import { SelectedFilter } from '@/widgets/SelectedFilter';
 import { useCallback, useMemo, useState } from 'react';
 import CatalogHelmet from './CatalogHelmet';
+import SearchInput from "@/pages/Catalog/ui/SearchInput";
 
 const CatalogPage = () => {
     const dispatch = useAppDispatch();
@@ -60,6 +61,7 @@ const CatalogPage = () => {
         <>
             <CatalogHelmet />
             <section className="max-container padding-container mt-14 relative">
+                <SearchInput />
                 <main className="flexBetween mb-10 gap-7">
                     <ProductFilters handleSelectFilter={handleSelectFilter} />
                     <div className="self-baseline full-width">
