@@ -18,20 +18,17 @@ const CatalogHelmet: React.FC = () => {
                 <meta
                     name="keywords"
                     content={
-                        'женская одежда, магазин женской одежды, одежда, интернет магазин, магазин'
+                        'queen,queen shops,кюин,кюин шоп женская одежда, магазин женской одежды, одежда, интернет магазин, магазин,купить женскую одежду, купить одежду женскую,женская одежда каталог магазин бишкек,кюин женская одежда,купить в бишкеке женских одежд queen'
                     }
                 />
-                <link rel="canonical" href={canonicalUrl} />
-                <meta property="og:title" content={'Каталог Queen'} />
+                <link rel="canonical" href={canonicalUrl}/>
+                <meta property="og:title" content={'Каталог Queen'}/>
                 <meta
                     property="og:description"
                     content={'Большой выбор женской одежды в магазине Queen'}
                 />
-                <meta property="og:image" content={'/offerS1.webp'} />
-                <meta property="og:url" content={'https://queen.com'} />
-                <meta property="og:type" content="website" />
-                <meta property="robots" content="index" />
-                <meta property="robots" content="follow" />
+                <meta property="og:url" content={'https://queen-shops.com/catalog'}/>
+                <meta property="og:site_name" content="https://queen-shops.com/catalog"/>
             </Helmet>
         </HelmetProvider>
     );
