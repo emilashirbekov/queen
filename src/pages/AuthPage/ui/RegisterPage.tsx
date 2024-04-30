@@ -28,6 +28,7 @@ export const RegisterPage = () => {
   const [seconds, setSeconds] = useState(60);
   const [timerStarted, setTimerStarted] = useState(false);
   const [error, setError] = useState(false);
+  const [errorPassword, setErrorPassword] = useState(true);
   const loading = useAppSelector(selectRegisterLoading);
 
   useEffect(() => {
@@ -85,6 +86,14 @@ export const RegisterPage = () => {
       ...prevState,
       [name]: value,
     }));
+
+    if (name === "password") {
+      setErrorPassword(value === state.password2);
+    }
+
+    if (name === "password2") {
+      setErrorPassword(value === state.password);
+    }
   };
 
   const handleSubmit = async (event: FormEvent) => {
@@ -226,7 +235,14 @@ export const RegisterPage = () => {
                 required={true}
               />
               {error && <p className="text-red">Заполните поле</p>}
-              <Button typeButton="primary" type="submit">
+              {!errorPassword && (
+                <p className="text-red">Не совпадают пароли!</p>
+              )}
+              <Button
+                disabled={!errorPassword}
+                typeButton="primary"
+                type="submit"
+              >
                 Далее
               </Button>
             </div>
