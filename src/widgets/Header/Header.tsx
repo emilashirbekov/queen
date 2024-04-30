@@ -8,7 +8,7 @@ import {
   ShoppingCartSimple,
   User,
 } from "@phosphor-icons/react";
-import {useState} from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import openList from "../../../public/Icons/openBurgerMenu.svg";
 import logo from "../../../public/logo.svg";
@@ -18,9 +18,9 @@ const Header = () => {
   const [menu, setMenu] = useState(false);
   const [burgerMenu, setBurgerMenu] = useState(false);
 
-  const closeModal = ()=>{
-    setMenu(false)
-  }
+  const closeModal = () => {
+    setMenu(false);
+  };
   return (
     <div className={cls.header + " text-white py-5"}>
       <div className="max-w-[1270px] mx-auto px-[15px]">
@@ -52,7 +52,11 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link onClick={closeModal} to="/faq" className="py-3 px-4">
+                <Link
+                  onClick={closeModal}
+                  to="/paymentMethod"
+                  className="py-3 px-4"
+                >
                   Оплата
                 </Link>
               </li>
@@ -68,9 +72,15 @@ const Header = () => {
               </li>
             </ul>
           </nav>
-          <div className="flex items-center text-center" onClick={() => setBurgerMenu(false)}>
+          <div
+            className="flex items-center text-center"
+            onClick={() => setBurgerMenu(false)}
+          >
             <div>
-              <button onClick={closeModal} className="flex w-[80px] h-[19px] sm:w-[145px] sm:h-[42px] sm:ps-[14px] sm:pe-[10px] sm:pt-[11px] sm:pb-[8px] rounded-[10px] border border-gray-300 mr-4">
+              <button
+                onClick={closeModal}
+                className="flex w-[80px] h-[19px] sm:w-[145px] sm:h-[42px] sm:ps-[14px] sm:pe-[10px] sm:pt-[11px] sm:pb-[8px] rounded-[10px] border border-gray-300 mr-4"
+              >
                 <MagnifyingGlass
                   size={24}
                   className="mx-[5px] pb-[5px] sm:me-[31px] sm:pb-0 sm:mx-0"
@@ -118,7 +128,9 @@ const Header = () => {
           )}
           {burgerMenu ? (
             <div className="md:hidden absolute w-full h-full box-border top-[66px] right-[0] z-100">
-              <BurgerMenu onClose={() => setBurgerMenu((prevState) => !prevState)} />
+              <BurgerMenu
+                onClose={() => setBurgerMenu((prevState) => !prevState)}
+              />
             </div>
           ) : null}
         </div>

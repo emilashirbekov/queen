@@ -1,10 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { axiosApi } from "@/app/providers/http/axiosApi";
 import {
-    Favourites, NewPassword,
-    OrderResponse,
-    PersonalUser,
-    PersonalUserMutation,
+  Favourites,
+  NewPassword,
+  OrderResponse,
+  PersonalUser,
+  PersonalUserMutation,
 } from "@/pages/MyRoomPage/model/types/types";
 import { RootState } from "@/app/providers/StoreProvider/config/store";
 import { ListResponse } from "@/app/types/types";

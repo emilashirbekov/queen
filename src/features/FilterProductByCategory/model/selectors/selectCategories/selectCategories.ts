@@ -1,3 +1,4 @@
-import { RootState } from '@/app/providers/StoreProvider/config/store';
+import { RootState } from "@/app/providers/StoreProvider/config/store";
 
-export const selectCategories = (state: RootState) => state.productCategories.selectedCategory;
+export const selectCategories = (state: RootState) =>
+  state.productCategories.selectedCategory;

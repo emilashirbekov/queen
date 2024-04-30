@@ -1,3 +1,5 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
-export const AdminPanelAddCategoryAsync = lazy(() => import('./AdminPanelAddCategory'));
+export const AdminPanelAddCategoryAsync = lazy(
+  () => import("./AdminPanelAddCategory"),
+);
