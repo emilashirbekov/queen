@@ -25,7 +25,7 @@ const CollectionSection = () => {
                         spaceBetween={30}
                         className=" w-full items-center h-max relative"
                         slideClassName="h-max flex flex-col items-center gap-[16px] cursor-pointer relative"
-                        imageClassName="bg-white rounded-[20px]"
+                        imageClassName="w-[302px] h-[302px] bg-white rounded-[20px] object-cover"
                         textClassName="w-full"
                         onClick={click}
                         favorite={true}
