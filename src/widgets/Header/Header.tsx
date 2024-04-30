@@ -29,7 +29,8 @@ const Header = () => {
             <img
               src={logo}
               alt="Queen"
-              className="w-[87px] h-[26px] sm:w-[121px] sm:h-[38px] "
+              className="w-[87px] h-[26px] sm:w-[121px] sm:h-[38px]"
+              onClick={() => setBurgerMenu(false)}
             />
           </Link>
           <nav className="ms-[54px] hidden md:flex">
@@ -60,9 +61,14 @@ const Header = () => {
                   О нас
                 </Link>
               </li>
+              <li>
+                <Link to="/faq" className="py-3 px-4">
+                  FAQ
+                </Link>
+              </li>
             </ul>
           </nav>
-          <div className="flex items-center text-center">
+          <div className="flex items-center text-center" onClick={() => setBurgerMenu(false)}>
             <div>
               <button onClick={closeModal} className="flex w-[80px] h-[19px] sm:w-[145px] sm:h-[42px] sm:ps-[14px] sm:pe-[10px] sm:pt-[11px] sm:pb-[8px] rounded-[10px] border border-gray-300 mr-4">
                 <MagnifyingGlass
@@ -100,7 +106,7 @@ const Header = () => {
             <img
               src={openList}
               alt="open list"
-              className="cursor-pointer"
+              className="md:hidden cursor-pointer"
               onClick={() => setBurgerMenu((prevState) => !prevState)}
             />
           ) : (
@@ -112,7 +118,7 @@ const Header = () => {
           )}
           {burgerMenu ? (
             <div className="md:hidden absolute w-full h-full box-border top-[66px] right-[0] z-100">
-              <BurgerMenu onClose={() => setMenu((prevState) => !prevState)} />
+              <BurgerMenu onClose={() => setBurgerMenu((prevState) => !prevState)} />
             </div>
           ) : null}
         </div>
