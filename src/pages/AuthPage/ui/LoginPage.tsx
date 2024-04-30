@@ -1,4 +1,4 @@
-import { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import InputField from "@/shared/ui/Inputs/InputField";
 import Button from "@/shared/ui/Buttons/Button";
 import { LoginMutation } from "@/pages/AuthPage/model/types/LoginModel";
@@ -7,8 +7,9 @@ import {
   useAppSelector,
 } from "@/app/providers/StoreProvider/config/hooks";
 import { login } from "@/pages/AuthPage/api/authThunk";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import {
+  clearError,
   selectLoginError,
   selectLoginLoading,
 } from "@/pages/AuthPage/model/slice/authSlice";
@@ -22,7 +23,9 @@ export const LoginPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const error = useAppSelector(selectLoginError);
+  const [emptyField, setEmptyField] = useState(false);
   const loading = useAppSelector(selectLoginLoading);
+  const location = useLocation();
 
   const changeField = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -32,14 +35,24 @@ export const LoginPage = () => {
     }));
   };
 
+  useEffect(() => {
+    if (location.pathname === "/login") {
+      dispatch(clearError());
+    }
+  }, [location.pathname, dispatch]);
+
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    await dispatch(login(state)).unwrap();
-    setState({
-      email: "",
-      password: "",
-    });
-    navigate("/my-room");
+    if (state.email.trim() === "" || state.password.trim() === "") {
+      setEmptyField(true);
+    } else {
+      await dispatch(login(state)).unwrap();
+      setState({
+        email: "",
+        password: "",
+      });
+      navigate("/my-room");
+    }
   };
 
   return (
@@ -76,6 +89,11 @@ export const LoginPage = () => {
           {error && (
             <p className="text-red text-[16px]">
               Не правильно пароль или почта!
+            </p>
+          )}
+          {emptyField && (
+            <p className="text-red text-[16px]">
+              Поле не должен содержать пробелы!
             </p>
           )}
           <Button typeButton="primary" type="submit" disabled={loading}>

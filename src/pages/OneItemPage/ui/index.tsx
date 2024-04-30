@@ -6,9 +6,13 @@ import Recommendation from '@/pages/OneItemPage/components/Recommendation';
 import { useCallback, useEffect, useState } from 'react';
 import { IProductDetail } from '@/pages/OneItemPage/types/IProductDetail';
 import { axiosApi } from '@/app/providers/http/axiosApi';
-import { useParams } from 'react-router-dom';
+import {useLocation, useParams} from 'react-router-dom';
 
 export const OneItemPage = () => {
+    const pathname = useLocation()
+    useEffect(() => {
+        window.scroll(0,0)
+    }, [pathname]);
     const [product, setProduct] = useState<IProductDetail | null>(null);
     const { id } = useParams();
     const [img, setImg] = useState('');

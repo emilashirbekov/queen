@@ -2,6 +2,11 @@
 export const content = ['./src/**/*.{html,js,jsx,ts,tsx}'];
 export const theme = {
     extend: {
+        screen: {
+            'xl': '1440px',
+            'md': '1024px',
+            'sm': '770px'
+        },
         colors: {
             primary: '#212121',
             primaryDark: '#6a6a67',

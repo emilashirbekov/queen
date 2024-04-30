@@ -7,12 +7,16 @@ import AppRouter from './providers/router/ui/AppRouter';
 import Header from '@/widgets/Header/Header';
 import Footer from '@/widgets/Footer/Footer';
 import ProtectedRoutes from './providers/router/config/ProtectedRoutes';
+import {useEffect} from "react";
 
 const App = () => {
     const location = useLocation();
 
     const isAdminPanel = location.pathname.startsWith('/admin');
 
+    useEffect(()=>{
+        window.scroll(0,0)
+    },[location])
     return (
         <>
             {isAdminPanel ? (
