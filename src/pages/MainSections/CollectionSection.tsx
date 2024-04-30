@@ -1,14 +1,8 @@
 import { useGetCollectionQuery } from '@/features/Collections/ui/model/services/collectionAPI';
 import Slider from '../MainComponents/Slider';
 const CollectionSection = () => {
-    const { data, isLoading } = useGetCollectionQuery();
-    // const dispatch = useAppDispatch();
-    // const products = useAppSelector(productsSelector);
-
-    // useEffect(() => {
-    //     dispatch(fetchProducts());
-    // }, [dispatch]);
-
+    const { data } = useGetCollectionQuery();
+    
     const click = () => {
         console.log(1);
     };
@@ -23,8 +17,7 @@ const CollectionSection = () => {
                 </div>
             </div>
             <div className="flex items-center md:px-[38px] rounded-[30px] md:bg-white w-full md:w-[55%]">
-                {isLoading ? (
-                    <Slider
+            <Slider
                         slidesPerView={2}
                         spaceBetween={30}
                         className=" w-full items-center h-max relative"
@@ -33,16 +26,13 @@ const CollectionSection = () => {
                         textClassName="w-full"
                         onClick={click}
                         favorite={true}
-                        data={data}
+                        data={data?.results[0].products}
                         break0={1}
                         break1024={2}
                         break1366={2}
                         break1920={2}
                         break2560={2}
                     />
-                ) : (
-                    <p>loading</p>
-                )}
             </div>
         </section>
     );
