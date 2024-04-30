@@ -18,6 +18,7 @@ import RequestProcessing from '@/widgets/RequestProcessing/RequestProcessing';
 import { SelectedFilter } from '@/widgets/SelectedFilter';
 import { useCallback, useMemo, useState } from 'react';
 import CatalogHelmet from './CatalogHelmet';
+import SearchInput from "@/pages/Catalog/ui/SearchInput";
 
 const CatalogPage = () => {
     const dispatch = useAppDispatch();
@@ -27,6 +28,11 @@ const CatalogPage = () => {
     const { data, isLoading, error } = useGetProductsQuery(currentPage);
     const products = data?.results;
     const { data: subCategories } = useGetSubcategoriesQuery();
+    const [searchText, setSearchText] = useState<string>("");
+
+    const searchProducts = useCallback((text: string) => {
+        setSearchText(text);
+    }, []);
 
     const productsWithCategories = useMemo(() => {
         return mapProductSubCategory(products || [], subCategories?.results || []);
@@ -37,29 +43,40 @@ const CatalogPage = () => {
     }, [productsWithCategories, sort]);
 
     const filteredProducts = useMemo(() => {
-        return filterProducts(sortedProductsList, selectedCategories);
-    }, [sortedProductsList, selectedCategories]);
+        let filtered = sortedProductsList;
+
+        filtered = filterProducts(filtered, selectedCategories);
+
+        if (searchText) {
+            filtered = filtered.filter((product) =>
+                product.title.toLowerCase().includes(searchText.toLowerCase())
+            );
+        }
+
+        return filtered;
+    }, [sortedProductsList, selectedCategories, searchText]);
 
     const handleSelectFilter = useCallback(
         (filterTypes: string[]) => {
             const newSelectedFilter = selectFilter(selectedCategories, filterTypes);
             dispatch(setSelectedCategory(newSelectedFilter));
         },
-        [selectedCategories, dispatch],
+        [selectedCategories, dispatch]
     );
-    
+
     const clearFilterType = useCallback(
         (item: string) => {
             const newSelectedFilter = clearFilter(selectedCategories, item);
             dispatch(setSelectedCategory(newSelectedFilter));
         },
-        [selectedCategories, dispatch],
+        [selectedCategories, dispatch]
     );
 
     return (
         <>
             <CatalogHelmet />
             <section className="max-container padding-container mt-14 relative">
+                <SearchInput onSearch={searchProducts} />
                 <main className="flexBetween mb-10 gap-7">
                     <ProductFilters handleSelectFilter={handleSelectFilter} />
                     <div className="self-baseline full-width">
