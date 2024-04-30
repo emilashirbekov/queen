@@ -3,11 +3,11 @@ import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/co
 import { useEffect } from 'react';
 import { fetchProducts } from '@/entities/Product/model/services/fetchProducts';
 import { productsSelector } from '@/entities/Product';
-import { selectUser } from '@/pages/AuthPage/model/slice/authSlice';
+// import { selectUser } from '@/pages/AuthPage/model/slice/authSlice';
 
 const RecomendationSection = () => {
     const dispatch = useAppDispatch();
-    const user = useAppSelector(selectUser);
+    // const user = useAppSelector(selectUser);
     const products = useAppSelector(productsSelector);
 
     console.log(products);
@@ -29,10 +29,10 @@ const RecomendationSection = () => {
                 spaceBetween={30}
                 className="h-full relative"
                 slideClassName=" h-full flex flex-col items-center gap-[16px] cursor-pointer relative"
-                imageClassName="w-full h-full max-h-[310px] object-cover bg-white rounded-[20px]"
+                imageClassName="w-full h-full min-h-[180px] min-w-[180px] max-h-[310px] object-cover bg-white rounded-[20px]"
                 textClassName="w-full"
                 onClick={click}
-                favorite={!!user}
+                favorite={true}
                 data={products}
                 //break0={1}
                 break500={2}
