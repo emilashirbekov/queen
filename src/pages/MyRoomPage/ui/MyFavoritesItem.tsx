@@ -66,10 +66,12 @@ const MyFavoritesItem = () => {
       } else {
         await dispatch(deleteFavourite(state[0].id)).unwrap();
       }
+      setState([]);
       await dispatch(getFavourites());
     }
   };
 
+  console.log(favourites);
   console.log(state);
 
   return (
@@ -101,12 +103,12 @@ const MyFavoritesItem = () => {
               <input
                 className="w-4 peer/clothes hidden h-4 text-red-600 bg-gray-100 border-primary rounded focus:ring-red-500 dark:focus:ring-red-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                 type="checkbox"
-                id={favourite.id.toString()}
+                id={`checkbox-${favourite.id}`}
                 checked={state.some((item) => item.id === favourite.id)}
                 onChange={(event) => handleCheckboxChange(event, favourite)}
               />
               <label
-                htmlFor="2"
+                htmlFor={`checkbox-${favourite.id}`}
                 className="absolute w-[24px] h-[24px] border-primary border peer-checked/clothes:bg-[url('../../../public/Icons/checked.svg')] bg-no-repeat bg-center rounded-[8px] top-[20px] left-[20px]"
               ></label>
               <p className="bg-tertiary rounded-[8px] p-[6px] absolute bottom-[20px] right-[40px]">
