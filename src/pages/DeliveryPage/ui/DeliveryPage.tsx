@@ -11,8 +11,8 @@ export const DeliveryPage: React.FC = () => {
       <div className="w-full flex items-center justify-center pt-[100px]">
         <img src={deliveryImg} alt="delivery" />
       </div>
-      <div className="px-[265px] pt-[50px] pb-[114px]">
-        <div className="w-full flex flex-col gap-[8px] pb-[30px]">
+      <div className="px-1 pt-[50px] md:px-20 xl:px-[224px] xl:pt-[50px] xl:pb-[114px]">
+        <div className="w-full flex flex-col gap-[8px] pb-[30px] ">
           <h3 className="font-montserrat text-2xl font-bold leading-10 text-left">
             КАК ОФОРМИТЬ ДОСТАВКУ?
           </h3>
@@ -38,11 +38,11 @@ export const DeliveryPage: React.FC = () => {
             <br /> уточняем у вас во сколько вам удобно
           </p>
         </div>
-        <div className="flex gap-[48px] items-center">
-          <div className="w-[90%]">
+        <div className="flex flex-col xl:flex xl:flex-row gap-[48px] items-center">
+          <div className="">
             <img src={deliveryImgSecond} alt="delivery" />
           </div>
-          <div>
+          <div className="">
             <h3 className="font-montserrat text-2xl font-semibold leading-10 text-left">
               КАК СОВЕРШИТЬ
               <br /> ДОСТАВКУ
