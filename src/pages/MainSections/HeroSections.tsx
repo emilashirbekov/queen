@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const HeroSections = () => {
     return (
         <section className=" mt-[50px]">
@@ -5,9 +7,9 @@ const HeroSections = () => {
                 <h1 className="max-w-[286px] md:max-w-[472px] text-[22px] md:text-[32px] font-bold text-white">
                     Стильная одежда для истинных королев
                 </h1>
-                <button className="text-white text-[12px] md:text-[20px] rounded-[10px] px-[16px] md:px-[24px] py-[10px] md:py-[14px] bg-white/30 backdrop-blur-xl">
+                <Link to='/catalog' className="text-white text-[12px] md:text-[20px] rounded-[10px] px-[16px] md:px-[24px] py-[10px] md:py-[14px] bg-white/30 backdrop-blur-xl">
                     Перейти в каталог
-                </button>
+                </Link>
             </div>
         </section>
     );
