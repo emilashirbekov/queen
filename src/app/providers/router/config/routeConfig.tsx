@@ -27,7 +27,6 @@ import { FAQ } from "@/widgets/FAQ";
 import { PaymentMethod } from "@/widgets/Payment";
 import { RouteProps } from "react-router-dom";
 import CatalogPage from "../../../../pages/Catalog/ui/CatalogPage";
-import Examples from "../../../../pages/Examples/Examples";
 import NotFound from "../../../../pages/NotFound";
 import ChangePassword from "@/pages/MyRoomPage/ui/ChangePassword";
 
@@ -40,7 +39,6 @@ export enum AppRoutes {
   MY_ROOM = "my-room",
   NOT_FOUND = "not_found",
   BASKET = "basket",
-  EXAMPLES = "examples",
   ORDERS = "orders",
   FAQ = "faq",
   CHANGE_PASSWORD = "changePassword",
@@ -74,11 +72,6 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ABOUT]: {
     path: "/about",
     element: <AboutPage />,
-  },
-
-  [AppRoutes.EXAMPLES]: {
-    path: "/examples",
-    element: <Examples />,
   },
   [AppRoutes.CATALOG]: {
     path: "/catalog",
