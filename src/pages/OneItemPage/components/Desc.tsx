@@ -153,7 +153,7 @@ const Desc = ({ product }: IDesc) => {
             </div>
             <div className="pt-[20px] border-b border-gray-300">
                 <ul className="text-primary">
-                    <Accordion desc={product.description} />
+                    <Accordion desc={product.description} label='Описание' />
                 </ul>
             </div>
 
