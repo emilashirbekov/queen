@@ -30,7 +30,7 @@ const SuccessErrorMessage: FC<SuccessErrorMessageProps> = memo(props => {
 					) : (
 						error && (
 							<p className='text-lg text-red font-semibold'>
-								{error.data.non_field_errors || error.data.error}
+								{error.data.non_field_errors || error.data.error || 'Что то пошло не так !'}
 							</p>
 						)
 					))}
