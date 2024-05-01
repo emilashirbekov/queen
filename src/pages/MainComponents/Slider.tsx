@@ -1,5 +1,5 @@
-import React from "react";
 import PropTypes from "prop-types";
+import React from "react";
 import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -42,11 +42,12 @@ const Slider: React.FC<SProps> = ({
   const dispatch = useAppDispatch();
 
   const createHandle = async (id: number) => {
-    await dispatch(createFavourite(id));
+    await dispatch(createFavourite(id)).unwrap();
     await dispatch(fetchProducts());
   };
+
   const deleteHandle = async (id: number) => {
-    await dispatch(deleteFavouriteMain(id));
+    await dispatch(deleteFavouriteMain(id)).unwrap();
     await dispatch(fetchProducts());
   };
 
@@ -103,7 +104,7 @@ const Slider: React.FC<SProps> = ({
           {el.is_favorite ? (
             el.is_favorite.some(
               (userFavourite) => userFavourite.user === user?.user_id,
-            ) || favourite ? (
+            ) ? (
               <button
                 onClick={() => deleteHandle(el.id)}
                 className="flex justify-center items-center absolute right-[25px] top-[15px] rounded-[33px] bg-[#E7E7E7] w-[45px] h-[45px]"
