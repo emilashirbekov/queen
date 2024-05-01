@@ -7,17 +7,17 @@ import { FreeMode } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { SwiperNavButtons } from "./SwiperNavButton";
 import { SProps } from "./types";
-import { Heart } from "@phosphor-icons/react";
-import {
-  useAppDispatch,
-  useAppSelector,
-} from "@/app/providers/StoreProvider/config/hooks";
-import { selectUser } from "@/pages/AuthPage/model/slice/authSlice";
-import {
-  createFavourite,
-  deleteFavouriteMain,
-} from "@/pages/MyRoomPage/api/personalThunk";
-import { fetchProducts } from "@/entities/Product";
+// import { Heart } from "@phosphor-icons/react";
+// import {
+//   useAppDispatch,
+//   useAppSelector,
+// } from "@/app/providers/StoreProvider/config/hooks";
+// import { selectUser } from "@/pages/AuthPage/model/slice/authSlice";
+// import {
+//   createFavourite,
+//   deleteFavouriteMain,
+// } from "@/pages/MyRoomPage/api/personalThunk";
+// import { fetchProducts } from "@/entities/Product";
 
 const Slider: React.FC<SProps> = ({
   slidesPerView,
@@ -38,18 +38,18 @@ const Slider: React.FC<SProps> = ({
   break2560,
   freeMode,
 }) => {
-  const user = useAppSelector(selectUser);
-  const dispatch = useAppDispatch();
-
-  const createHandle = async (id: number) => {
-    await dispatch(createFavourite(id)).unwrap();
-    await dispatch(fetchProducts());
-  };
-
-  const deleteHandle = async (id: number) => {
-    await dispatch(deleteFavouriteMain(id)).unwrap();
-    await dispatch(fetchProducts());
-  };
+  // const user = useAppSelector(selectUser);
+  // const dispatch = useAppDispatch();
+  //
+  // const createHandle = async (id: number) => {
+  //   await dispatch(createFavourite(id)).unwrap();
+  //   await dispatch(fetchProducts());
+  // };
+  //
+  // const deleteHandle = async (id: number) => {
+  //   await dispatch(deleteFavouriteMain(id)).unwrap();
+  //   await dispatch(fetchProducts());
+  // };
 
   return (
     <Swiper
@@ -101,25 +101,25 @@ const Slider: React.FC<SProps> = ({
               <p>Нет фото</p>
             </div>
           )}
-          {el.is_favorite ? (
-            el.is_favorite.some(
-              (userFavourite) => userFavourite.user === user?.user_id,
-            ) ? (
-              <button
-                onClick={() => deleteHandle(el.id)}
-                className="flex justify-center items-center absolute right-[25px] top-[15px] rounded-[33px] bg-[#E7E7E7] w-[45px] h-[45px]"
-              >
-                <Heart color="#BF2025" weight={"fill"} size={14} />
-              </button>
-            ) : (
-              <button
-                onClick={() => createHandle(el.id)}
-                className="flex justify-center items-center absolute right-[25px] top-[15px] rounded-[33px] bg-[#E7E7E7] w-[45px] h-[45px]"
-              >
-                <Heart color="#BF2025" size={14} />
-              </button>
-            )
-          ) : null}
+          {/*{el.is_favorite ? (*/}
+          {/*  el.is_favorite.some(*/}
+          {/*    (userFavourite) => userFavourite.user === user?.user_id,*/}
+          {/*  ) ? (*/}
+          {/*    <button*/}
+          {/*      onClick={() => deleteHandle(el.id)}*/}
+          {/*      className="flex justify-center items-center absolute right-[25px] top-[15px] rounded-[33px] bg-[#E7E7E7] w-[45px] h-[45px]"*/}
+          {/*    >*/}
+          {/*      <Heart color="#BF2025" weight={"fill"} size={14} />*/}
+          {/*    </button>*/}
+          {/*  ) : (*/}
+          {/*    <button*/}
+          {/*      onClick={() => createHandle(el.id)}*/}
+          {/*      className="flex justify-center items-center absolute right-[25px] top-[15px] rounded-[33px] bg-[#E7E7E7] w-[45px] h-[45px]"*/}
+          {/*    >*/}
+          {/*      <Heart color="#BF2025" size={14} />*/}
+          {/*    </button>*/}
+          {/*  )*/}
+          {/*) : null}*/}
           <div className={textClassName}>
             <h6 className="font-semibold text-[20px] text-ellipsis overflow-hidden">
               {el.title || el.name}
