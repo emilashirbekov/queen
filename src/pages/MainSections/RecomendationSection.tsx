@@ -1,8 +1,8 @@
-import Slider from '../MainComponents/Slider';
 import { useAppDispatch, useAppSelector } from '@/app/providers/StoreProvider/config/hooks';
-import { useEffect } from 'react';
-import { fetchProducts } from '@/entities/Product/model/services/fetchProducts';
 import { productsSelector } from '@/entities/Product';
+import { fetchProducts } from '@/entities/Product/model/services/fetchProducts';
+import { useEffect } from 'react';
+import Slider from '../MainComponents/Slider';
 // import { selectUser } from '@/pages/AuthPage/model/slice/authSlice';
 
 const RecomendationSection = () => {
@@ -10,14 +10,12 @@ const RecomendationSection = () => {
     // const user = useAppSelector(selectUser);
     const products = useAppSelector(productsSelector);
 
-    console.log(products);
 
     useEffect(() => {
         dispatch(fetchProducts());
     }, [dispatch]);
 
     const click = () => {
-        console.log(1);
     };
     return (
         <section>
