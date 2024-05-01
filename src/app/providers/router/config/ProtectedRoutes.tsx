@@ -1,29 +1,31 @@
-import { isAdmin } from '@/shared/config/localstorage';
 import { FC, ReactNode, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 interface ProtectedRoutesProps {
-    children: ReactNode;
+	children: ReactNode;
 }
 
 const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ children }) => {
-    const navigate = useNavigate();
-    const isStaff = isAdmin;
-    const currentLocation = useLocation();
-    
+	const navigate = useNavigate();
+	const currentLocation = useLocation();
+
     useEffect(() => {
-        if (isStaff !== false) {
-            setTimeout(() => {
-                navigate(currentLocation.pathname);
-            }, 700);
-        } else {
-            setTimeout(() => {
-                navigate('/login');
-            }, 700);
-        }
-    }, [isAdmin]);
-    
-    return children;
+        //@ts-ignore
+        const isStaff = JSON.parse(localStorage.getItem('persist:store:users'))
+            .user;    
+        
+		if (JSON.parse(isStaff).is_staff) {
+			setTimeout(() => {
+				navigate(currentLocation.pathname);
+			}, 700);
+		} else {
+			setTimeout(() => {
+				navigate('/login');
+			}, 700);
+		}
+	}, []);
+
+	return children;
 };
 
 export default ProtectedRoutes;

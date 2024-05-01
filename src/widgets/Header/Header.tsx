@@ -51,7 +51,7 @@ const Header = () => {
                 </Link>
               </li>
               <li>
-                <Link onClick={closeModal} to="/faq" className="py-3 px-4">
+                <Link onClick={closeModal} to="/paymentmethod" className="py-3 px-4">
                   Оплата
                 </Link>
               </li>

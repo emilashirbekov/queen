@@ -40,10 +40,10 @@ export const ProductItem: React.FC<ProductItemProps> = props => {
 					</p>
 					{discount ? (
 						<p className='text-base font-semibold my-2'>
-							{pathname && <span>Цена</span>}
+							{pathname && <span className='mr-3'>Цена</span>}
 							{(
 								<span>
-									<span className='line-through opacity-50 mr-5'>
+									<span className='line-through opacity-50 mr-3'>
 										{price} сом
 									</span>
 									<span className='font-bold'>{priceWithDiscount} сом</span>

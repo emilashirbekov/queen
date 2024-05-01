@@ -1,7 +1,7 @@
+import { BASE_URL } from '@/app/constants/contants';
+import { access_token } from '@/shared/config/localstorage';
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { ColorApiResponse } from '../types/types';
-import { access_token } from '@/shared/config/localstorage';
-import { BASE_URL } from '@/app/constants/contants';
 
 export const colorsAPI = createApi({
     reducerPath: 'colorsAPI',
@@ -13,7 +13,7 @@ export const colorsAPI = createApi({
     endpoints: builder => ({
         getColors: builder.query<ColorApiResponse, void>({
             query: () => ({
-                url: 'create/list/colors/',
+                url: 'list/colors/',
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${access_token}`,
@@ -24,7 +24,7 @@ export const colorsAPI = createApi({
         }),
         createColor: builder.mutation<ColorApiResponse, Partial<ColorApiResponse>>({
             query: color => ({
-                url: `create/list/colors/`,
+                url: `create/colors/`,
                 method: 'POST',
                 body: color,
                 headers: {

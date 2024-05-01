@@ -9,7 +9,6 @@ const CategorySection = () => {
     // const dispatch = useAppDispatch();
     // const data = useAppSelector(selectCategories);
     const { data } = useGetCategoriesQuery();
-    console.log(data);
 
     // useEffect(() => {
     //     dispatch(fetchCategories());
@@ -17,7 +16,6 @@ const CategorySection = () => {
     // }, [dispatch]);
 
     const click = () => {
-        console.log(1);
     };
 
     return (
