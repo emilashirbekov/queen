@@ -1,5 +1,5 @@
+import React from "react";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
