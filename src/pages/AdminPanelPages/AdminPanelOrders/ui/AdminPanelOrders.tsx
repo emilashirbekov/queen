@@ -79,8 +79,7 @@ export const AdminPanelOrders = () => {
                                         setStatus(event.target.value)
                                     }
                                 >
-                                    <option value=""></option>
-                                    <option value="На проверке">На проверке</option>
+                                    <option selected value="На проверке">На проверке</option>
                                     <option value="Оплачено">Оплачено</option>
                                     <option value="Доставлено">Доставлено</option>
                                 </select>
@@ -110,7 +109,7 @@ export const AdminPanelOrders = () => {
                                         <img
                                             key={product.id}
                                             className="bg-secondary border border-thirsty w-[65px] max-h-[65px] md:max-h-max md:w-[124px] rounded-[5px] md:rounded-[25px]"
-                                            src={'http://3.123.17.71/' + product.images1}
+                                            src={'https://back.queen-shops.com' + product.images1}
                                             alt="item"
                                         />
                                     );

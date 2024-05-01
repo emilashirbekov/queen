@@ -144,12 +144,9 @@ const BasketForm: React.FC<Props> = ({ allCount, allPrice, allDiscount }) => {
             const productsIds = products.map(product => {
                 return product.id;
             });
-            const priceOrder = products.reduce((price, product) => {
-                return price + product.price * product.count;
-            }, 0);
             const order: OrderData = {
                 products: productsIds,
-                price: priceOrder,
+                price: allPrice - allDiscount,
                 ...state,
                 paymentType,
                 deliver: {

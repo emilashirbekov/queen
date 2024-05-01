@@ -1,10 +1,8 @@
-import { SerializedError } from '@reduxjs/toolkit';
-import { FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { FC, memo, useEffect, useState } from 'react';
 
 interface SuccessErrorMessageProps {
     isSuccess: boolean;
-    error: FetchBaseQueryError | SerializedError | undefined;
+    error:any;
     text: string;
 }
 
@@ -23,17 +21,21 @@ const SuccessErrorMessage: FC<SuccessErrorMessageProps> = memo(props => {
             return () => clearTimeout(timeout);
         }
     }, [isSuccess, error]);
-
+    
     return (
-        <>
-            {showMessage &&
-                (isSuccess ? (
-                    <p className="text-lg text-lightGreen font-semibold">{text} </p>
-                ) : (
-                    error && <p className="text-lg text-red font-semibold">Что то пошло не так !</p>
-                ))}
-        </>
-    );
+			<>
+				{showMessage &&
+					(isSuccess ? (
+						<p className='text-lg text-lightGreen font-semibold'>{text} </p>
+					) : (
+						error && (
+							<p className='text-lg text-red font-semibold'>
+								{error.data.non_field_errors || error.data.error || 'Что то пошло не так !'}
+							</p>
+						)
+					))}
+			</>
+		);
 });
 
 export default SuccessErrorMessage;
