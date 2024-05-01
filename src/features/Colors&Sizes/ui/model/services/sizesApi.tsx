@@ -13,7 +13,7 @@ export const sizesAPI = createApi({
     endpoints: builder => ({
         getSizes: builder.query<SizeApiResponse, void>({
             query: () => ({
-                url: 'create/list/sizes',
+                url: '/list/sizes',
                 method: 'GET',
                 headers: {
                     Authorization: `Bearer ${access_token}`,
@@ -24,7 +24,7 @@ export const sizesAPI = createApi({
         }),
         createSize: builder.mutation<SizeApiResponse, Partial<SizeApiResponse>>({
             query: size => ({
-                url: `create/list/sizes/`,
+                url: `create/sizes/`,
                 method: 'POST',
                 body: size,
                 headers: {
