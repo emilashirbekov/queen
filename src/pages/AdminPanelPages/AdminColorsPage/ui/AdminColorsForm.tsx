@@ -21,18 +21,6 @@ const AdminColorsForm = () => {
     setColor({ colors: "" });
   };
 
-  const parsedData = JSON.parse(
-    localStorage.getItem("persist:store:users") || "{}",
-  );
-  const localStorageData = JSON.parse(parsedData.user || "{}");
-
-  const access_token =
-    localStorageData && localStorageData.access
-      ? localStorageData.access
-      : null;
-
-  console.log(access_token);
-
   return (
     <div className="mb-5">
       <form
