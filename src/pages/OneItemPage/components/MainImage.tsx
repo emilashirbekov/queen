@@ -6,7 +6,7 @@ import {
 } from "@/app/providers/StoreProvider/config/hooks";
 import {
   createFavourite,
-  deleteFavourite,
+  deleteFavouriteMain,
 } from "@/pages/MyRoomPage/api/personalThunk";
 import { selectUser } from "@/pages/AuthPage/model/slice/authSlice";
 import { useCallback } from "react";
@@ -41,7 +41,7 @@ const MainImage = ({ product, mainImage, refreshProduct }: IMainImg) => {
   };
 
   const deleteHandle = async (id: number) => {
-    await dispatch(deleteFavourite(id)).unwrap();
+    await dispatch(deleteFavouriteMain(id)).unwrap();
     await fetchOneProduct();
   };
 
