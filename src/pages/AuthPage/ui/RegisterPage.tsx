@@ -28,6 +28,8 @@ export const RegisterPage = () => {
   const [seconds, setSeconds] = useState(60);
   const [timerStarted, setTimerStarted] = useState(false);
   const [error, setError] = useState(false);
+  const [errorNumber, setErrorNumber] = useState(false);
+  const [errorNumberFormat, setErrorNumberFormat] = useState(false);
   const [errorPassword, setErrorPassword] = useState(true);
   const loading = useAppSelector(selectRegisterLoading);
 
@@ -86,6 +88,14 @@ export const RegisterPage = () => {
       ...prevState,
       [name]: value,
     }));
+
+    if (name === "number") {
+      setErrorNumber(value.length > 13);
+    }
+
+    if (name === "number") {
+      setErrorNumberFormat(!value.startsWith("+"));
+    }
 
     if (name === "password") {
       setErrorPassword(value === state.password2);
@@ -194,9 +204,16 @@ export const RegisterPage = () => {
                 placeholder={"+996"}
               />
               {error && <p className="text-red">Заполните поле</p>}
+              {errorNumber && <p className="text-red">Номер не найден!</p>}
+              {errorNumberFormat && (
+                <p className="text-red">
+                  Номер неправильного формата! в начале +
+                </p>
+              )}
               <Button
                 typeButton="primary"
                 type="button"
+                disabled={errorNumber}
                 onClick={handleNextStep}
               >
                 Далее
