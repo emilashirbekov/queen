@@ -35,10 +35,11 @@ const Header = () => {
           <nav className="ms-[54px] hidden md:flex">
             <ul className="flex flex-wrap">
               <li className="flex flex-row">
-                <Link onClick={closeModal} to="/catalog" className="px-4">
+                <Link onClick={closeModal} to="/catalog" className="px-4 flex gap-[12px]">
                   Каталог
+                  <CaretDown size={24} />
                 </Link>
-                <CaretDown size={24} />
+
               </li>
               <li>
                 <Link onClick={closeModal} to="/" className="py-3 px-4">
