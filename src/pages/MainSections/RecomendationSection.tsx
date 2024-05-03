@@ -33,7 +33,7 @@ const RecomendationSection = () => {
 					imageClassName='w-full h-full min-h-[180px] min-w-[180px] max-h-[310px] object-cover bg-white rounded-[20px]'
 					textClassName='w-full'
 					favorite={true}
-					data={products}
+					data={products.slice(0, 10)}
 					//break0={1}
 					break500={2}
 					break768={2}
