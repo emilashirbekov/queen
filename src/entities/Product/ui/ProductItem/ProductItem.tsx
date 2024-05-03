@@ -21,7 +21,7 @@ export const ProductItem: React.FC<ProductItemProps> = (props) => {
     brand,
     color,
     size,
-    characteristics,
+    // characteristics,
     discount,
   } = props.product;
   const [deleteProduct] = useDeleteProductMutation();
@@ -81,14 +81,22 @@ export const ProductItem: React.FC<ProductItemProps> = (props) => {
             Брэнд: {brand || <span>Нет</span>}
           </p>
           <p className="text-base font-semibold my-2">
-            Цвета: {color?.join(" ") || <span>Нет</span>}
+            Цвета:{" "}
+            {
+              //@ts-ignore
+              color.map((color) => color.colors).join(", ") || <span>Нет</span>
+            }
           </p>
           <p className="text-base font-semibold my-2">
-            Размеры: {size?.join("") || <span>Нет</span>}
+            Размеры:{" "}
+            {
+              //@ts-ignore
+              size.map((color) => color.sizes).join(", ") || <span>Нет</span>
+            }
           </p>
-          <p className="text-base font-semibold my-2">
-            Характеристики: {characteristics || <span>Нет</span>}
-          </p>
+          {/*<p className="text-base font-semibold my-2">*/}
+          {/*  Характеристики: {characteristics || <span>Нет</span>}*/}
+          {/*</p>*/}
           <p className="text-base font-semibold my-2">
             Скидка: {discount || <span>Нет</span>}
           </p>
