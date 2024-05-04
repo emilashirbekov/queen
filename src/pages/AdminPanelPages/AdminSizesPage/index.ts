@@ -1,3 +1,3 @@
-import { AdminSizesPageAsync } from './ui/AdminPanelSizes.async';
+import { AdminSizesPageAsync } from "./ui/AdminPanelSizes.async";
 
 export { AdminSizesPageAsync as AdminSizesPage };

@@ -1,30 +1,31 @@
-import { FC, ReactNode, useEffect } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { FC, ReactNode, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 interface ProtectedRoutesProps {
-	children: ReactNode;
+  children: ReactNode;
 }
 
 const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ children }) => {
-	const navigate = useNavigate();
-	const currentLocation = useLocation();
-    useEffect(() => {
-        //@ts-ignore
-        const isStaff = JSON.parse(localStorage.getItem('persist:store:users'))
-            .user;    
-        
-		if (JSON.parse(isStaff).is_staff) {
-			setTimeout(() => {
-				navigate(currentLocation.pathname);
-			}, 700);
-		} else {
-			setTimeout(() => {
-				navigate('/login');
-			}, 700);
-		}
-	}, []);
+  const navigate = useNavigate();
+  const currentLocation = useLocation();
+  useEffect(() => {
+    //@ts-ignore
+    const isStaff = JSON.parse(
+      localStorage.getItem("persist:store:users"),
+    ).user;
 
-	return children;
+    if (JSON.parse(isStaff).is_staff) {
+      setTimeout(() => {
+        navigate(currentLocation.pathname);
+      }, 700);
+    } else {
+      setTimeout(() => {
+        navigate("/login");
+      }, 700);
+    }
+  }, []);
+
+  return children;
 };
 
 export default ProtectedRoutes;
