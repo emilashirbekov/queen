@@ -1,11 +1,10 @@
 import { BurgerMenu } from "@/widgets/BurgerMenu";
 import { UserPanel } from "@/widgets/UserPanel";
 import {
-  CaretDown,
   Heart,
   List,
   ShoppingCartSimple,
-  User,
+  User
 } from "@phosphor-icons/react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -35,10 +34,9 @@ const Header = () => {
           <nav className="ms-[54px] hidden md:flex">
             <ul className="flex flex-wrap">
               <li className="flex flex-row">
-                <Link onClick={closeModal} to="/catalog" className="px-4">
+                <Link onClick={closeModal} to="/catalog/all" className="px-4">
                   Каталог
                 </Link>
-                <CaretDown size={24} />
               </li>
               <li>
                 <Link onClick={closeModal} to="/" className="py-3 px-4">

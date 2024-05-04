@@ -2,11 +2,13 @@
 import { CategorysTypes } from '@/entities/Product/model/types/categorys.types';
 import { ProductType } from '@/entities/Product/model/types/product.types';
 
-export const filterProducts = (products: ProductType[], filters: CategorysTypes[]) => {
-    if (filters.length === 0) {
+export const filterProducts = (products: ProductType[], filters: any) => {
+    if (filters === 'all') {
         return products;
     }
-    const filterSet = new Set(filters);
+    
+    const filterSet = new Set([filters]);
+    
     return products.filter(product => {
         return (
             //@ts-ignore
