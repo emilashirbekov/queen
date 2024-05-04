@@ -1,8 +1,7 @@
 const parsedData = JSON.parse(localStorage.getItem('persist:store:users') || '{}');
 const localStorageData = JSON.parse(parsedData.user || '{}');
 
-export const access_token =
-    localStorageData && localStorageData.access ? localStorageData.access : null;
+export const access_token = localStorageData && localStorageData.access
 
 export const refresh_token =
     localStorageData && localStorageData.refresh ? localStorageData.refresh : null;
