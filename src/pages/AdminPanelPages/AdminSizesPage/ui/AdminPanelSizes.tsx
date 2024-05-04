@@ -13,6 +13,7 @@ const AdminSizesPage = () => {
     const handleDeleteSize = (id: number) => {
         deleteSize(id);
     };
+    
     return (
         <section className="max-admin-container padding-admin-container">
             <AdminPanelHeader text="Размеры товаров" />
