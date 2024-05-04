@@ -9,7 +9,7 @@ const OfferSection = () => {
                         Легкость Весны: Коллекция от Queen
                     </h2>
                     <Link
-                        to={'/catalog'}
+                        to={'/catalog/all'}
                         className="max-w-[172px] md:max-w-[250px] text-white text-[12px] md:text-[20px] rounded-[10px] px-[16px] md:px-[24px] py-[10px] md:py-[14px] bg-white/30 backdrop-blur-xl"
                     >
                         Перейти в каталог
@@ -21,7 +21,7 @@ const OfferSection = () => {
                     <h2 className="text-[22px] md:text-[32px] font-bold text-white">
                         Легкость Весны: Коллекция от Queen
                     </h2>
-                    <Link to='catalog' className="max-w-[172px] md:max-w-[250px] text-white text-[12px] md:text-[20px] rounded-[10px] px-[16px] md:px-[24px] py-[10px] md:py-[14px] bg-white/30 backdrop-blur-xl">
+                    <Link to='/catalog/all' className="max-w-[172px] md:max-w-[250px] text-white text-[12px] md:text-[20px] rounded-[10px] px-[16px] md:px-[24px] py-[10px] md:py-[14px] bg-white/30 backdrop-blur-xl">
                         Перейти в каталог
                     </Link>
                 </div>
