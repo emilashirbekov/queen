@@ -1,14 +1,13 @@
-import './footer.module.css';
 import {
-    InstagramLogo,
-    WhatsappLogo,
-    TelegramLogo,
-    PhoneCall,
     EnvelopeSimple,
-    MapPin,
+    InstagramLogo,
+    PhoneCall,
+    TelegramLogo,
+    WhatsappLogo
 } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import logo from '../../../public/Icons/logo.svg';
+import './footer.module.css';
 
 const Footer = () => {
     return (
@@ -19,7 +18,7 @@ const Footer = () => {
                         <img src={logo} alt="Логотип Queen" />
                     </a>
                 </div>
-                <div className="max-w-[213px] h-[114px] flex flex-col justify-between sm:mt-0 mt-8">
+                <div className="max-w-[213px] h-[114px] flex flex-col gap-4 sm:mt-0 mt-8">
                     <div className="flex items-center">
                         <PhoneCall size={24} />
                         <a href="tel:+996123123" className="ml-3">
@@ -32,12 +31,7 @@ const Footer = () => {
                             Exampledigitale@.com
                         </a>
                     </div>
-                    <div className="flex items-center">
-                        <MapPin size={24} />
-                        <a href="#" className="ml-3">
-                            Бишкек
-                        </a>
-                    </div>
+                    
                 </div>
                 <nav className="hidden md:block">
                     <ul>
@@ -48,7 +42,7 @@ const Footer = () => {
                             <Link to="/delivery">Доставка</Link>
                         </li>
                         <li className="mb-2">
-                            <Link to="/faq">Оплата</Link>
+                            <Link to="/paymentMethod">Оплата</Link>
                         </li>
                         <li className="mb-2">
                             <Link to="/catalog">Каталог</Link>
@@ -88,9 +82,8 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="max-w-[1200px] mx-auto sm:pt-12 pt-5 text-primaryDark">
+            <div className="max-w-[1200px] mx-auto sm:pt-12 pt-5 text-primaryDark flex justify-center">
                 <p className="sm:w-[360px] font-montserrat text-primaryDark font-medium leading-4 text-center">
-                    {' '}
                     © 2024 ООО &ldquo; Queen &ldquo; | Все права <br /> защищены
                 </p>
             </div>
