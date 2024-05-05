@@ -4,6 +4,11 @@ export interface SubCategory {
   image: string;
   category: string;
   category_title: string;
+  image1?: string;
+  images1?: string;
+  name?: string;
+  price?: string;
+  is_favorite: { id: number; user: number }[];
 }
 
 export interface SubCategoryApiResponse {
