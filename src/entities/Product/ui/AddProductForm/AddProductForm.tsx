@@ -123,19 +123,7 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
         value={productData.discount}
         onChange={handleInputChange}
       />
-      <div className="flex gap-5 flex-wrap items-center">
-        <Select
-          multipleType={false}
-          data={
-            availableCategories && availableCategories.map((filter) => filter)
-          }
-          name="subcategory"
-          //@ts-ignore
-          value={productData.subcategory}
-          onChange={handleInputChange}
-        >
-          {productData.subcategory}
-        </Select>
+      <div className="flex gap-5 flex-wrap items-start">
         <select
           className="border rounded py-2 px-3 bg-white text-gray-800 focus:outline-none focus:ring focus:border-blue-500"
           id="size"
@@ -155,7 +143,6 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
           className="border rounded py-2 px-3 bg-white text-gray-800 focus:outline-none focus:ring focus:border-blue-500"
           id="color"
           name="color"
-          multiple
           //@ts-ignore
           value={productData.color}
           onChange={handleMultiSelect}
@@ -181,6 +168,18 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
             </option>
           ))}
         </select>
+        <Select
+          multipleType={false}
+          data={
+            availableCategories && availableCategories.map((filter) => filter)
+          }
+          name="subcategory"
+          //@ts-ignore
+          value={productData.subcategory}
+          onChange={handleInputChange}
+        >
+          {productData.subcategory}
+        </Select>
       </div>
 
       <Button type="submit" typeButton="" style="admin-button !text-base ">

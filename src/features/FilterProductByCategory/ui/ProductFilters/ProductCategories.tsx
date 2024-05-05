@@ -31,6 +31,7 @@ const ProductCategories: React.FC<ProductCategoriesProps> = memo(
           className={`${isOpen ? "block max-h-64 overflow-scroll " : "hidden"}`}
         >
           {/*{categories &&*/}
+          {/*  showCategories &&*/}
           {/*  categories.results.map((category) => (*/}
           {/*    <p*/}
           {/*      onClick={() => handleSelectFilter([category.title])}*/}
