@@ -143,6 +143,7 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
           className="border rounded py-2 px-3 bg-white text-gray-800 focus:outline-none focus:ring focus:border-blue-500"
           id="color"
           name="color"
+          multiple
           //@ts-ignore
           value={productData.color}
           onChange={handleMultiSelect}
