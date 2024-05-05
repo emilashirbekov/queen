@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 /* eslint-disable @typescript-eslint/ban-ts-comment */
->>>>>>> f6f88f8 (fixed confl)
 import { AddCategoryForm } from "@/entities/Categories";
 import { useCreateCategoryMutation } from "@/features/Categories/ui/model/services/categoriesAPI";
 import SuccessErrorMessage from "@/shared/ui/SuccessErrorMessage";

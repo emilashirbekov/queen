@@ -35,7 +35,7 @@ export const ProductItem: React.FC<ProductItemProps> = (props) => {
   //@ts-ignore
   const priceWithDiscount = price - discount;
   return (
-    <li key={uniqueKey} className="full-width text-primary cursor-pointer">
+    <li key={uniqueKey} className="full-width flex flex-col items-center text-primary cursor-pointer">
       <Link className="relative" to={`/catalog/one_item/${id}`}>
         <img
           src={images1}

@@ -3,6 +3,7 @@ import type { CategorysTypes } from "@/entities/Product/model/types/categorys.ty
 import type { ProductsTypes } from "@/entities/Product/model/types/product.types";
 
 export type SProps = {
+  category?: boolean;
   slidesPerView?: number;
   spaceBetween: number;
   className: string;

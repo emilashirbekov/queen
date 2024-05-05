@@ -14,7 +14,6 @@ const AdminCharacteristicForm = () => {
     title: "",
     value: "",
   });
-<<<<<<< HEAD
     const [validation, setValidation] = useState<string>('');
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -77,55 +76,6 @@ const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
 			/>
 		</div>
 	);
-=======
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setCharacteristic({ ...characteristic, [name]: value });
-  };
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    //@ts-ignore
-    createCharacteristic(characteristic);
-    setCharacteristic({ title: "", value: "" });
-  };
-  return (
-    <div className="mb-5">
-      <form
-        onSubmit={handleSubmit}
-        className="flex items-center gap-5 flex-wrap"
-      >
-        <InputField
-          required
-          placeholder="Новое название"
-          onChange={handleInputChange}
-          name="title"
-          value={characteristic.title}
-          type="text"
-          typeField=""
-        />
-        <InputField
-          required
-          placeholder="Новое значение"
-          onChange={handleInputChange}
-          name="value"
-          value={characteristic.value}
-          type="text"
-          typeField=""
-        />
-        <Button type="submit" typeButton="" style="admin-button text-base">
-          Добавить
-        </Button>
-      </form>
-      <SuccessErrorMessage
-        text="Характеристика удачно добавлена !"
-        isSuccess={isSuccess}
-        error={error}
-      />
-    </div>
-  );
->>>>>>> f6f88f8 (fixed confl)
 };
 
 export default AdminCharacteristicForm;

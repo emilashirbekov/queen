@@ -20,21 +20,13 @@ import {
   sortProducts,
 } from "@/features/SortProducts";
 import { useGetSubcategoriesQuery } from "@/features/SubCategories/ui/services/apiSubCategories";
-import SearchInput from "@/pages/Catalog/ui/SearchInput";
 import Pagination from "@/shared/ui/Pagination";
 import RequestProcessing from "@/widgets/RequestProcessing/RequestProcessing";
 import { SelectedFilter } from "@/widgets/SelectedFilter";
 import { useCallback, useMemo, useState } from "react";
-<<<<<<< HEAD
-<<<<<<< HEAD
 import { useNavigate, useParams } from "react-router-dom";
-=======
-import { useNavigate, useParams } from 'react-router-dom';
->>>>>>> 5b253f0 (fixed confl)
-=======
-import { useNavigate, useParams } from "react-router-dom";
->>>>>>> f6f88f8 (fixed confl)
 import CatalogHelmet from "./CatalogHelmet";
+import SearchInput from "@/pages/Catalog/ui/SearchInput";
 
 const CatalogPage = () => {
   const dispatch = useAppDispatch();
@@ -46,15 +38,7 @@ const CatalogPage = () => {
   const { data: subCategories } = useGetSubcategoriesQuery();
   const [searchText, setSearchText] = useState<string>("");
   const navigate = useNavigate();
-<<<<<<< HEAD
-<<<<<<< HEAD
   const { category } = useParams();
-=======
-  const { category } = useParams()
->>>>>>> 5b253f0 (fixed confl)
-=======
-  const { category } = useParams();
->>>>>>> f6f88f8 (fixed confl)
   const searchProducts = useCallback((text: string) => {
     setSearchText(text);
   }, []);
@@ -83,19 +67,8 @@ const CatalogPage = () => {
   const handleSelectFilter = useCallback(
     (filterTypes: string[]) => {
       const newSelectedFilter = selectFilter(selectedCategories, filterTypes);
-<<<<<<< HEAD
-<<<<<<< HEAD
       dispatch(setSelectedCategory(newSelectedFilter));
       navigate(`/catalog/${newSelectedFilter}`);
-=======
-      dispatch(setSelectedCategory(newSelectedFilter));      
-      navigate(`/catalog/${newSelectedFilter}`);
-
->>>>>>> 5b253f0 (fixed confl)
-=======
-      dispatch(setSelectedCategory(newSelectedFilter));
-      navigate(`/catalog/${newSelectedFilter}`);
->>>>>>> f6f88f8 (fixed confl)
     },
     [selectedCategories, dispatch],
   );
@@ -126,6 +99,7 @@ const CatalogPage = () => {
             <RequestProcessing isLoading={isLoading} error={error} />
             <SelectedFilter
               clearFilterType={clearFilterType}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               //@ts-ignore
               selectedFilter={selectedCategories}
             />
