@@ -177,6 +177,7 @@ export const RegisterPage = () => {
                 typeButton="primary"
                 type="button"
                 onClick={handleNextStep}
+                disabled={errorEmailFormat}
               >
                 Далее
               </Button>
