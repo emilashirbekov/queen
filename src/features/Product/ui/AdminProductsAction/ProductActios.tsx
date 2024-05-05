@@ -119,17 +119,18 @@ const ProductAction = () => {
   };
 
   // console.log(categories.results);
-  let fullCategory: any[] | undefined = [];
+  // let fullCategory: any[] | undefined = [];
 
   if (isLoading) {
     return <Loader />;
   }
 
-  if (!isLoading && subCategories && categories) {
-    // @ts-ignore
-    fullCategory = [...subCategories?.results, ...categories?.results];
-  }
+  // if (!isLoading && subCategories && categories) {
+  //   // @ts-ignore
+  //   fullCategory = [...subCategories?.results, ...categories?.results];
+  // }
 
+  // @ts-ignore
   return (
     <>
       <AddProductForm
@@ -139,7 +140,8 @@ const ProductAction = () => {
         //@ts-ignore
         productData={productData}
         handleSubmitFilters={handleSubmitFilters}
-        availableCategories={fullCategory}
+        availableCategories={categories?.results}
+        availableSubCategories={subCategories?.results}
         handleInputChange={handleInputChange}
         handleMultiSelect={handleMultiSelect}
         handleFileChange={handleFileChange}

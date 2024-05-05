@@ -32,7 +32,7 @@ export const menuItems = [
     icon: <Gear size={24} />,
   },
   {
-    href: routeConfig.admin_panel_categories,
+    href: routeConfig.admin_panel_subcategories,
     label: "Категории",
     icon: <Article size={24} />,
   },

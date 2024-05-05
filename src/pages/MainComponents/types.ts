@@ -1,6 +1,7 @@
 import type { CollectionItems } from "@/entities/Collection/model/types/collection.types";
 import type { CategorysTypes } from "@/entities/Product/model/types/categorys.types";
 import type { ProductsTypes } from "@/entities/Product/model/types/product.types";
+import { SubCategory } from "@/features/Categories/ui/model/types/subCategory.types";
 
 export type SProps = {
   category?: boolean;
@@ -12,7 +13,7 @@ export type SProps = {
   textClassName: string;
   onClick?: () => void;
   favorite?: boolean;
-  data?: CategorysTypes[] | ProductsTypes[] | CollectionItems[];
+  data?: CategorysTypes[] | ProductsTypes[] | CollectionItems[] | SubCategory[];
   break0?: number;
   break768?: number;
   break500?: number;

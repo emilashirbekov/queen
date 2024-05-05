@@ -1,7 +1,7 @@
 import { CategorysTypes } from "@/entities/Product/model/types/categorys.types";
 import Button from "@/shared/ui/Buttons/Button";
 import InputField from "@/shared/ui/Inputs/InputField";
-import Select from "@/shared/ui/Select";
+// import Select from "@/shared/ui/Select";
 import { ChangeEvent, FC, memo } from "react";
 
 interface AddSubCategoryFormProps {
@@ -18,7 +18,7 @@ export const AddSubCategoryForm: FC<AddSubCategoryFormProps> = memo((props) => {
   const {
     handleInputChange,
     handleSubmitCategories,
-    categories,
+    // categories,
     subCategoryValue,
     handleFileChange,
   } = props;
@@ -42,14 +42,14 @@ export const AddSubCategoryForm: FC<AddSubCategoryFormProps> = memo((props) => {
           onChange={handleFileChange}
         />
 
-        <Select
-          data={categories && categories.map((category) => category)}
-          value={subCategoryValue.category}
-          onChange={handleInputChange}
-          name="category"
-        >
-          {subCategoryValue.category}
-        </Select>
+        {/*<Select*/}
+        {/*  data={categories && categories.map((category) => category)}*/}
+        {/*  value={subCategoryValue.category}*/}
+        {/*  onChange={handleInputChange}*/}
+        {/*  name="category"*/}
+        {/*>*/}
+        {/*  {subCategoryValue.category}*/}
+        {/*</Select>*/}
         <Button style="admin-button text-base" typeButton="" type="submit">
           Добавить под категорию
         </Button>

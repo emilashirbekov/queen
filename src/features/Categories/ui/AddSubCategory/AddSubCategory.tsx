@@ -13,7 +13,7 @@ export const AddSubCategory = () => {
   const [subCategoryValue, setSubCategoryValue] = useState({
     title: "",
     image: "",
-    category: "Выберите категорию",
+    category: "",
   });
 
   const handleInputChange = (
@@ -35,7 +35,7 @@ export const AddSubCategory = () => {
     const formData = new FormData();
     formData.append("title", subCategoryValue.title);
     formData.append("image", subCategoryValue.image);
-    formData.append("category", subCategoryValue.category);
+    // formData.append("category", subCategoryValue.category);
     //@ts-ignore
     createSubcategory(formData);
     setSubCategoryValue({
