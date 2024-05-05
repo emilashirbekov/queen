@@ -12,34 +12,40 @@ interface AddCategoryFormProps {
 	validation:string;
 }
 
-export const AddCategoryForm: FC<AddCategoryFormProps> = memo(props => {
-    const { handleInputChange, handleSubmitCategories, categoryValue, handleFileChange, validation } = props;
-    return (
-			<>
-				<form onSubmit={handleSubmitCategories} encType='multipart/form-data'>
-                <InputField
-                    required
-						style='my-5'
-						typeField=''
-						name='title'
-						type='text'
-						placeholder='Введите название'
-						value={categoryValue.title}
-						onChange={handleInputChange}
-					/>
-                <InputField
-                    required
-						style='my-5'
-						typeField=''
-						type='file'
-						name='image'
-						onChange={handleFileChange}
-					/>
-					<span className='text-red text-base'>{validation}</span>
-					<Button style='admin-button text-base' typeButton='' type='submit'>
-						Добавить категорию
-					</Button>
-				</form>
-			</>
-		);
+export const AddCategoryForm: FC<AddCategoryFormProps> = memo((props) => {
+  const {
+    handleInputChange,
+    handleSubmitCategories,
+    categoryValue,
+    handleFileChange,
+    validation,
+  } = props;
+  return (
+    <>
+      <form onSubmit={handleSubmitCategories} encType="multipart/form-data">
+        <InputField
+          required
+          style="my-5"
+          typeField=""
+          name="title"
+          type="text"
+          placeholder="Введите название"
+          value={categoryValue.title}
+          onChange={handleInputChange}
+        />
+        <InputField
+          required
+          style="my-5"
+          typeField=""
+          type="file"
+          name="image"
+          onChange={handleFileChange}
+        />
+        <span className="text-red text-base font-bold">{validation}</span>
+        <Button style="admin-button text-base" typeButton="" type="submit">
+          Добавить категорию
+        </Button>
+      </form>
+    </>
+  );
 });
