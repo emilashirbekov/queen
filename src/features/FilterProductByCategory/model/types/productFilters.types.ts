@@ -1,3 +1,3 @@
 export interface FilterTypes {
-    selectedFilter: string[];
+  selectedFilter: string[];
 }

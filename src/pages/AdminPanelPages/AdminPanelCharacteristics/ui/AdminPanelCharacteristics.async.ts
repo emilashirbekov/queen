@@ -1,3 +1,5 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
-export const AdminPanelCharacteristicsAsync = lazy(() => import('./AdminPanelCharacteristics'));
+export const AdminPanelCharacteristicsAsync = lazy(
+  () => import("./AdminPanelCharacteristics"),
+);

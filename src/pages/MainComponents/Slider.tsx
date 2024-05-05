@@ -86,7 +86,7 @@ const Slider: React.FC<SProps> = ({
       {data?.map((el, idx) => (
         <SwiperSlide className={slideClassName} key={idx}>
           {el.image1 || el.image || el.images1 ? (
-            <Link to={`catalog/one_item/${el.id}`}>
+            <Link to={`catalog/${el.title}`}>
               <img
                 onClick={onClick}
                 className={imageClassName}

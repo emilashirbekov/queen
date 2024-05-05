@@ -1,3 +1,3 @@
-import { lazy } from 'react';
+import { lazy } from "react";
 
-export const AdminColorsAsyncPage = lazy(() => import('./AdminColorsPage'));
+export const AdminColorsAsyncPage = lazy(() => import("./AdminColorsPage"));
