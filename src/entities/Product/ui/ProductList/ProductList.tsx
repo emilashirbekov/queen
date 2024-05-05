@@ -9,8 +9,6 @@ interface ProductListProps {
 export const ProductList: React.FC<ProductListProps> = memo((props) => {
   const { currentProducts } = props;
 
-  console.log(currentProducts);
-
   return (
     <>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 mb-24 justify-items-center">

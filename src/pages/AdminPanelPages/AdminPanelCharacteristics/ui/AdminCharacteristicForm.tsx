@@ -1,9 +1,9 @@
-import { useCreateCharacteristicMutation } from '@/features/Characteristics/ui/model/services/characteristicsAPI';
-import { CharacteristicsTypes } from '@/features/Characteristics/ui/model/types/characteristics.types';
-import Button from '@/shared/ui/Buttons/Button';
-import InputField from '@/shared/ui/Inputs/InputField';
-import SuccessErrorMessage from '@/shared/ui/SuccessErrorMessage';
-import { ChangeEvent, FormEvent, useState } from 'react';
+import { useCreateCharacteristicMutation } from "@/features/Characteristics/ui/model/services/characteristicsAPI";
+import { CharacteristicsTypes } from "@/features/Characteristics/ui/model/types/characteristics.types";
+import Button from "@/shared/ui/Buttons/Button";
+import InputField from "@/shared/ui/Inputs/InputField";
+import SuccessErrorMessage from "@/shared/ui/SuccessErrorMessage";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 const AdminCharacteristicForm = () => {
   const [createCharacteristic, { isSuccess, error }] =

@@ -1,3 +1,3 @@
 export interface BurgerMenuModel {
-    onClose: () => void;
+  onClose: () => void;
 }
