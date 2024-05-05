@@ -39,7 +39,7 @@ const CatalogPage = () => {
   const [searchText, setSearchText] = useState<string>("");
   const navigate = useNavigate();
   const { category } = useParams();
-  const path = useParams();
+  const path = useParams() as { category: string };
 
   const searchProducts = useCallback((text: string) => {
     setSearchText(text);
@@ -82,7 +82,11 @@ const CatalogPage = () => {
       const result = path.category
         ?.split(",")
         .filter((itemRemove) => itemRemove !== item);
-      navigate(`/catalog/${result}`);
+      if (result.length === 0) {
+        navigate(`/catalog/all`);
+      } else {
+        navigate(`/catalog/${result}`);
+      }
     },
     [selectedCategories, dispatch],
   );
