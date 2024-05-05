@@ -161,7 +161,7 @@ export const RegisterPage = () => {
                 value={state.email}
                 name="email"
                 onChange={changeField}
-                placeholder={"text@mail.com"}
+                placeholder={"examlpe@mail.com"}
                 required={true}
               />
               {error && <p className="text-red">Заполните поле</p>}
