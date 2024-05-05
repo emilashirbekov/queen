@@ -13,6 +13,7 @@ import {
   useUpdateProductMutation,
 } from "../model/services/productAPI";
 import { useGetCategoriesQuery } from "@/features/Categories/ui/model/services/categoriesAPI";
+import Loader from "@/shared/ui/Loader/Loader";
 
 const ProductAction = () => {
   const { data: subCategories, isLoading, error } = useGetSubcategoriesQuery();
@@ -117,8 +118,17 @@ const ProductAction = () => {
     });
   };
 
-  // @ts-ignore
-  const fullCategories = [...subCategories.results, ...categories.results];
+  // console.log(categories.results);
+  let fullCategory: any[] | undefined = [];
+
+  if (isLoading) {
+    return <Loader />;
+  }
+
+  if (!isLoading && subCategories && categories) {
+    // @ts-ignore
+    fullCategory = [...subCategories?.results, ...categories?.results];
+  }
 
   return (
     <>
@@ -129,7 +139,7 @@ const ProductAction = () => {
         //@ts-ignore
         productData={productData}
         handleSubmitFilters={handleSubmitFilters}
-        availableCategories={fullCategories}
+        availableCategories={fullCategory}
         handleInputChange={handleInputChange}
         handleMultiSelect={handleMultiSelect}
         handleFileChange={handleFileChange}
