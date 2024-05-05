@@ -27,9 +27,10 @@ const CategorySection = () => {
         spaceBetween={30}
         className="h-full relative"
         slideClassName="h-full flex flex-col items-center gap-[16px] cursor-pointer relative"
-        imageClassName="bg-white rounded-[10.9px] md:rounded-[20px] max-h-[310px] h-[110px] w-[110px] md:w-[200px] md:h-[200px] object-cover w-full"
+        imageClassName="bg-white rounded-[10.9px] md:rounded-[20px] max-h-[310px] h-[110px] w-[110px] md:w-[200px] md:h-[200px] object-cover"
         textClassName="w-full text-center xl:text-left"
         onClick={click}
+        category
         favorite={false}
         freeMode={true}
         data={data?.results}

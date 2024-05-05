@@ -30,7 +30,7 @@ const RecomendationSection = () => {
 					spaceBetween={30}
 					className='h-full relative'
 					slideClassName='h-full flex flex-col items-center gap-[16px] cursor-pointer relative'
-					imageClassName='w-full h-full min-h-[180px] min-w-[180px] max-h-[310px] object-cover bg-white rounded-[20px]'
+					imageClassName='min-h-[180px] min-w-[180px] max-h-[302px] max-w-[302px] h-[180px] w-[180px] md:w-[302px] md:h-[302px] object-cover bg-white rounded-[20px]'
 					textClassName='w-full'
 					favorite={true}
 					data={products.slice(0, 10)}
