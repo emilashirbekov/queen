@@ -21,6 +21,7 @@ import Basket from "@/pages/Basket/Basket";
 import { DeliveryPage } from "@/pages/DeliveryPage";
 import MainPage from "@/pages/MainPage";
 import { MyRoomPage } from "@/pages/MyRoomPage";
+import ChangePassword from "@/pages/MyRoomPage/ui/ChangePassword";
 import { OneItemPage } from "@/pages/OneItemPage";
 import { OrderPage } from "@/pages/OrderPage";
 import { FAQ } from "@/widgets/FAQ";
@@ -28,12 +29,11 @@ import { PaymentMethod } from "@/widgets/Payment";
 import { RouteProps } from "react-router-dom";
 import CatalogPage from "../../../../pages/Catalog/ui/CatalogPage";
 import NotFound from "../../../../pages/NotFound";
-import ChangePassword from "@/pages/MyRoomPage/ui/ChangePassword";
 
 export enum AppRoutes {
   MAIN = "main",
   ABOUT = "about",
-  CATALOG = "catalog",
+  CATALOG = "catalog/:category",
   REGISTER = "register",
   LOGIN = "login",
   MY_ROOM = "my-room",
@@ -74,7 +74,7 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
     element: <AboutPage />,
   },
   [AppRoutes.CATALOG]: {
-    path: "/catalog",
+    path: "/catalog/:category",
     element: <CatalogPage />,
   },
   [AppRoutes.REGISTER]: {

@@ -7,6 +7,7 @@ interface SelectedFilterProps {
 }
 
 export const SelectedFilter: FC<SelectedFilterProps> = ({ selectedFilter, clearFilterType }) => {
+    
     return (
         <div className="flex items-center flex-wrap">
             {selectedFilter.map(el => (
