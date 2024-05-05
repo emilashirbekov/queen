@@ -8,7 +8,7 @@ const HeroSections = () => {
           Стильная одежда для истинных королев
         </h1>
         <Link
-          to="/catalog"
+          to="/catalog/all"
           className="text-white text-[12px] md:text-[20px] rounded-[10px] px-[16px] md:px-[24px] py-[10px] md:py-[14px] bg-white/30 backdrop-blur-xl"
         >
           Перейти в каталог
