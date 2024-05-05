@@ -17,7 +17,7 @@ const CollectionSection = () => {
             Новая коллекция свитеров
           </h2>
           <Link
-            to="catalog"
+            to="/catalog/all"
             className="max-w-[250px] text-white text-[20px] rounded-[10px] px-[24px] py-[14px] bg-white/30 backdrop-blur-xl"
           >
             Перейти в каталог
