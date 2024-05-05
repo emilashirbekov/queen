@@ -47,7 +47,7 @@ const Footer = () => {
               <Link to="/paymentMethod">Оплата</Link>
             </li>
             <li className="mb-2">
-              <Link to="/catalog">Каталог</Link>
+              <Link to="/catalog/all">Каталог</Link>
             </li>
           </ul>
         </nav>
