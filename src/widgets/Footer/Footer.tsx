@@ -65,7 +65,7 @@ const Footer = () => {
 						Социальные сети
 					</p>
 					<div className='w-[139px] flex justify-around mt-6'>
-						<a href='https://wa.me/502435363<'>
+						<a href='https://wa.me/502435363'>
 							<WhatsappLogo size={24} />
 						</a>
 						<a href='https://www.instagram.com/queenstore.bish?igsh=MWtodnlpZnF4Zzg3eQ=='>
