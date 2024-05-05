@@ -41,11 +41,7 @@ export const AddCategoryForm: FC<AddCategoryFormProps> = memo((props) => {
           name="image"
           onChange={handleFileChange}
         />
-<<<<<<< HEAD
         <span className="text-red text-base font-bold">{validation}</span>
-=======
-        <span className="text-red text-base">{validation}</span>
->>>>>>> f6f88f8 (fixed confl)
         <Button style="admin-button text-base" typeButton="" type="submit">
           Добавить категорию
         </Button>
