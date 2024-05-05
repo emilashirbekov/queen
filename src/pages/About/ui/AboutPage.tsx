@@ -56,7 +56,7 @@ const AboutPage = () => {
                 от уютных платьев для дома до элегантных костюмов для работы.
               </li>
               <li>
-                <Link to={"/catalog"} className="about-button">
+                <Link to={"/catalog/all"} className="about-button">
                   Найти
                 </Link>
               </li>
