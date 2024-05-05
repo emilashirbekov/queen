@@ -10,16 +10,23 @@ const AdminColorsForm = () => {
   const [color, setColor] = useState({
     colors: "",
   });
+  const [error, setError] = useState("");
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setColor({ ...color, colors: e.target.value });
   };
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     //@ts-ignore
-    createColor(color);
-    setColor({ colors: "" });
+    if (color.colors.includes(" ")) {
+      setError("Недопустимые пробелы в названии!");
+    } else {
+      //@ts-ignore
+      createColor(color);
+      setColor({ colors: "" });
+    }
   };
+  setTimeout(() => setError(""), 4000);
 
   return (
     <div className="mb-5">
@@ -35,6 +42,7 @@ const AdminColorsForm = () => {
           typeField=""
           onChange={handleChange}
         />
+        <span className="text-red font-bold">{error}</span>
         <Button type="submit" typeButton="" style="admin-button text-base">
           Добавить
         </Button>

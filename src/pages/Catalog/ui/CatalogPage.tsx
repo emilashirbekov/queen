@@ -25,7 +25,7 @@ import Pagination from "@/shared/ui/Pagination";
 import RequestProcessing from "@/widgets/RequestProcessing/RequestProcessing";
 import { SelectedFilter } from "@/widgets/SelectedFilter";
 import { useCallback, useMemo, useState } from "react";
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from "react-router-dom";
 import CatalogHelmet from "./CatalogHelmet";
 
 const CatalogPage = () => {
@@ -38,7 +38,7 @@ const CatalogPage = () => {
   const { data: subCategories } = useGetSubcategoriesQuery();
   const [searchText, setSearchText] = useState<string>("");
   const navigate = useNavigate();
-  const { category } = useParams()
+  const { category } = useParams();
   const searchProducts = useCallback((text: string) => {
     setSearchText(text);
   }, []);
@@ -54,7 +54,7 @@ const CatalogPage = () => {
   const filteredProducts = useMemo(() => {
     let filtered = sortedProductsList;
 
-    filtered = filterProducts(filtered, category);    
+    filtered = filterProducts(filtered, category);
     if (searchText) {
       filtered = filtered.filter((product) =>
         product.title.toLowerCase().includes(searchText.toLowerCase()),
@@ -63,17 +63,16 @@ const CatalogPage = () => {
 
     return filtered;
   }, [sortedProductsList, selectedCategories, searchText]);
-  
+
   const handleSelectFilter = useCallback(
     (filterTypes: string[]) => {
       const newSelectedFilter = selectFilter(selectedCategories, filterTypes);
-      dispatch(setSelectedCategory(newSelectedFilter));      
+      dispatch(setSelectedCategory(newSelectedFilter));
       navigate(`/catalog/${newSelectedFilter}`);
-
     },
     [selectedCategories, dispatch],
   );
-  
+
   const clearFilterType = useCallback(
     (item: string) => {
       const newSelectedFilter = clearFilter(selectedCategories, item);

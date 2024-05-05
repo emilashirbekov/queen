@@ -1,8 +1,8 @@
+import Button from "@/shared/ui/Buttons/Button";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import deliveryImg from "../../../../public/deliveryImage.svg";
 import deliveryImgSecond from "../../../../public/deliveryImgSecond.svg";
-import Button from "@/shared/ui/Buttons/Button";
-import { useNavigate } from "react-router-dom";
 
 export const DeliveryPage: React.FC = () => {
   const navigate = useNavigate();
@@ -58,7 +58,7 @@ export const DeliveryPage: React.FC = () => {
               typeButton="primary"
               type="button"
               style="w-[358px]"
-              onClick={() => navigate("/orders")}
+              onClick={() => navigate("/catalog/all")}
             >
               Заказать
             </Button>

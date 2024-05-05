@@ -1,1 +1,1 @@
-export { AdminPanelOrders } from './ui/AdminPanelOrders';
+export { AdminPanelOrders } from "./ui/AdminPanelOrders";
