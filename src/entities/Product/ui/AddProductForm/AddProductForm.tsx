@@ -10,9 +10,10 @@ import InputField from "@/shared/ui/Inputs/InputField";
 import Select from "@/shared/ui/Select";
 import React, { ChangeEvent } from "react";
 import { ProductType } from "../../model/types/product.types";
+import { CategorysTypes } from "@/entities/Product/model/types/categorys.types";
 
 interface AddProductFormProps {
-  availableCategories: SubCategory[] | undefined;
+  availableCategories: (SubCategory | CategorysTypes)[] | undefined;
   handleSubmitFilters: (e: ChangeEvent<HTMLFormElement>) => void;
   handleInputChange: (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
