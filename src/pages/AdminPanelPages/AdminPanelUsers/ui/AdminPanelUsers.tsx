@@ -39,20 +39,30 @@ export const AdminPanelUsers = () => {
   return (
     <div className="container mx-auto">
       <h1>Users</h1>
-      <div>
+      <div className="overflow-x-auto">
         {users.map((user) => (
           <div
             key={user.id}
-            className="flex box-border justify-between border-b py-[10px] px-[15px] border-gray-400"
+            className="flex box-border justify-between border-b py-[10px] px-[15px] border-gray-400 min-w-[1200px] w-full"
           >
-            <div className="grid grid-cols-5 gap-x-3 w-full">
-              <p>{user.username}</p>
-              <p className="font-bold text-gray-500">{user.email}</p>
-              <p>{user.phone_number}</p>
-              <p>{user.is_staff ? "Admin" : "User"}</p>
-              <p>{user.is_active ? "confirm" : "disconfirm"}</p>
+            <div className="grid grid-cols-12 gap-x-2 w-full">
+              <div className="grid col-span-2">
+                <p>{user.username}</p>
+              </div>
+              <div className="grid col-span-3">
+                <p className="font-bold text-gray-500">{user.email}</p>
+              </div>
+              <div className="grid col-span-2">
+                <p>{user.phone_number}</p>
+              </div>
+              <div className="grid col-span-2">
+                <p>{user.is_staff ? "Admin" : "User"}</p>
+              </div>
+              <div className="grid col-span-3">
+                <p>{user.is_active ? "confirm" : "disconfirm"}</p>
+              </div>
             </div>
-            <button onClick={() => handleDelete(user.id)}>
+            <button title="Удалить" onClick={() => handleDelete(user.id)}>
               <UserMinus size={24} />
             </button>
           </div>
