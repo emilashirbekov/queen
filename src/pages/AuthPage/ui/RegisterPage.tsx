@@ -30,6 +30,7 @@ export const RegisterPage = () => {
   const [error, setError] = useState(false);
   const [errorNumber, setErrorNumber] = useState(false);
   const [errorNumberFormat, setErrorNumberFormat] = useState(false);
+  const [errorEmailFormat, setErrorEmailFormat] = useState(false);
   const [errorPassword, setErrorPassword] = useState(true);
   const loading = useAppSelector(selectRegisterLoading);
 
@@ -95,6 +96,10 @@ export const RegisterPage = () => {
 
     if (name === "number") {
       setErrorNumberFormat(!value.startsWith("+"));
+    }
+
+    if (name === "email") {
+      setErrorEmailFormat(!value.includes("@"));
     }
 
     if (name === "password") {
@@ -165,6 +170,9 @@ export const RegisterPage = () => {
                 required={true}
               />
               {error && <p className="text-red">Заполните поле</p>}
+              {errorEmailFormat && (
+                <p className="text-red">Email не найден! example@mail.com</p>
+              )}
               <Button
                 typeButton="primary"
                 type="button"
