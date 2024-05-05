@@ -1,16 +1,16 @@
 import {
   useAppDispatch,
   useAppSelector,
-} from '@/app/providers/StoreProvider/config/hooks';
-import { getOrders } from '@/pages/MyRoomPage/api/personalThunk';
+} from "@/app/providers/StoreProvider/config/hooks";
+import { getOrders } from "@/pages/MyRoomPage/api/personalThunk";
 import {
   selectOrders,
   selectOrdersLoading,
-} from '@/pages/MyRoomPage/model/slice/PersonalSlice';
-import Loader from '@/shared/ui/Loader/Loader';
-import { ArrowRight } from '@phosphor-icons/react';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+} from "@/pages/MyRoomPage/model/slice/PersonalSlice";
+import Loader from "@/shared/ui/Loader/Loader";
+import { ArrowRight } from "@phosphor-icons/react";
+import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const MyOrders = () => {
 	const orders = useAppSelector(selectOrders);
