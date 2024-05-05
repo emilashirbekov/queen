@@ -170,7 +170,7 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
           ))}
         </select>
         <Select
-          multipleType={false}
+          multipleType={true}
           data={
             availableCategories && availableCategories.map((filter) => filter)
           }
