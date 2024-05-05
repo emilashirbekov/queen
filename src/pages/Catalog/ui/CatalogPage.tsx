@@ -26,10 +26,14 @@ import RequestProcessing from "@/widgets/RequestProcessing/RequestProcessing";
 import { SelectedFilter } from "@/widgets/SelectedFilter";
 import { useCallback, useMemo, useState } from "react";
 <<<<<<< HEAD
+<<<<<<< HEAD
 import { useNavigate, useParams } from "react-router-dom";
 =======
 import { useNavigate, useParams } from 'react-router-dom';
 >>>>>>> 5b253f0 (fixed confl)
+=======
+import { useNavigate, useParams } from "react-router-dom";
+>>>>>>> f6f88f8 (fixed confl)
 import CatalogHelmet from "./CatalogHelmet";
 
 const CatalogPage = () => {
@@ -43,10 +47,14 @@ const CatalogPage = () => {
   const [searchText, setSearchText] = useState<string>("");
   const navigate = useNavigate();
 <<<<<<< HEAD
+<<<<<<< HEAD
   const { category } = useParams();
 =======
   const { category } = useParams()
 >>>>>>> 5b253f0 (fixed confl)
+=======
+  const { category } = useParams();
+>>>>>>> f6f88f8 (fixed confl)
   const searchProducts = useCallback((text: string) => {
     setSearchText(text);
   }, []);
@@ -71,10 +79,11 @@ const CatalogPage = () => {
 
     return filtered;
   }, [sortedProductsList, selectedCategories, searchText]);
-  
+
   const handleSelectFilter = useCallback(
     (filterTypes: string[]) => {
       const newSelectedFilter = selectFilter(selectedCategories, filterTypes);
+<<<<<<< HEAD
 <<<<<<< HEAD
       dispatch(setSelectedCategory(newSelectedFilter));
       navigate(`/catalog/${newSelectedFilter}`);
@@ -83,10 +92,14 @@ const CatalogPage = () => {
       navigate(`/catalog/${newSelectedFilter}`);
 
 >>>>>>> 5b253f0 (fixed confl)
+=======
+      dispatch(setSelectedCategory(newSelectedFilter));
+      navigate(`/catalog/${newSelectedFilter}`);
+>>>>>>> f6f88f8 (fixed confl)
     },
     [selectedCategories, dispatch],
   );
-  
+
   const clearFilterType = useCallback(
     (item: string) => {
       const newSelectedFilter = clearFilter(selectedCategories, item);

@@ -1,16 +1,30 @@
+<<<<<<< HEAD
+=======
+import { Link } from "react-router-dom";
+import { ArrowRight } from "@phosphor-icons/react";
+>>>>>>> f6f88f8 (fixed confl)
 import {
   useAppDispatch,
   useAppSelector,
 } from "@/app/providers/StoreProvider/config/hooks";
+<<<<<<< HEAD
 import { getOrders } from "@/pages/MyRoomPage/api/personalThunk";
+=======
+>>>>>>> f6f88f8 (fixed confl)
 import {
   selectOrders,
   selectOrdersLoading,
 } from "@/pages/MyRoomPage/model/slice/PersonalSlice";
+<<<<<<< HEAD
 import Loader from "@/shared/ui/Loader/Loader";
 import { ArrowRight } from "@phosphor-icons/react";
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+=======
+import { useEffect } from "react";
+import { getOrders } from "@/pages/MyRoomPage/api/personalThunk";
+import Loader from "@/shared/ui/Loader/Loader";
+>>>>>>> f6f88f8 (fixed confl)
 
 const MyOrders = () => {
   const orders = useAppSelector(selectOrders);

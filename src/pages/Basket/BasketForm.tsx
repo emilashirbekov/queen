@@ -1,11 +1,21 @@
-import InputField from '@/shared/ui/Inputs/InputField';
-import Button from '@/shared/ui/Buttons/Button';
-import { IBasket } from '@/pages/Basket/types/IBasket';
-import React, { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react';
-import { OrderData, OrderMutation, OrderMutationBtn } from '@/pages/Basket/types/Order';
-import { useAppDispatch } from '@/app/providers/StoreProvider/config/hooks';
-import { createOrder } from '@/pages/Basket/api/basketThunk';
-import { Link } from 'react-router-dom';
+import InputField from "@/shared/ui/Inputs/InputField";
+import Button from "@/shared/ui/Buttons/Button";
+import { IBasket } from "@/pages/Basket/types/IBasket";
+import React, {
+  ChangeEvent,
+  FormEvent,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import {
+  OrderData,
+  OrderMutation,
+  OrderMutationBtn,
+} from "@/pages/Basket/types/Order";
+import { useAppDispatch } from "@/app/providers/StoreProvider/config/hooks";
+import { createOrder } from "@/pages/Basket/api/basketThunk";
+import { Link } from "react-router-dom";
 
 interface Props {
   allCount: number;
