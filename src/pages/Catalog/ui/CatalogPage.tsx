@@ -20,13 +20,13 @@ import {
   sortProducts,
 } from "@/features/SortProducts";
 import { useGetSubcategoriesQuery } from "@/features/SubCategories/ui/services/apiSubCategories";
-import SearchInput from "@/pages/Catalog/ui/SearchInput";
 import Pagination from "@/shared/ui/Pagination";
 import RequestProcessing from "@/widgets/RequestProcessing/RequestProcessing";
 import { SelectedFilter } from "@/widgets/SelectedFilter";
 import { useCallback, useMemo, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CatalogHelmet from "./CatalogHelmet";
+import SearchInput from "@/pages/Catalog/ui/SearchInput";
 
 const CatalogPage = () => {
   const dispatch = useAppDispatch();
@@ -99,6 +99,7 @@ const CatalogPage = () => {
             <RequestProcessing isLoading={isLoading} error={error} />
             <SelectedFilter
               clearFilterType={clearFilterType}
+              // eslint-disable-next-line @typescript-eslint/ban-ts-comment
               //@ts-ignore
               selectedFilter={selectedCategories}
             />
