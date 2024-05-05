@@ -1,6 +1,13 @@
-import InputField from "@/shared/ui/Inputs/InputField";
-import Button from "@/shared/ui/Buttons/Button";
+import { useAppDispatch } from "@/app/providers/StoreProvider/config/hooks";
+import { createOrder } from "@/pages/Basket/api/basketThunk";
 import { IBasket } from "@/pages/Basket/types/IBasket";
+import {
+  OrderData,
+  OrderMutation,
+  OrderMutationBtn,
+} from "@/pages/Basket/types/Order";
+import Button from "@/shared/ui/Buttons/Button";
+import InputField from "@/shared/ui/Inputs/InputField";
 import React, {
   ChangeEvent,
   FormEvent,
@@ -8,13 +15,6 @@ import React, {
   useRef,
   useState,
 } from "react";
-import {
-  OrderData,
-  OrderMutation,
-  OrderMutationBtn,
-} from "@/pages/Basket/types/Order";
-import { useAppDispatch } from "@/app/providers/StoreProvider/config/hooks";
-import { createOrder } from "@/pages/Basket/api/basketThunk";
 import { Link } from "react-router-dom";
 
 interface Props {
@@ -169,7 +169,7 @@ const BasketForm: React.FC<Props> = ({ allCount, allPrice, allDiscount }) => {
           location: state.location,
         },
       };
-      await dispatch(createOrder(order));
+      await dispatch(createOrder(order)).unwrap();
       setModal(true);
       setState({
         firstname: "",
