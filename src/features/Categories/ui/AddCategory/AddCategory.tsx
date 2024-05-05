@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AddCategoryForm } from "@/entities/Categories";
 import { useCreateCategoryMutation } from "@/features/Categories/ui/model/services/categoriesAPI";
 import SuccessErrorMessage from "@/shared/ui/SuccessErrorMessage";
