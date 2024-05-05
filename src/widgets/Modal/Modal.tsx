@@ -9,11 +9,10 @@ interface Props extends PropsWithChildren {
 
 const Modal: React.FC<Props> = memo(
   ({ children, className, isVisible, setIsVisible }) => {
-    useEffect(() => {
-      if (isVisible) {
-        document.body.style.overflow = "hidden";
-      }
-    }, []);
+
+    if (isVisible) {
+      document.body.style.overflow = "hidden";
+    }
 
     const toggleModal = () => {
       document.body.style.overflow = "scroll";
@@ -27,7 +26,7 @@ const Modal: React.FC<Props> = memo(
     return isVisible ? (
       <div
         onClick={toggleModal}
-        className="flex items-center justify-center absolute inset-0 w-full h-full px-[20px] bg-black bg-opacity-50 z-10"
+        className="flex items-center justify-center fixed inset-0 w-full h-full px-[20px] bg-black bg-opacity-50 z-10"
       >
         <div className={className} onClick={handleContainerClick}>
           {children}

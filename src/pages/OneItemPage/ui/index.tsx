@@ -7,7 +7,6 @@ import { useCallback, useEffect, useState } from "react";
 import { IProductDetail } from "@/pages/OneItemPage/types/IProductDetail";
 import { axiosApi } from "@/app/providers/http/axiosApi";
 import { useLocation, useParams } from "react-router-dom";
-
 export const OneItemPage = () => {
   const pathname = useLocation();
   useEffect(() => {

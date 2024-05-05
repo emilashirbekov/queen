@@ -54,7 +54,6 @@ const ProductAction = () => {
   ) => {
     const { name, value } = e.target;
     setProductData({ ...productData, [name]: value });
-    console.log(productData);
     
   };
   const handleMultiSelect = (e: ChangeEvent<HTMLSelectElement>) => {
@@ -82,13 +81,19 @@ const ProductAction = () => {
     formData.append("description", productData.description);
     formData.append("price", productData.price);
     formData.append("brand", productData.brand);
-    //@ts-ignore
-    formData.append("characteristics", productData.characteristics);
+    productData.characteristics.forEach((characteristics) =>
+      //@ts-ignore
+      formData.append("characteristics", characteristics.toString())
+    );
     formData.append("images1", productData.images1);
-    //@ts-ignore
-    formData.append("color", productData.color);
-    //@ts-ignore
-    formData.append("size", productData.size);
+    productData.color.forEach((color) =>
+      //@ts-ignore
+      formData.append("color", color.toString())
+    );
+    productData.size.forEach((size) =>
+      //@ts-ignore
+      formData.append("size", size.toString())
+    );
     formData.append("discount", productData.discount);
     pathname.includes("change")
       ? updateProduct({ id: Number(id), updatedProduct: formData })
