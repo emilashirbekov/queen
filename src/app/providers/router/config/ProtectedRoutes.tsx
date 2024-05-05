@@ -9,9 +9,8 @@ const ProtectedRoutes: FC<ProtectedRoutesProps> = ({ children }) => {
   const navigate = useNavigate();
   const currentLocation = useLocation();
   useEffect(() => {
-    //@ts-ignore
     const isStaff = JSON.parse(
-      localStorage.getItem("persist:store:users"),
+      localStorage.getItem("persist:store:users") as string,
     ).user;
 
     if (JSON.parse(isStaff).is_staff) {
