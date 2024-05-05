@@ -1,5 +1,5 @@
-import { useGetCategoriesQuery } from "@/features/Categories/ui/model/services/categoriesAPI";
-// import { useGetSubcategoriesQuery } from "@/features/SubCategories/ui/services/apiSubCategories";
+// import { useGetCategoriesQuery } from "@/features/Categories/ui/model/services/categoriesAPI";
+import { useGetSubcategoriesQuery } from "@/features/SubCategories/ui/services/apiSubCategories";
 import { CaretDown, CaretUp } from "@phosphor-icons/react";
 import React, { memo, useState } from "react";
 
@@ -9,8 +9,8 @@ interface ProductCategoriesProps {
 
 const ProductCategories: React.FC<ProductCategoriesProps> = memo(
   ({ handleSelectFilter }) => {
-    const { data: categories } = useGetCategoriesQuery();
-    // const { data: subCategories } = useGetSubcategoriesQuery();
+    // const { data: categories } = useGetCategoriesQuery();
+    const { data: subCategories } = useGetSubcategoriesQuery();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const toggle = () => {
@@ -30,26 +30,26 @@ const ProductCategories: React.FC<ProductCategoriesProps> = memo(
         <div
           className={`${isOpen ? "block max-h-64 overflow-scroll " : "hidden"}`}
         >
-          {categories &&
-            categories.results.map((category) => (
-              <p
-                onClick={() => handleSelectFilter([category.title])}
-                className="text-lg text-primary opacity-70 mb-5 cursor-pointer hover:opacity-100 transition-all duration-300"
-                key={category.id}
-              >
-                {category.title}
-              </p>
-            ))}
-          {/*{subCategories &&*/}
-          {/*  subCategories.results.map((subCategory) => (*/}
+          {/*{categories &&*/}
+          {/*  categories.results.map((category) => (*/}
           {/*    <p*/}
-          {/*      onClick={() => handleSelectFilter([subCategory.title])}*/}
-          {/*      className="text-lg text-primary opacity-70 my-5 cursor-pointer hover:opacity-100 transition-all duration-300"*/}
-          {/*      key={subCategory.id}*/}
+          {/*      onClick={() => handleSelectFilter([category.title])}*/}
+          {/*      className="text-lg text-primary opacity-70 mb-5 cursor-pointer hover:opacity-100 transition-all duration-300"*/}
+          {/*      key={category.id}*/}
           {/*    >*/}
-          {/*      {subCategory.title}*/}
+          {/*      {category.title}*/}
           {/*    </p>*/}
           {/*  ))}*/}
+          {subCategories &&
+            subCategories.results.map((subCategory) => (
+              <p
+                onClick={() => handleSelectFilter([subCategory.title])}
+                className="text-lg text-primary opacity-70 my-5 cursor-pointer hover:opacity-100 transition-all duration-300"
+                key={subCategory.id}
+              >
+                {subCategory.title}
+              </p>
+            ))}
         </div>
       </>
     );
