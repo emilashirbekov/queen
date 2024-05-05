@@ -28,12 +28,12 @@ export const SubCategoriesList: React.FC<SubCategoriesListProps> = memo(
             >
               Название: {category.title}
             </li>
-            <li
-              style={{ wordBreak: "break-word" }}
-              className="text-base text-center font-semibold"
-            >
-              Категория: {category.category_title}
-            </li>
+            {/*<li*/}
+            {/*  style={{ wordBreak: "break-word" }}*/}
+            {/*  className="text-base text-center font-semibold"*/}
+            {/*>*/}
+            {/*  Категория: {category.category_title}*/}
+            {/*</li>*/}
             <li className="flexCenter gap-3">
               <Link
                 to={`/admin_panel_change_subcategories/${category.id}`}

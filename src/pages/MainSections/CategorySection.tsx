@@ -3,12 +3,13 @@ import Slider from "../MainComponents/Slider";
 // import { useEffect } from 'react';
 // import { fetchCategories } from '@/features/FilterProductByCategory/model/services/fetchCategories';
 // import { selectCategories } from '@/features/FilterProductByCategory/model/selectors/selectCategories/selectCategories';
-import { useGetCategoriesQuery } from "@/features/Categories/ui/model/services/categoriesAPI";
+// import { useGetCategoriesQuery } from "@/features/Categories/ui/model/services/categoriesAPI";
+import { useGetSubcategoriesQuery } from "@/features/SubCategories/ui/services/apiSubCategories";
 
 const CategorySection = () => {
   // const dispatch = useAppDispatch();
   // const data = useAppSelector(selectCategories);
-  const { data } = useGetCategoriesQuery();
+  const { data } = useGetSubcategoriesQuery();
 
   // useEffect(() => {
   //     dispatch(fetchCategories());
