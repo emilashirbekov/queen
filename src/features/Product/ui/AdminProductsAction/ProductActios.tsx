@@ -12,9 +12,11 @@ import {
   useCreateProductMutation,
   useUpdateProductMutation,
 } from "../model/services/productAPI";
+import { useGetCategoriesQuery } from "@/features/Categories/ui/model/services/categoriesAPI";
 
 const ProductAction = () => {
   const { data: subCategories, isLoading, error } = useGetSubcategoriesQuery();
+  const { data: categories } = useGetCategoriesQuery();
   const {
     data: colors,
     isLoading: colorsLoading,
@@ -54,7 +56,6 @@ const ProductAction = () => {
   ) => {
     const { name, value } = e.target;
     setProductData({ ...productData, [name]: value });
-    
   };
   const handleMultiSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     const { name, options } = e.target;
@@ -83,16 +84,16 @@ const ProductAction = () => {
     formData.append("brand", productData.brand);
     productData.characteristics.forEach((characteristics) =>
       //@ts-ignore
-      formData.append("characteristics", characteristics.toString())
+      formData.append("characteristics", characteristics.toString()),
     );
     formData.append("images1", productData.images1);
     productData.color.forEach((color) =>
       //@ts-ignore
-      formData.append("color", color.toString())
+      formData.append("color", color.toString()),
     );
     productData.size.forEach((size) =>
       //@ts-ignore
-      formData.append("size", size.toString())
+      formData.append("size", size.toString()),
     );
     formData.append("discount", productData.discount);
     pathname.includes("change")
@@ -116,6 +117,9 @@ const ProductAction = () => {
     });
   };
 
+  // @ts-ignore
+  const fullCategories = [...subCategories.results, ...categories.results];
+
   return (
     <>
       <AddProductForm
@@ -125,7 +129,7 @@ const ProductAction = () => {
         //@ts-ignore
         productData={productData}
         handleSubmitFilters={handleSubmitFilters}
-        availableCategories={subCategories?.results}
+        availableCategories={fullCategories}
         handleInputChange={handleInputChange}
         handleMultiSelect={handleMultiSelect}
         handleFileChange={handleFileChange}
