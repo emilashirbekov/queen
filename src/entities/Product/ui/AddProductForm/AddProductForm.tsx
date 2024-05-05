@@ -13,7 +13,8 @@ import { ProductType } from "../../model/types/product.types";
 import { CategorysTypes } from "@/entities/Product/model/types/categorys.types";
 
 interface AddProductFormProps {
-  availableCategories: (SubCategory | CategorysTypes)[] | undefined;
+  availableSubCategories: SubCategory[] | undefined;
+  availableCategories: CategorysTypes[] | undefined;
   handleSubmitFilters: (e: ChangeEvent<HTMLFormElement>) => void;
   handleInputChange: (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -29,7 +30,7 @@ interface AddProductFormProps {
 const AddProductForm: React.FC<AddProductFormProps> = (props) => {
   const {
     characteristics,
-    availableCategories,
+    availableSubCategories,
     handleSubmitFilters,
     handleInputChange,
     handleMultiSelect,
@@ -173,7 +174,8 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
         <Select
           multipleType={true}
           data={
-            availableCategories && availableCategories.map((filter) => filter)
+            availableSubCategories &&
+            availableSubCategories.map((filter) => filter)
           }
           name="subcategory"
           //@ts-ignore
@@ -182,6 +184,18 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
         >
           {productData.subcategory}
         </Select>
+        {/*<Select*/}
+        {/*  multipleType={true}*/}
+        {/*  data={*/}
+        {/*    availableCategories && availableCategories.map((filter) => filter)*/}
+        {/*  }*/}
+        {/*  name="subcategory"*/}
+        {/*  //@ts-ignore*/}
+        {/*  value={productData.subcategory}*/}
+        {/*  onChange={handleInputChange}*/}
+        {/*>*/}
+        {/*  {productData.subcategory}*/}
+        {/*</Select>*/}
       </div>
 
       <Button type="submit" typeButton="" style="admin-button !text-base ">
