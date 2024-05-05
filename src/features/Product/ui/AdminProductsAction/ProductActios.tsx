@@ -54,6 +54,8 @@ const ProductAction = () => {
   ) => {
     const { name, value } = e.target;
     setProductData({ ...productData, [name]: value });
+    console.log(productData);
+    
   };
   const handleMultiSelect = (e: ChangeEvent<HTMLSelectElement>) => {
     const { name, options } = e.target;
