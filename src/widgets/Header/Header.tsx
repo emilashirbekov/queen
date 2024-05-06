@@ -14,6 +14,7 @@ const Header = () => {
   const closeModal = () => {
     setMenu(false);
   };
+
   return (
     <div className={cls.header + " text-white py-5"}>
       <div className="max-w-[1270px] mx-auto px-[15px]">

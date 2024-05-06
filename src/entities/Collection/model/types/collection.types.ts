@@ -1,5 +1,5 @@
 export interface CollectionTypes {
-  result: CollectionItems;
+  results: CollectionItems;
 }
 
 export interface CollectionItems {
