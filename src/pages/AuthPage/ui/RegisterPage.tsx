@@ -275,7 +275,7 @@ export const RegisterPage = () => {
           ) : null}
         </form>
         {step === "D" ? (
-          <div className="w-[30%] bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center">
+          <div className="w-[80%] lg:w-[30%] bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center">
             <div className="flex justify-end cursor-pointer">
               <XCircle size={22} onClick={() => navigate("/")} />
             </div>
@@ -318,7 +318,7 @@ export const RegisterPage = () => {
           </div>
         ) : null}
         {step === "E" ? (
-          <div className="w-[30%] bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center justify-center">
+          <div className="w-[80%] lg:w-[30%] bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center justify-center">
             <div className="flex justify-center">
               <SealCheck size={120} color="#71AC02" />
             </div>
@@ -335,7 +335,7 @@ export const RegisterPage = () => {
           </div>
         ) : null}
         {step === "Error" ? (
-          <div className="w-[30%] bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center justify-center">
+          <div className="w-[80%] lg:w-[30%] bg-thirsty rounded-[20px] py-[20px] px-[24px] flex flex-col gap-y-[24px] text-center justify-center">
             <div className="flex justify-center">
               <XCircle size={120} color="#BF2025" />
             </div>
