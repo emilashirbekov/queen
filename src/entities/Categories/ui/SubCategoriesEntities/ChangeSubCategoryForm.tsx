@@ -1,7 +1,7 @@
 import { CategorysTypes } from "@/entities/Product/model/types/categorys.types";
 import Button from "@/shared/ui/Buttons/Button";
 import InputField from "@/shared/ui/Inputs/InputField";
-import Select from "@/shared/ui/Select";
+// import Select from "@/shared/ui/Select";
 import { ChangeEvent, FC, FormEvent, memo } from "react";
 
 interface ChangeSubCategoryProps {
@@ -19,7 +19,7 @@ export const ChangeSubCategoryForm: FC<ChangeSubCategoryProps> = memo(
     const {
       handleInputChange,
       handleSubmitChangeSubcategory,
-      categories,
+      // categories,
       subCategoryValue,
       handleFileChange,
     } = props;
@@ -43,14 +43,14 @@ export const ChangeSubCategoryForm: FC<ChangeSubCategoryProps> = memo(
           placeholder="Выберите картинку"
           onChange={handleFileChange}
         />
-        <Select
-          data={categories}
-          name="category"
-          value={subCategoryValue.category}
-          onChange={handleInputChange}
-        >
-          Выберите категорию
-        </Select>
+        {/*<Select*/}
+        {/*  data={categories}*/}
+        {/*  name="category"*/}
+        {/*  value={subCategoryValue.category}*/}
+        {/*  onChange={handleInputChange}*/}
+        {/*>*/}
+        {/*  Выберите категорию*/}
+        {/*</Select>*/}
         <Button typeButton="" style="admin-button text-base" type="submit">
           Изменить под категорию
         </Button>
