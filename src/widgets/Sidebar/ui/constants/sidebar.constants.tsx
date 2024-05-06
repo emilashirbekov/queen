@@ -8,11 +8,8 @@ import {
   HouseSimple,
   Palette,
   Users,
-<<<<<<< HEAD
   Image
-=======
   BookmarksSimple,
->>>>>>> a9cd9cd113b99a89b29ff1b9dd9607ddfd3c9673
 } from "@phosphor-icons/react";
 
 export const menuItems = [
@@ -22,15 +19,14 @@ export const menuItems = [
     icon: <Bag size={24} />,
   },
   {
-<<<<<<< HEAD
     href: routeConfig.admin_panel_banner,
-    label: "Баннеры",
-    icon: <Image size={24} />,
-=======
+    label: "Банеры",
+    icon: <Image size={24}/>
+  },
+  {
     href: routeConfig.admin_collections,
     label: "Коллекция",
     icon: <BookmarksSimple size={32} />,
->>>>>>> a9cd9cd113b99a89b29ff1b9dd9607ddfd3c9673
   },
   {
     href: routeConfig.admin_users,
