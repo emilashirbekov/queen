@@ -6,6 +6,7 @@ import { AdminPanelHeader } from "@/widgets/AdminPanelHeader";
 import RequestProcessing from "@/widgets/RequestProcessing/RequestProcessing";
 import AdminPanelSizesForm from "./AdminPanelSizesForm";
 import AdminPanelSizesTable from "./AdminPanelSizesTable";
+import { AdminBannerPage } from "../../AdminBannerPage";
 
 const AdminSizesPage = () => {
   const { data: sizes, isLoading, error } = useGetSizesQuery();
@@ -23,6 +24,7 @@ const AdminSizesPage = () => {
         deleteSize={handleDeleteSize}
       />
       <RequestProcessing isLoading={isLoading} error={error} />
+      <AdminBannerPage />
     </section>
   );
 };
