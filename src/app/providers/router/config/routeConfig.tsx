@@ -29,6 +29,7 @@ import { PaymentMethod } from "@/widgets/Payment";
 import { RouteProps } from "react-router-dom";
 import CatalogPage from "../../../../pages/Catalog/ui/CatalogPage";
 import NotFound from "../../../../pages/NotFound";
+import { AdminBannerPage } from "@/pages/AdminPanelPages/AdminBannerPage";
 
 export enum AppRoutes {
   MAIN = "main",
@@ -46,6 +47,7 @@ export enum AppRoutes {
   PAYMENT_METHOD = "paymentMethod",
 
   ADMIN_PANEL_PRODUCTS = "admin_panel_products",
+  ADMIN_PANEL_BANNER = "admin_panel_banner",
   ADMIN_CHANGE_PRODUCTS = "admin_change_products/:id",
   ADMIN_ADD_PRODUCTS = "admin_add_products",
 
@@ -100,6 +102,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ADMIN_PANEL_PRODUCTS]: {
     path: "/admin_panel_products",
     element: <AdminPanelProducts />,
+  },
+  [AppRoutes.ADMIN_PANEL_BANNER]: {
+    path: "/admin_panel_banner",
+    element: <AdminBannerPage />,
   },
   [AppRoutes.ADMIN_CHANGE_PRODUCTS]: {
     path: "/admin_change_products/:id",

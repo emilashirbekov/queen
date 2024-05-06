@@ -29,6 +29,7 @@ import { colorsAPI } from "@/features/Colors&Sizes/ui/model/services/colorsApi";
 import { sizesAPI } from "@/features/Colors&Sizes/ui/model/services/sizesApi";
 import { characteristicsAPI } from "@/features/Characteristics/ui/model/services/characteristicsAPI";
 import { ordersReducer } from "@/pages/AdminPanelPages/AdminPanelOrders/model/slice/OrdersSlice";
+import { bannerReducer } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
 
 const authPersistConfig = {
   key: "store:users",
@@ -53,6 +54,7 @@ const rootReducer = combineReducers({
   orders: ordersReducer,
   users: usersReducer,
   auth: persistReducer(authPersistConfig, authReducer),
+  banner: bannerReducer,
 });
 
 export const store = configureStore({
