@@ -1,32 +1,78 @@
-import { useAppDispatch } from "@/app/providers/StoreProvider/config/hooks";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "@/app/providers/StoreProvider/config/hooks";
 import InputField from "@/shared/ui/Inputs/InputField";
-import { useState } from "react";
-import { postBanner } from "../api/BannerThunk";
+import React, { FormEvent, useEffect, useRef, useState } from "react";
+import { getSingleBanner, updateBanner } from "../api/BannerThunk";
+import {
+  selectBannerAdmin,
+  selectBannerAdminLoading,
+} from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
+import Loader from "@/shared/ui/Loader/Loader";
 
 export const AdminBannerPage = () => {
   const dispatch = useAppDispatch();
+  const imageSelect = useRef<HTMLInputElement>(null);
+  const [filename, setFilename] = useState("");
   const [bannerData, setBannerData] = useState({
     name: "",
     images: "",
   });
+  const banner = useAppSelector(selectBannerAdmin);
+  const loading = useAppSelector(selectBannerAdminLoading);
+
+  useEffect(() => {
+    dispatch(getSingleBanner());
+  }, [dispatch]);
 
   const handleTextChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBannerData({ ...bannerData, name: e.target.value });
   };
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files && e.target.files[0];
-    if (file && file[0]) {
-      setBannerData((prev) => ({...prev, images: files[0] }));
+
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, files } = event.target;
+    if (files && files[0]) {
+      setFilename(files[0].name);
+      setBannerData((prevState) => ({ ...prevState, [name]: files[0] }));
     }
   };
 
-  const onSubmit = () => {
-    dispatch(postBanner(bannerData))
+  const selectImage = () => {
+    if (imageSelect.current) {
+      imageSelect.current.click();
+    }
   };
 
+  const handleSubmit = async (event: FormEvent) => {
+    event.preventDefault();
+    await dispatch(updateBanner(bannerData)).unwrap();
+    await dispatch(getSingleBanner()).unwrap();
+    setBannerData({
+      name: "",
+      images: "",
+    });
+    setFilename("");
+  };
+
+  const clearImageField = () => {
+    setFilename("");
+    setBannerData((prevState) => ({
+      ...prevState,
+      images: "",
+    }));
+    if (imageSelect.current) {
+      imageSelect.current.value = "";
+    }
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
-      <div style={{ width: "100%" }}>
+    <div className="container mx-auto">
+      <form onSubmit={handleSubmit}>
         <InputField
           required={true}
           style="my-5"
@@ -39,17 +85,45 @@ export const AdminBannerPage = () => {
         />
         <input
           type="file"
+          name="images"
+          ref={imageSelect}
           onChange={handleImageChange}
-          className="text-blue-700 border-dashed font-semibold py-2 px-4 border border-black rounded"
+          className="hidden"
         />
+        {filename.length !== 0 ? (
+          <div className="flex gap-x-3">
+            <input type="text" value={filename} />
+            <button
+              className="bg-red text-white px-3 py-2 rounded-[5px]"
+              type="button"
+              onClick={clearImageField}
+            >
+              clear
+            </button>
+          </div>
+        ) : (
+          <button
+            onClick={selectImage}
+            className="text-blue-700 border-dashed font-semibold py-2 px-4 border border-black rounded"
+          >
+            Photo
+          </button>
+        )}
         <div className="py-5">
           <button
-            onClick={onSubmit}
+            type="submit"
             className="text-blue-700 border-dashed font-semibold py-3 px-4 border border-black rounded"
           >
-            selectImage
+            Изменить
           </button>
         </div>
+      </form>
+      <div>
+        <p>
+          Баннер
+          <img src={banner?.images} alt="banner" />
+        </p>
+        <h2 className="text-[24px]">Название: {banner?.name}</h2>
       </div>
     </div>
   );

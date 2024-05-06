@@ -1,39 +1,53 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { Banner } from "../types/types"
-import { getBanner } from "../../api/BannerThunk";
+import { Banner, BannerApi } from "../types/types";
+import { getSingleBanner } from "../../api/BannerThunk";
 import { RootState } from "@/app/providers/StoreProvider/config/store";
 
 interface BannerState {
-    banner: Banner[];
-    isLoading: boolean;
-    isError: boolean;
+  banners: Banner[];
+  banner: BannerApi | null;
+  isLoading: boolean;
+  isError: boolean;
 }
 
 const initialState: BannerState = {
-    banner: [],
-    isLoading: false,
-    isError: false
+  banners: [],
+  banner: null,
+  isLoading: false,
+  isError: false,
 };
 
 const bannerSlice = createSlice({
-    name: 'banner',
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(getBanner.pending, (state) => {
-            state.isLoading = true;
-            state.isError = false;
-        })
-        builder.addCase(getBanner.fulfilled, (state, action) => {
-            state.isLoading = false;
-            state.banner = action.payload;
-        })
-        builder.addCase(getBanner.rejected, (state) => {
-            state.isError = true;
-        })
-    }
-})
+  name: "banner",
+  initialState,
+  reducers: {},
+  extraReducers: (builder) => {
+    // builder.addCase(getBanner.pending, (state) => {
+    //   state.isLoading = true;
+    //   state.isError = false;
+    // });
+    // builder.addCase(getBanner.fulfilled, (state, action) => {
+    //   state.isLoading = false;
+    //   state.banner = action.payload;
+    // });
+    // builder.addCase(getBanner.rejected, (state) => {
+    //   state.isError = true;
+    // });
+    builder.addCase(getSingleBanner.pending, (state) => {
+      state.isLoading = true;
+      state.isError = false;
+    });
+    builder.addCase(getSingleBanner.fulfilled, (state, { payload: banner }) => {
+      state.isLoading = false;
+      state.banner = banner;
+    });
+    builder.addCase(getSingleBanner.rejected, (state) => {
+      state.isError = true;
+    });
+  },
+});
 
 export const bannerReducer = bannerSlice.reducer;
 export const selectBannerAdmin = (state: RootState) => state.banner.banner;
-export const selectBannerAdminLoading = (state: RootState) => state.banner.isLoading;
+export const selectBannerAdminLoading = (state: RootState) =>
+  state.banner.isLoading;
