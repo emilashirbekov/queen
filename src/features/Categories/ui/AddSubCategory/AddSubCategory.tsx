@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { AddSubCategoryForm } from "@/entities/Categories";
 import { useCreateSubcategoryMutation } from "@/features/SubCategories/ui/services/apiSubCategories";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useRef, useState } from "react";
 import { useGetCategoriesQuery } from "../model/services/categoriesAPI";
 import SuccessErrorMessage from "@/shared/ui/SuccessErrorMessage";
 import RequestProcessing from "@/widgets/RequestProcessing/RequestProcessing";
@@ -15,6 +15,8 @@ export const AddSubCategory = () => {
     image: "",
     category: "",
   });
+  const imageSelect = useRef<HTMLInputElement>(null);
+  const [filename, setFilename] = useState("");
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>,
@@ -23,11 +25,32 @@ export const AddSubCategory = () => {
     setSubCategoryValue({ ...subCategoryValue, [name]: value });
   };
 
-  const handleFileChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    //@ts-ignore
-    setSubCategoryValue({ ...subCategoryValue, image: file });
+  const selectImage = () => {
+    if (imageSelect.current) {
+      imageSelect.current.click();
+    }
+  };
+
+  const changeImageFiled = (event: ChangeEvent<HTMLInputElement>) => {
+    const { name, files } = event.target;
+    if (files && files[0]) {
+      setFilename(files[0].name);
+      setSubCategoryValue((prevState) => ({
+        ...prevState,
+        [name]: files[0],
+      }));
+    }
+  };
+
+  const clearImageField = () => {
+    setFilename("");
+    setSubCategoryValue((prevState) => ({
+      ...prevState,
+      image: "",
+    }));
+    if (imageSelect.current) {
+      imageSelect.current.value = "";
+    }
   };
 
   const handleSubmitCategories = (e: ChangeEvent<HTMLFormElement>) => {
@@ -38,6 +61,10 @@ export const AddSubCategory = () => {
     // formData.append("category", subCategoryValue.category);
     //@ts-ignore
     createSubcategory(formData);
+    setFilename("");
+    if (imageSelect.current) {
+      imageSelect.current.value = "";
+    }
     setSubCategoryValue({
       title: "",
       image: "",
@@ -50,9 +77,13 @@ export const AddSubCategory = () => {
       <AddSubCategoryForm
         categories={categories?.results}
         subCategoryValue={subCategoryValue}
-        handleFileChange={handleFileChange}
+        handleFileChange={changeImageFiled}
         handleInputChange={handleInputChange}
         handleSubmitCategories={handleSubmitCategories}
+        imageSelect={imageSelect}
+        filename={filename}
+        selectImage={() => selectImage()}
+        clearImage={() => clearImageField()}
       />
       <RequestProcessing isLoading={isLoading} error={error} />
       <SuccessErrorMessage
