@@ -31,6 +31,7 @@ import CatalogPage from "../../../../pages/Catalog/ui/CatalogPage";
 import NotFound from "../../../../pages/NotFound";
 import { AdminBannerPage } from "@/pages/AdminPanelPages/AdminBannerPage";
 import { AdminCollectionPage } from "@/pages/AdminPanelPages/AdminCollectionPanel";
+import { AdminRecomendationPanel } from '@/pages/AdminPanelPages/AdminRecommendationPanel/AdminRecomendationPanel'
 
 export enum AppRoutes {
   MAIN = "main",
@@ -61,6 +62,7 @@ export enum AppRoutes {
   ADMIN_PANEL_USERS = "admin_users",
   ADMIN_PANEL_ORDERS = "admin_orders",
   ADMIN_PANEL_COLLECTIONS = "admin_collections",
+  ADMIN_PANEL_RECOMENDATION = "admin_recomendation",
 
   ADMIN_PANEL_COLORS = "admin_panel_colors",
   ADMIN_PANEL_SIZES = "admin_panel_sizes",
@@ -188,5 +190,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ADMIN_PANEL_COLLECTIONS]: {
     path: "/admin_panel_collections",
     element: <AdminCollectionPage />,
+  },
+  [AppRoutes.ADMIN_PANEL_RECOMENDATION]: {
+    path: "/admin_panel_recomendation",
+    element: <AdminRecomendationPanel />,
   },
 };
