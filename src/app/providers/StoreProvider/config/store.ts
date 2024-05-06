@@ -1,5 +1,7 @@
 import categorysReducer from "@/entities/Product/model/slice/categorysSlice";
 import collectionReducer from "@/entities/Collection/model/slice/collectionSlice";
+import recomendationReducer from "@/entities/Collection/model/slice/recomendationSlice";
+
 import productsReducer from "@/entities/Product/model/slice/productsSlice";
 import productCategoriesReducer from "@/features/FilterProductByCategory/model/slice/ProductCategorySlice";
 import sortProductsReducer from "@/features/SortProducts/model/slice/SortProductsSlice";
@@ -49,6 +51,7 @@ const rootReducer = combineReducers({
   products: productsReducer,
   categorys: categorysReducer,
   collection: collectionReducer,
+  recomendation: recomendationReducer,
   personal: personalReducer,
   orders: ordersReducer,
   users: usersReducer,
