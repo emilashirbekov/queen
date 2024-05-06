@@ -7,8 +7,15 @@ import { useEffect, useState } from "react";
 import { fetchProducts } from "@/entities/Product";
 import { Link } from "react-router-dom";
 import Loader from "@/shared/ui/Loader/Loader";
-import { fetchRecomendation, updateRecomendation } from '@/entities/Collection/model/services/fetchRecomendation'
-import { selectRecomendationLoading, selectRecomendations } from '@/entities/Collection/model/slice/recomendationSlice'
+import {
+  deleteRecommendation,
+  fetchRecomendation,
+  updateRecomendation,
+} from "@/entities/Collection/model/services/fetchRecomendation";
+import {
+  selectRecomendationLoading,
+  selectRecomendations,
+} from "@/entities/Collection/model/slice/recomendationSlice";
 
 export const AdminRecomendationPanel = () => {
   const [collections, setCollections] = useState<number[]>([]);
@@ -26,16 +33,15 @@ export const AdminRecomendationPanel = () => {
     setCollections((prevState) => [...prevState, id]);
   };
 
-  const deleteFromCollection = (id: number) => {
-    setCollections((prevState) => {
-      const oldCollections = [...prevState];
-
-      return oldCollections.filter((idColl) => idColl !== id);
-    });
+  const deleteFromCollection = async (id: number) => {
+    await dispatch(deleteRecommendation(id)).unwrap();
+    await dispatch(fetchRecomendation());
   };
 
   const refreshCollections = async () => {
-    await dispatch(updateRecomendation({ id: 1, product: collections })).unwrap();
+    await dispatch(
+      updateRecomendation({ id: 1, product: collections }),
+    ).unwrap();
     await dispatch(fetchRecomendation()).unwrap();
     setCollections([]);
   };
@@ -49,7 +55,6 @@ export const AdminRecomendationPanel = () => {
   if (status === "loading") {
     return <Loader />;
   }
-  
 
   // @ts-ignore
   return (
@@ -130,6 +135,12 @@ export const AdminRecomendationPanel = () => {
                     <span>Название</span> {product.title}
                   </p>
                 </Link>
+                <button
+                  className="admin-button text-base"
+                  onClick={() => deleteFromCollection(product.id)}
+                >
+                  удалить из рекомендаций
+                </button>
               </li>
             ))
         }
