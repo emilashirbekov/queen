@@ -10,6 +10,7 @@ import {
   Users,
   Image,
   BookmarksSimple,
+  FolderStar,
 } from "@phosphor-icons/react";
 
 export const menuItems = [
@@ -27,6 +28,11 @@ export const menuItems = [
     href: routeConfig.admin_collections,
     label: "Коллекция",
     icon: <BookmarksSimple size={32} />,
+  },
+  {
+    href: routeConfig.admin_recomendation,
+    label: "Рекомендации",
+    icon: <FolderStar size={24} />,
   },
   {
     href: routeConfig.admin_users,
@@ -62,5 +68,5 @@ export const menuItems = [
     href: routeConfig.main,
     label: "К магазину",
     icon: <HouseSimple size={24} />,
-  },
+  }
 ];

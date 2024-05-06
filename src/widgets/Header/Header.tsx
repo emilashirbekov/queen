@@ -76,7 +76,7 @@ const Header = () => {
                   className="w-[18px] h-[18px] sm:w-[24px] sm:h-[24px] cursor-pointer"
                 />
                 {menu ? (
-                  <div className="absolute  min-w-[274px] box-border top-[60px] left-[-230px] z-100">
+                  <div className="absolute min-w-[274px] box-border top-[60px] left-[-130px] z-100 md:left-[-210px]">
                     <UserPanel
                       onClose={() => setMenu((prevState) => !prevState)}
                     />
