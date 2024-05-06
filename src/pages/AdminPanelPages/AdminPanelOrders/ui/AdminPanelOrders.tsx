@@ -55,10 +55,14 @@ export const AdminPanelOrders = () => {
   };
 
   const saveStatus = async (id: number) => {
-    await dispatch(changeStatusOrder({ id, status }));
-    await dispatch(getOrders());
-    setSelectId(0);
-    setChangeStatus(false);
+    if (status === "") {
+      return false;
+    } else {
+      await dispatch(changeStatusOrder({ id, status }));
+      await dispatch(getOrders());
+      setSelectId(0);
+      setChangeStatus(false);
+    }
   };
 
   if (loading) {
@@ -82,9 +86,8 @@ export const AdminPanelOrders = () => {
                     setStatus(event.target.value)
                   }
                 >
-                  <option selected value="На проверке">
-                    На проверке
-                  </option>
+                  <option value=""></option>
+                  <option value="На проверке">На проверке</option>
                   <option value="Оплачено">Оплачено</option>
                   <option value="Доставлено">Доставлено</option>
                 </select>
