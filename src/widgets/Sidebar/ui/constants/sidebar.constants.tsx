@@ -8,6 +8,7 @@ import {
   HouseSimple,
   Palette,
   Users,
+  Image,
   BookmarksSimple,
 } from "@phosphor-icons/react";
 
@@ -16,6 +17,11 @@ export const menuItems = [
     href: routeConfig.admin_panel_products,
     label: "Товары",
     icon: <Bag size={24} />,
+  },
+  {
+    href: routeConfig.admin_panel_banner,
+    label: "Банеры",
+    icon: <Image size={24} />,
   },
   {
     href: routeConfig.admin_collections,
