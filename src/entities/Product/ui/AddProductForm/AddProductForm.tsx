@@ -25,20 +25,43 @@ interface AddProductFormProps {
   characteristics: CharacteristicsTypes[] | undefined;
   colors: ColorTypes[] | undefined;
   sizes: SizesTypes[] | undefined;
+  imageSelect: React.RefObject<HTMLInputElement>;
+  imageSelect2: React.RefObject<HTMLInputElement>;
+  imageSelect3: React.RefObject<HTMLInputElement>;
+  selectImage: () => void;
+  selectImage2: () => void;
+  selectImage3: () => void;
+  clearImage: () => void;
+  clearImage2: () => void;
+  clearImage3: () => void;
+  filename: string;
+  filename2: string;
+  filename3: string;
 }
 
-const AddProductForm: React.FC<AddProductFormProps> = (props) => {
-  const {
-    characteristics,
-    availableSubCategories,
-    handleSubmitFilters,
-    handleInputChange,
-    handleMultiSelect,
-    productData,
-    handleFileChange,
-    colors,
-    sizes,
-  } = props;
+const AddProductForm: React.FC<AddProductFormProps> = ({
+  characteristics,
+  availableSubCategories,
+  handleSubmitFilters,
+  handleInputChange,
+  handleMultiSelect,
+  productData,
+  handleFileChange,
+  colors,
+  sizes,
+  imageSelect,
+  imageSelect2,
+  imageSelect3,
+  selectImage,
+  selectImage2,
+  selectImage3,
+  clearImage,
+  clearImage2,
+  clearImage3,
+  filename,
+  filename2,
+  filename3,
+}) => {
   const pathname = window.location.pathname;
 
   return (
@@ -73,39 +96,103 @@ const AddProductForm: React.FC<AddProductFormProps> = (props) => {
         value={productData.brand}
         onChange={handleInputChange}
       />
-      <label htmlFor="images1">
-        {`${pathname.includes("change") ? "Выберите новую картинку" : "Выберите картинку(обязательно)"}`}
-      </label>
-      <InputField
-        required={true}
-        style="my-5"
-        typeField=""
-        type="file"
-        name="images1"
-        onChange={handleFileChange}
-      />
-      <label htmlFor="images2">
-        {`${pathname.includes("change") ? "Выберите новую картинку" : "Выберите картинку(не обязательно)"}`}
-      </label>
-      <InputField
-        required={false}
-        style="my-5"
-        typeField=""
-        type="file"
-        name="images2"
-        onChange={handleFileChange}
-      />
-      <label htmlFor="images3">
-        {`${pathname.includes("change") ? "Выберите новую картинку" : "Выберите картинку(не обязательно)"}`}
-      </label>
-      <InputField
-        required={false}
-        style="my-5"
-        typeField=""
-        type="file"
-        name="images3"
-        onChange={handleFileChange}
-      />
+      <div className="flex flex-col gap-y-5 my-3">
+        <label htmlFor="images1">
+          {`${pathname.includes("change") ? "Выберите новую картинку" : "Выберите картинку(обязательно)"}`}
+        </label>
+        <input
+          type="file"
+          className="hidden"
+          name="images1"
+          ref={imageSelect}
+          onChange={handleFileChange}
+        />
+        {filename.length === 0 ? (
+          <button
+            type="button"
+            onClick={selectImage}
+            className="text-blue-700 border-dashed font-semibold py-2 px-4 border border-black rounded"
+          >
+            Photo 1
+          </button>
+        ) : (
+          <div className="flex gap-x-3">
+            <input type="text" value={filename} />
+            <button
+              onClick={clearImage}
+              type="button"
+              className="bg-red text-white px-3 py-2 rounded-[5px]"
+            >
+              clear
+            </button>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-col gap-y-5 my-3">
+        <label htmlFor="images2">
+          {`${pathname.includes("change") ? "Выберите новую картинку" : "Выберите картинку(не обязательно)"}`}
+        </label>
+        <input
+          type="file"
+          className="hidden"
+          name="images2"
+          ref={imageSelect2}
+          onChange={handleFileChange}
+        />
+        {filename2.length === 0 ? (
+          <button
+            type="button"
+            onClick={selectImage2}
+            className="text-blue-700 border-dashed font-semibold py-2 px-4 border border-black rounded"
+          >
+            Photo 2
+          </button>
+        ) : (
+          <div className="flex gap-x-3">
+            <input type="text" value={filename2} />
+            <button
+              type="button"
+              onClick={clearImage2}
+              className="bg-red text-white px-3 py-2 rounded-[5px]"
+            >
+              clear
+            </button>
+          </div>
+        )}
+      </div>
+      <div className="flex flex-col gap-y-5 my-3">
+        <label htmlFor="images3">
+          {`${pathname.includes("change") ? "Выберите новую картинку" : "Выберите картинку(не обязательно)"}`}
+        </label>
+        <input
+          type="file"
+          className="hidden"
+          name="images3"
+          ref={imageSelect3}
+          onChange={handleFileChange}
+        />
+        {filename3.length === 0 ? (
+          <button
+            type="button"
+            onClick={selectImage3}
+            className="text-blue-700 border-dashed font-semibold py-2 px-4 border border-black rounded"
+          >
+            Photo 3
+          </button>
+        ) : (
+          <div className="flex gap-x-3">
+            <input type="text" value={filename3} />
+            <button
+              type="button"
+              onClick={clearImage3}
+              className="bg-red text-white px-3 py-2 rounded-[5px]"
+            >
+              clear
+            </button>
+          </div>
+        )}
+      </div>
+
       <InputField
         required={true}
         style="my-5"
