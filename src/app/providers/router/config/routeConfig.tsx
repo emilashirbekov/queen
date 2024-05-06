@@ -29,6 +29,7 @@ import { PaymentMethod } from "@/widgets/Payment";
 import { RouteProps } from "react-router-dom";
 import CatalogPage from "../../../../pages/Catalog/ui/CatalogPage";
 import NotFound from "../../../../pages/NotFound";
+import { AdminCollectionPage } from "@/pages/AdminPanelPages/AdminCollectionPanel";
 
 export enum AppRoutes {
   MAIN = "main",
@@ -57,6 +58,7 @@ export enum AppRoutes {
   ADMIN_CHANGE_CATEGORIES = "admin_change_categories",
   ADMIN_PANEL_USERS = "admin_users",
   ADMIN_PANEL_ORDERS = "admin_orders",
+  ADMIN_PANEL_COLLECTIONS = "admin_collections",
 
   ADMIN_PANEL_COLORS = "admin_panel_colors",
   ADMIN_PANEL_SIZES = "admin_panel_sizes",
@@ -176,5 +178,9 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.PAYMENT_METHOD]: {
     path: "/paymentMethod",
     element: <PaymentMethod />,
+  },
+  [AppRoutes.ADMIN_PANEL_COLLECTIONS]: {
+    path: "/admin_panel_collections",
+    element: <AdminCollectionPage />,
   },
 };
