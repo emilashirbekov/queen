@@ -15,6 +15,8 @@ const RecomendationSection = () => {
 		dispatch(fetchRecomendation());
 	}, [dispatch]);
 
+	console.log(products);
+	
 	return (
 		<section>
 			<div className='max-container'>
@@ -33,7 +35,8 @@ const RecomendationSection = () => {
 					imageClassName='min-h-[180px] min-w-[180px] max-h-[302px] max-w-[302px] h-[180px] w-[180px] md:w-[302px] md:h-[302px] object-cover bg-white rounded-[20px]'
 					textClassName='w-full'
 					favorite={true}
-					data={products}
+					//@ts-ignore
+					data={products[0].products}
 					//break0={1}
 					break500={2}
 					break768={2}
