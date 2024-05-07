@@ -1,10 +1,22 @@
-import { useGetCollectionQuery } from "@/features/Collections/ui/model/services/collectionAPI";
 import { Link } from "react-router-dom";
 import Slider from "../MainComponents/Slider";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "@/app/providers/StoreProvider/config/hooks";
+import { selectCollections } from "@/entities/Collection/model/slice/collectionSlice";
+import { useEffect } from "react";
+import { fetchCollection } from "@/entities/Collection/model/services/fetchCollection";
 const CollectionSection = () => {
-  const { data } = useGetCollectionQuery();
-  // @ts-ignore
-  const collection = data?.results[0]?.products;
+  // const { data } = useGetCollectionQuery();
+  // // @ts-ignore
+  // const collection = data?.results[0]?.products;
+  const collectionsData = useAppSelector(selectCollections);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCollection());
+  }, [dispatch]);
 
   const click = () => {
     console.log(1);
@@ -34,7 +46,10 @@ const CollectionSection = () => {
           textClassName="w-full"
           onClick={click}
           favorite={true}
-          data={collection}
+          data={
+            //@ts-ignore
+            collectionsData.results ? collectionsData.results[0].products : []
+          }
           break0={1}
           break1024={2}
           break1366={2}
