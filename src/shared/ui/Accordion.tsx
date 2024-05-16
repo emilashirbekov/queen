@@ -22,7 +22,7 @@ const Accordion: React.FC<AccordionProps> = ({ desc, label }) => {
         {isActive ? <Minus size={24} /> : <Plus size={24} />}
       </p>
       <p
-        className={`text-sm sm:text-lg overflow-hidden transition-all duration-500 ${isActive ? "max-h-20" : "max-h-0"}`}
+        className={`text-sm sm:text-lg overflow-hidden transition-all duration-500 ${isActive ? "max-h-30" : "max-h-0"}`}
       >
         {desc}
       </p>
