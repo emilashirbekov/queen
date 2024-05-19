@@ -40,14 +40,16 @@ export const AdminPanelUsers = () => {
     <div className="container mx-auto">
       <h1>Users</h1>
       <div className="overflow-x-auto">
-        {users.map((user) => (
+        {users.map((user, index) => (
           <div
             key={user.id}
             className="flex box-border justify-between border-b py-[10px] px-[15px] border-gray-400 min-w-[1200px] w-full"
           >
             <div className="grid grid-cols-12 gap-x-2 w-full">
               <div className="grid col-span-2">
-                <p>{user.username}</p>
+                <p>
+                  {index + 1} - {user.username}
+                </p>
               </div>
               <div className="grid col-span-3">
                 <p className="font-bold text-gray-500">{user.email}</p>

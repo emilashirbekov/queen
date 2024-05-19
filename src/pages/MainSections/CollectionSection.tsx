@@ -7,15 +7,19 @@ import {
 import { selectCollections } from "@/entities/Collection/model/slice/collectionSlice";
 import { useEffect } from "react";
 import { fetchCollection } from "@/entities/Collection/model/services/fetchCollection";
+import { selectBannersAdmin } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
+import { getBanners } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
 const CollectionSection = () => {
   // const { data } = useGetCollectionQuery();
   // // @ts-ignore
   // const collection = data?.results[0]?.products;
   const collectionsData = useAppSelector(selectCollections);
+  const banners = useAppSelector(selectBannersAdmin);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchCollection());
+    dispatch(getBanners());
   }, [dispatch]);
 
   const click = () => {
@@ -23,10 +27,15 @@ const CollectionSection = () => {
   };
   return (
     <section className="flex flex-col md:flex-row gap-[30px]">
-      <div className="flex flex-col justify-end p-[50px] bg-bg-image-main4 bg-center bg-no-repeat bg-cover md:max-w-[570px] w-full h-[672px] rounded-[30px]">
+      <div
+        className="flex flex-col justify-end p-[50px] bg-center bg-no-repeat bg-cover md:max-w-[570px] w-full h-[672px] rounded-[30px]"
+        style={{
+          backgroundImage: `url('${banners[3]?.images}')`,
+        }}
+      >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
           <h2 className="text-[32px] font-bold text-white">
-            Новая коллекция свитеров
+            {banners[3] ? banners[3].name : "Title"}
           </h2>
           <Link
             to="/catalog/all"
