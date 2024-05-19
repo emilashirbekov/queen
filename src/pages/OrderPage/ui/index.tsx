@@ -11,6 +11,7 @@ import Loader from "@/shared/ui/Loader/Loader";
 import { useEffect } from "react";
 import { getSingleOrder } from "@/pages/MyRoomPage/api/personalThunk";
 import dayjs from "dayjs";
+import { BASE_URL } from "@/app/constants/contants";
 
 export const OrderPage = () => {
   const { id } = useParams() as { id: string };
@@ -34,6 +35,7 @@ export const OrderPage = () => {
   const discount = order.products.reduce((sum, product) => {
     return sum + product.discount;
   }, 0);
+
   return (
     <div className="w-[90%] md:container mx-auto">
       <button
@@ -81,7 +83,7 @@ export const OrderPage = () => {
                     Скидка
                   </p>
                   <p className="text-[28px] text-red font-medium">
-                    {discount ? discount + " сом" : "Нет"}
+                    -{discount ? discount + " сом" : "Нет"}
                   </p>
                 </div>
                 <div className="flex flex-col gap-y-[16px]">
@@ -101,11 +103,18 @@ export const OrderPage = () => {
                 <img
                   key={product.id}
                   className="bg-secondary border border-thirsty w-[65px] md:w-[124px] rounded-[5px] md:rounded-[25px]"
-                  src={"https://back.queen-shops.com" + product.images1}
+                  src={BASE_URL + product.images1}
                   alt="item"
                 />
               ))}
             </div>
+          </div>
+          <div>
+            {order.products.map((product) => (
+              <div>
+                <p>{product.title}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
