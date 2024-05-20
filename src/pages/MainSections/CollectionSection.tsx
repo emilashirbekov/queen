@@ -9,6 +9,7 @@ import { useEffect } from "react";
 import { fetchCollection } from "@/entities/Collection/model/services/fetchCollection";
 import { selectBannersAdmin } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
 import { getBanners } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
+import { BASE_URL } from "@/app/constants/contants";
 const CollectionSection = () => {
   // const { data } = useGetCollectionQuery();
   // // @ts-ignore
@@ -30,12 +31,14 @@ const CollectionSection = () => {
       <div
         className="flex flex-col justify-end p-[50px] bg-center bg-no-repeat bg-cover md:max-w-[570px] w-full h-[672px] rounded-[30px]"
         style={{
-          backgroundImage: `url('${banners[3]?.images}')`,
+          backgroundImage: `url('${BASE_URL + banners.find((banner) => banner.id === 4)?.images}')`,
         }}
       >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
           <h2 className="text-[32px] font-bold text-white">
-            {banners[3] ? banners[3].name : "Title"}
+            {banners
+              ? banners.find((banner) => banner.id === 4)?.name
+              : "Title"}
           </h2>
           <Link
             to="/catalog/all"

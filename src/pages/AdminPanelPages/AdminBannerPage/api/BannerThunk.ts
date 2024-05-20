@@ -1,7 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { Banner, BannerApi } from "../model/types/types";
 import { axiosApi } from "@/app/providers/http/axiosApi";
-import { ListResponse } from "@/app/types/types";
 import { BannerMutation } from "@/pages/AdminPanelPages/AdminBannerPage/ui/AdminBannerPage";
 
 //
@@ -15,20 +14,25 @@ import { BannerMutation } from "@/pages/AdminPanelPages/AdminBannerPage/ui/Admin
 //   },
 // );
 
+interface Banners {
+  results: {
+    topik_baner: Banner[];
+  }[];
+}
+
 export const getBanners = createAsyncThunk<Banner[]>(
   "admin/getBanners",
   async () => {
-    const response =
-      await axiosApi.get<ListResponse<Banner>>(`/banner/banners/`);
-    return response.data.results;
+    const response = await axiosApi.get<Banners>(`/banner/banners/`);
+    return response.data.results[0].topik_baner;
   },
 );
 
-export const getSingleBanner = createAsyncThunk<BannerApi, number>(
+export const getSingleBanner = createAsyncThunk<BannerApi, string>(
   "admin/getBanner",
   async (id) => {
     const response = await axiosApi.get<BannerApi>(
-      `/banner/banners/detail/${id}/`,
+      `/banner/topik/banners/rud/${id}/`,
     );
     return response.data;
   },
@@ -36,7 +40,7 @@ export const getSingleBanner = createAsyncThunk<BannerApi, number>(
 
 interface BannerUpdate {
   banner: BannerMutation;
-  id: number;
+  id: string;
 }
 
 export const updateBanner = createAsyncThunk<void, BannerUpdate>(
@@ -47,6 +51,6 @@ export const updateBanner = createAsyncThunk<void, BannerUpdate>(
     if (banner.images) {
       formData.append("images", banner.images);
     }
-    await axiosApi.put(`/banner/banners/delete/${id}/`, formData);
+    await axiosApi.patch(`/banner/topik/banners/rud/${id}/`, formData);
   },
 );
