@@ -31,7 +31,8 @@ import CatalogPage from "../../../../pages/Catalog/ui/CatalogPage";
 import NotFound from "../../../../pages/NotFound";
 import { AdminBannerPage } from "@/pages/AdminPanelPages/AdminBannerPage";
 import { AdminCollectionPage } from "@/pages/AdminPanelPages/AdminCollectionPanel";
-import { AdminRecomendationPanel } from '@/pages/AdminPanelPages/AdminRecommendationPanel/AdminRecomendationPanel'
+import { AdminRecomendationPanel } from "@/pages/AdminPanelPages/AdminRecommendationPanel/AdminRecomendationPanel";
+import AdminBannerForm from "@/pages/AdminPanelPages/AdminBannerPage/ui/AdminBannerForm";
 
 export enum AppRoutes {
   MAIN = "main",
@@ -50,6 +51,7 @@ export enum AppRoutes {
 
   ADMIN_PANEL_PRODUCTS = "admin_panel_products",
   ADMIN_PANEL_BANNER = "admin_panel_banner",
+  ADMIN_PANEL_BANNER_FORM = "admin_panel_banner/submit/:id",
   ADMIN_CHANGE_PRODUCTS = "admin_change_products/:id",
   ADMIN_ADD_PRODUCTS = "admin_add_products",
 
@@ -110,6 +112,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ADMIN_PANEL_BANNER]: {
     path: "/admin_panel_banner",
     element: <AdminBannerPage />,
+  },
+  [AppRoutes.ADMIN_PANEL_BANNER_FORM]: {
+    path: "/admin_panel_banner/submit/:id",
+    element: <AdminBannerForm />,
   },
   [AppRoutes.ADMIN_CHANGE_PRODUCTS]: {
     path: "/admin_change_products/:id",

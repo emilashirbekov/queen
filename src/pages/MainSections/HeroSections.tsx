@@ -12,7 +12,7 @@ const HeroSections = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getSingleBanner());
+    dispatch(getSingleBanner("1"));
   }, [dispatch]);
 
   return (

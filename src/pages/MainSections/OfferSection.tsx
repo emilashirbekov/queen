@@ -1,12 +1,34 @@
 import { Link } from "react-router-dom";
+import {
+  useAppDispatch,
+  useAppSelector,
+} from "@/app/providers/StoreProvider/config/hooks";
+import { selectBannersAdmin } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
+import { useEffect } from "react";
+import { getBanners } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
+import { BASE_URL } from "@/app/constants/contants";
 
 const OfferSection = () => {
+  const banners = useAppSelector(selectBannersAdmin);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getBanners());
+  }, [dispatch]);
+
   return (
     <section className="flex flex-col md:flex-row justify-between gap-[50px]">
-      <div className="flex flex-col justify-end p-[34px] bg-bg-image-main2 bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]">
+      <div
+        className="flex flex-col justify-end p-[34px] bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]"
+        style={{
+          backgroundImage: `url('${BASE_URL + banners.find((banner) => banner.id === 1)?.images}')`,
+        }}
+      >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
           <h2 className="text-[22px] md:text-[32px] font-bold text-white">
-            Легкость Весны: Коллекция от Queen
+            {banners
+              ? banners.find((banner) => banner.id === 1)?.name
+              : "Title"}
           </h2>
           <Link
             to={"/catalog/all"}
@@ -16,10 +38,17 @@ const OfferSection = () => {
           </Link>
         </div>
       </div>
-      <div className="flex flex-col justify-end p-[34px] bg-bg-image-main3 bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]">
+      <div
+        className="flex flex-col justify-end p-[34px] bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]"
+        style={{
+          backgroundImage: `url('${BASE_URL + banners.find((banner) => banner.id === 2)?.images}')`,
+        }}
+      >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
           <h2 className="text-[22px] md:text-[32px] font-bold text-white">
-            Легкость Весны: Коллекция от Queen
+            {banners
+              ? banners.find((banner) => banner.id === 2)?.name
+              : "Title"}
           </h2>
           <Link
             to="/catalog/all"

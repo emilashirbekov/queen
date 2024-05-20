@@ -1,4 +1,5 @@
 export interface Banner {
+  id: number;
   name: string;
   images: string;
 }
