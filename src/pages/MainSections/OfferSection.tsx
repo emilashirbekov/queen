@@ -21,13 +21,13 @@ const OfferSection = () => {
       <div
         className="flex flex-col justify-end p-[34px] bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]"
         style={{
-          backgroundImage: `url('${BASE_URL + banners.find((banner) => banner.id === 1)?.images}')`,
+          backgroundImage: `url('${BASE_URL + banners.find((banner) => banner.id === 2)?.images}')`,
         }}
       >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
           <h2 className="text-[22px] md:text-[32px] font-bold text-white">
             {banners
-              ? banners.find((banner) => banner.id === 1)?.name
+              ? banners.find((banner) => banner.id === 2)?.name
               : "Title"}
           </h2>
           <Link
@@ -41,13 +41,13 @@ const OfferSection = () => {
       <div
         className="flex flex-col justify-end p-[34px] bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]"
         style={{
-          backgroundImage: `url('${BASE_URL + banners.find((banner) => banner.id === 2)?.images}')`,
+          backgroundImage: `url('${BASE_URL + banners.find((banner) => banner.id === 3)?.images}')`,
         }}
       >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
           <h2 className="text-[22px] md:text-[32px] font-bold text-white">
             {banners
-              ? banners.find((banner) => banner.id === 2)?.name
+              ? banners.find((banner) => banner.id === 3)?.name
               : "Title"}
           </h2>
           <Link

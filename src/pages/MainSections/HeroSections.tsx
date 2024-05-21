@@ -27,7 +27,7 @@ const HeroSections = () => {
         }}
       >
         <h1 className="max-w-[286px] md:max-w-[472px] text-[22px] md:text-[32px] font-bold text-white">
-          {banners ? banners.find((banner) => banner.id === 4)?.name : "title"}
+          {banners ? banners.find((banner) => banner.id === 1)?.name : "title"}
         </h1>
         <Link
           to="/catalog/all"
