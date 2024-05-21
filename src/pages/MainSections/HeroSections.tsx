@@ -5,7 +5,7 @@ import {
 } from "@/app/providers/StoreProvider/config/hooks";
 import { selectBannersAdmin } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
 import { useEffect } from "react";
-import { getSingleBanner } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
+import { getBanners } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
 import { BASE_URL } from "@/app/constants/contants";
 
 const HeroSections = () => {
@@ -13,7 +13,7 @@ const HeroSections = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(getSingleBanner("1"));
+    dispatch(getBanners());
   }, [dispatch]);
 
   return (
