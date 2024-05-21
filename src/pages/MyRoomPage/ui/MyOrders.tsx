@@ -49,7 +49,7 @@ const MyOrders = () => {
   }
 
   return (
-    <div className="col-span-4 md:col-span-3">
+    <div className="col-span-4 md:col-span-3 flex flex-col gap-y-3">
       {orders.length !== 0 ? (
         orders.map((order) => (
           <div
