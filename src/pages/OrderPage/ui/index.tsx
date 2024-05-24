@@ -109,29 +109,29 @@ export const OrderPage = () => {
               ))}
             </div>
           </div>
-          <div className="mt-[30px]">
-            <h4 className="text-2xl">Детали заказа</h4>
-            {order.products.map((product) => (
-              <div>
-                <p>Название - {product.title}</p>
-                <p>Цена - {product.price}</p>
-                <p>
-                  Размер -{" "}
-                  {
-                    //@ts-ignore
-                    product.size[0].sizes
-                  }
-                </p>
-                <p>
-                  Цвет -{" "}
-                  {
-                    //@ts-ignore
-                    product.color[0].colors
-                  }
-                </p>
-              </div>
-            ))}
-          </div>
+          {/*<div className="mt-[30px]">*/}
+          {/*  <h4 className="text-2xl">Детали заказа</h4>*/}
+          {/*  {order.products.map((product) => (*/}
+          {/*    <div>*/}
+          {/*      <p>Название - {product.title}</p>*/}
+          {/*      <p>Цена - {product.price}</p>*/}
+          {/*      <p>*/}
+          {/*        Размер -{" "}*/}
+          {/*        {*/}
+          {/*          //@ts-ignore*/}
+          {/*          product.size[0].sizes*/}
+          {/*        }*/}
+          {/*      </p>*/}
+          {/*      <p>*/}
+          {/*        Цвет -{" "}*/}
+          {/*        {*/}
+          {/*          //@ts-ignore*/}
+          {/*          product.color[0].colors*/}
+          {/*        }*/}
+          {/*      </p>*/}
+          {/*    </div>*/}
+          {/*  ))}*/}
+          {/*</div>*/}
         </div>
       </div>
     </div>
