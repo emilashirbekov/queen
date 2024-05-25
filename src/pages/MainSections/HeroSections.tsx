@@ -6,7 +6,6 @@ import {
 import { selectBannersAdmin } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
 import { useEffect } from "react";
 import { getBanners } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
-import { BASE_URL } from "@/app/constants/contants";
 
 const HeroSections = () => {
   const banners = useAppSelector(selectBannersAdmin);
@@ -21,7 +20,7 @@ const HeroSections = () => {
       <div
         className="flex flex-col items-start justify-end gap-[8px] md:gap-[16px] md:h-[577px] h-[286px] rounded-[15px] md:rounded-[30px] p-[20px] md:p-[50px]  bg-center bg-cover bg-no-repeat"
         style={{
-          backgroundImage: `url(${BASE_URL + banners.find((banner) => banner.id === 1)?.images})`,
+          backgroundImage: `url(${banners.find((banner) => banner.id === 1)?.images})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
         }}

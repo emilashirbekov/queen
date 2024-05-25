@@ -13,7 +13,7 @@ import {
 import { useNavigate, useParams } from "react-router-dom";
 import InputField from "@/shared/ui/Inputs/InputField";
 
-const AdminBannerForm = () => {
+export const AdminBannerForm = () => {
   const dispatch = useAppDispatch();
   const banner = useAppSelector(selectBannerAdmin);
   const [imageData, setImageData] = useState("");
@@ -142,5 +142,3 @@ const AdminBannerForm = () => {
     </form>
   );
 };
-
-export default AdminBannerForm;
