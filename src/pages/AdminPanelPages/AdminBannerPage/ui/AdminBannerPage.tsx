@@ -9,7 +9,6 @@ import {
   selectBannersAdmin,
 } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
 import Loader from "@/shared/ui/Loader/Loader";
-import { BASE_URL } from "@/app/constants/contants";
 import { useNavigate } from "react-router-dom";
 
 export interface BannerMutation {
@@ -56,7 +55,7 @@ export const AdminBannerPage = () => {
                     : banner.id === 4
                       ? "Коллекция 3"
                       : " "}
-              <img src={BASE_URL + banner.images} alt="banner" />
+              <img src={banner.images} alt="banner" />
             </p>
             <h2 className="text-[24px]">Название: {banner.name}</h2>
           </div>

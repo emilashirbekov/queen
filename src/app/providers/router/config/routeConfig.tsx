@@ -32,7 +32,7 @@ import NotFound from "../../../../pages/NotFound";
 import { AdminBannerPage } from "@/pages/AdminPanelPages/AdminBannerPage";
 import { AdminCollectionPage } from "@/pages/AdminPanelPages/AdminCollectionPanel";
 import { AdminRecomendationPanel } from "@/pages/AdminPanelPages/AdminRecommendationPanel/AdminRecomendationPanel";
-import AdminBannerForm from "@/pages/AdminPanelPages/AdminBannerPage/ui/AdminBannerForm";
+import { AdminBannerForm } from "@/pages/AdminPanelPages/AdminBannerPage/ui/AdminBannerForm";
 
 export enum AppRoutes {
   MAIN = "main",

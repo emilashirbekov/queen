@@ -15,16 +15,14 @@ import { BannerMutation } from "@/pages/AdminPanelPages/AdminBannerPage/ui/Admin
 // );
 
 interface Banners {
-  results: {
-    topik_baner: Banner[];
-  }[];
+  results: Banner[][];
 }
 
 export const getBanners = createAsyncThunk<Banner[]>(
   "admin/getBanners",
   async () => {
     const response = await axiosApi.get<Banners>(`/banner/banners/`);
-    return response.data.results[0].topik_baner;
+    return response.data.results[0];
   },
 );
 
