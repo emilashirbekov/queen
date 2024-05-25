@@ -1,1 +1,0 @@
-export { AdminBannerPage } from './ui/AdminBannerPage';
