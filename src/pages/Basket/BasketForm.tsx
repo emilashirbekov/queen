@@ -157,7 +157,11 @@ const BasketForm: React.FC<Props> = ({ allCount, allPrice, allDiscount }) => {
         localStorage.getItem("basket") || "[]",
       ) as IBasket[];
       const productsIds = products.map((product) => {
-        return product.id;
+        return {
+          id: product.id,
+          color: product.color,
+          size: product.size,
+        };
       });
       const order: OrderData = {
         products: productsIds,

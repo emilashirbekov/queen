@@ -9,10 +9,8 @@ import { useEffect } from "react";
 import { fetchCollection } from "@/entities/Collection/model/services/fetchCollection";
 import { selectBannersAdmin } from "@/pages/AdminPanelPages/AdminBannerPage/model/slice/BannerSlice";
 import { getBanners } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
+
 const CollectionSection = () => {
-  // const { data } = useGetCollectionQuery();
-  // // @ts-ignore
-  // const collection = data?.results[0]?.products;
   const collectionsData = useAppSelector(selectCollections);
   const banners = useAppSelector(selectBannersAdmin);
   const dispatch = useAppDispatch();
@@ -30,7 +28,7 @@ const CollectionSection = () => {
       <div
         className="flex flex-col justify-end p-[50px] bg-center bg-no-repeat bg-cover md:max-w-[570px] w-full h-[672px] rounded-[30px]"
         style={{
-          backgroundImage: `url('${banners.find((banner) => banner.id === 4)?.images}')`,
+          backgroundImage: `url('${banners ? banners.find((banner) => banner.id === 4)?.images : ""}')`,
         }}
       >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
@@ -59,7 +57,7 @@ const CollectionSection = () => {
           favorite={true}
           data={
             //@ts-ignore
-            collectionsData.results ? collectionsData.results[0].products : []
+            collectionsData.length !== 0 ? collectionsData.products : []
           }
           break0={1}
           break1024={2}
