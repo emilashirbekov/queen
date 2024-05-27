@@ -158,7 +158,7 @@ const BasketForm: React.FC<Props> = ({ allCount, allPrice, allDiscount }) => {
       ) as IBasket[];
       const productsIds = products.map((product) => {
         return {
-          id: product.id,
+          product: product.id,
           color: product.color,
           size: product.size,
         };
@@ -188,6 +188,7 @@ const BasketForm: React.FC<Props> = ({ allCount, allPrice, allDiscount }) => {
         terminal: "",
       });
       refErr.current!.style.display = "none";
+      localStorage.removeItem("basket");
     } else {
       refErr.current!.style.display = "block";
     }

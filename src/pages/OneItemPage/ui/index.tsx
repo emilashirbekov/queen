@@ -2,11 +2,11 @@ import Title from "@/pages/OneItemPage/components/Title";
 import Desc from "@/pages/OneItemPage/components/Desc";
 import List from "@/pages/OneItemPage/components/List";
 import MainImage from "@/pages/OneItemPage/components/MainImage";
-// import Recommendation from "@/pages/OneItemPage/components/Recommendation";
 import { useCallback, useEffect, useState } from "react";
 import { IProductDetail } from "@/pages/OneItemPage/types/IProductDetail";
 import { axiosApi } from "@/app/providers/http/axiosApi";
 import { useLocation, useParams } from "react-router-dom";
+
 export const OneItemPage = () => {
   const pathname = useLocation();
   useEffect(() => {
