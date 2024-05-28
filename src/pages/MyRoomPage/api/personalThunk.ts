@@ -59,7 +59,7 @@ export const getSingleOrder = createAsyncThunk<OrderResponse, number>(
   "orders/getSingle",
   async (id) => {
     const response = await axiosApi.get<OrderResponse>(
-      `/account/history/change/${id}/`,
+      `/account/history/detail/${id}/`,
     );
     return response.data;
   },
