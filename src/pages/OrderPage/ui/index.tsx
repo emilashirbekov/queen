@@ -36,6 +36,8 @@ export const OrderPage = () => {
     return sum + product.discount;
   }, 0);
 
+  console.log(order);
+
   return (
     <div className="w-[90%] md:container mx-auto">
       <button
@@ -109,29 +111,29 @@ export const OrderPage = () => {
               ))}
             </div>
           </div>
-          {/*<div className="mt-[30px]">*/}
-          {/*  <h4 className="text-2xl">Детали заказа</h4>*/}
-          {/*  {order.products.map((product) => (*/}
-          {/*    <div>*/}
-          {/*      <p>Название - {product.title}</p>*/}
-          {/*      <p>Цена - {product.price}</p>*/}
-          {/*      <p>*/}
-          {/*        Размер -{" "}*/}
-          {/*        {*/}
-          {/*          //@ts-ignore*/}
-          {/*          product.size[0].sizes*/}
-          {/*        }*/}
-          {/*      </p>*/}
-          {/*      <p>*/}
-          {/*        Цвет -{" "}*/}
-          {/*        {*/}
-          {/*          //@ts-ignore*/}
-          {/*          product.color[0].colors*/}
-          {/*        }*/}
-          {/*      </p>*/}
-          {/*    </div>*/}
-          {/*  ))}*/}
-          {/*</div>*/}
+          <div className="mt-[30px] col-span-3">
+            <h4 className="text-2xl">Детали заказа</h4>
+            {order.products.map((product) => (
+              <div key={product.id}>
+                {/*<p>Название - {product.title}</p>*/}
+                {/*<p>Цена - {product.price}</p>*/}
+                <p>
+                  Размер -{" "}
+                  {
+                    //@ts-ignore
+                    product.size.sizes
+                  }
+                </p>
+                <p>
+                  Цвет -{" "}
+                  {
+                    //@ts-ignore
+                    product.color.colors
+                  }
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
