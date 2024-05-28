@@ -20,7 +20,7 @@ const OfferSection = () => {
       <div
         className="flex flex-col justify-end p-[34px] bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]"
         style={{
-          backgroundImage: `url('${banners.find((banner) => banner.id === 2)?.images}')`,
+          backgroundImage: `url('${banners ? banners.find((banner) => banner.id === 2)?.images : ""}')`,
         }}
       >
         <div className="flex flex-col gap-[16px] max-w-[400px]">
@@ -40,7 +40,7 @@ const OfferSection = () => {
       <div
         className="flex flex-col justify-end p-[34px] bg-center bg-no-repeat bg-cover rounded-[30px] w-full md:w-[50%] h-[415px]"
         style={{
-          backgroundImage: `url('${banners.find((banner) => banner.id === 3)?.images}')`,
+          backgroundImage: `url('${banners ? banners.find((banner) => banner.id === 3)?.images : ""}')`,
         }}
       >
         <div className="flex flex-col gap-[16px] max-w-[400px]">

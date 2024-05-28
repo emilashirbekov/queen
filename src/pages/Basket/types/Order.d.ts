@@ -5,7 +5,7 @@ export interface OrderMutation {
 }
 
 export interface OrderData extends OrderMutation {
-  products: number[];
+  products: { product: number; color: string; size: string }[];
   price: number;
   paymentType: string;
   deliver: {
