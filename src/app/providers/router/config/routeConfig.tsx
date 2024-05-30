@@ -51,6 +51,7 @@ export enum AppRoutes {
 
   ADMIN_PANEL_PRODUCTS = "admin_panel_products",
   ADMIN_PANEL_BANNER = "admin_panel_banner",
+  ADMIN_PANEL_BANNER_CREATE = "admin_panel_banner/submit",
   ADMIN_PANEL_BANNER_FORM = "admin_panel_banner/submit/:id",
   ADMIN_CHANGE_PRODUCTS = "admin_change_products/:id",
   ADMIN_ADD_PRODUCTS = "admin_add_products",
@@ -112,6 +113,10 @@ export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.ADMIN_PANEL_BANNER]: {
     path: "/admin_panel_banner",
     element: <AdminBannerPage />,
+  },
+  [AppRoutes.ADMIN_PANEL_BANNER_CREATE]: {
+    path: "/admin_panel_banner/submit/",
+    element: <AdminBannerForm />,
   },
   [AppRoutes.ADMIN_PANEL_BANNER_FORM]: {
     path: "/admin_panel_banner/submit/:id",

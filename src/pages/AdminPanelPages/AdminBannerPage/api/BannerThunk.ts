@@ -3,26 +3,27 @@ import { Banner, BannerApi } from "../model/types/types";
 import { axiosApi } from "@/app/providers/http/axiosApi";
 import { BannerMutation } from "@/pages/AdminPanelPages/AdminBannerPage/ui/AdminBannerPage";
 
-//
-// export const postBanner = createAsyncThunk<void, Banner>(
-//   "admin/postBanner",
-//   async (data) => {
-//     const formData = new FormData();
-//     formData.append("name", data.name);
-//     formData.append("images", data.images);
-//     await axiosApi.post("/banner/banners/create/", formData);
-//   },
-// );
+export const postBanner = createAsyncThunk<void, BannerMutation>(
+  "admin/postBanner",
+  async (data) => {
+    const formData = new FormData();
+    formData.append("name", data.name);
+    if (data.images) {
+      formData.append("images", data.images);
+    }
+    await axiosApi.post("/banner/topik/banners/create/", formData);
+  },
+);
 
 interface Banners {
-  results: Banner[][];
+  results: Banner[];
 }
 
 export const getBanners = createAsyncThunk<Banner[]>(
   "admin/getBanners",
   async () => {
-    const response = await axiosApi.get<Banners>(`/banner/banners/`);
-    return response.data.results[0];
+    const response = await axiosApi.get<Banners>(`/banner/topik/banners/`);
+    return response.data.results;
   },
 );
 
