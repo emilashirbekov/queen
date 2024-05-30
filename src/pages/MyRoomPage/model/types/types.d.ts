@@ -1,4 +1,4 @@
-import { IBasket } from "@/pages/Basket/types/IBasket";
+import { ProductType } from "@/entities/Product/model/types/product.types";
 
 export interface Favourites {
   id: number;
@@ -6,9 +6,21 @@ export interface Favourites {
   product_image: string;
 }
 
+interface Orders {
+  color: {
+    id: number;
+    colors: string;
+  };
+  product: ProductType;
+  size: {
+    id: number;
+    sizes: string;
+  };
+}
+
 export interface OrderResponse {
   id: number;
-  products: IBasket[];
+  products: Orders[];
   price: number;
   types: string;
   location: string;
