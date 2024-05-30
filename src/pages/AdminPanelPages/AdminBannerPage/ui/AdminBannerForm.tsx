@@ -8,6 +8,7 @@ import { BannerMutation } from "@/pages/AdminPanelPages/AdminBannerPage/ui/Admin
 import {
   getBanners,
   getSingleBanner,
+  postBanner,
   updateBanner,
 } from "@/pages/AdminPanelPages/AdminBannerPage/api/BannerThunk";
 import { useNavigate, useParams } from "react-router-dom";
@@ -27,7 +28,9 @@ export const AdminBannerForm = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    dispatch(getSingleBanner(id));
+    if (id) {
+      dispatch(getSingleBanner(id));
+    }
   }, [dispatch, id]);
 
   useEffect(() => {
@@ -63,12 +66,16 @@ export const AdminBannerForm = () => {
 
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
-    if (filename === imageData) {
-      await dispatch(
-        updateBanner({ id, banner: { name: bannerData.name } }),
-      ).unwrap();
+    if (!id) {
+      await dispatch(postBanner(bannerData));
     } else {
-      await dispatch(updateBanner({ id, banner: bannerData })).unwrap();
+      if (filename === imageData) {
+        await dispatch(
+          updateBanner({ id, banner: { name: bannerData.name } }),
+        ).unwrap();
+      } else {
+        await dispatch(updateBanner({ id, banner: bannerData })).unwrap();
+      }
     }
     await dispatch(getBanners()).unwrap();
     setBannerData({
@@ -136,7 +143,7 @@ export const AdminBannerForm = () => {
           type="submit"
           className="text-blue-700 border-dashed font-semibold py-3 px-4 border border-black rounded"
         >
-          Сохранить
+          {id ? "Сохранить" : "Создать"}
         </button>
       </div>
     </form>
