@@ -65,9 +65,9 @@ const MyOrders = () => {
                 if (order.products.length <= 4) {
                   return (
                     <img
-                      key={product.id}
+                      key={product.product.id}
                       className="bg-secondary border border-thirsty w-[65px] max-h-[65px] md:max-h-max md:w-[124px] rounded-[5px] md:rounded-[25px]"
-                      src={BASE_URL + product.images1}
+                      src={BASE_URL + product.product.images1}
                       alt="item"
                     />
                   );
