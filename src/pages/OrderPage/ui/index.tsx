@@ -33,10 +33,10 @@ export const OrderPage = () => {
   }
 
   const discount = order.products.reduce((sum, product) => {
-    return sum + product.discount;
+    return (
+      sum + parseInt(product.product.discount ? product.product.discount : "0")
+    );
   }, 0);
-
-  console.log(order);
 
   return (
     <div className="w-[90%] md:container mx-auto">
@@ -103,34 +103,24 @@ export const OrderPage = () => {
             <div className="flex gap-x-[18px] flex-wrap gap-y-3">
               {order.products.map((product) => (
                 <img
-                  key={product.id}
+                  key={product.product.id}
                   className="bg-secondary border border-thirsty w-[65px] md:w-[124px] rounded-[5px] md:rounded-[25px]"
-                  src={BASE_URL + product.images1}
+                  src={BASE_URL + product.product.images1}
                   alt="item"
                 />
               ))}
             </div>
           </div>
-          <div className="mt-[30px] col-span-3">
+          <div className="mt-[30px] col-span-3 flex flex-col gap-y-3">
             <h4 className="text-2xl">Детали заказа</h4>
-            {order.products.map((product) => (
-              <div key={product.id}>
-                {/*<p>Название - {product.title}</p>*/}
-                {/*<p>Цена - {product.price}</p>*/}
-                <p>
-                  Размер -{" "}
-                  {
-                    //@ts-ignore
-                    product.size.sizes
-                  }
-                </p>
-                <p>
-                  Цвет -{" "}
-                  {
-                    //@ts-ignore
-                    product.color.colors
-                  }
-                </p>
+            {order.products.map((product, index) => (
+              <div key={index}>
+                <h2 className="text-xl">Товар {index + 1}</h2>
+                <p>Название - {product.product.title}</p>
+                <p>Цена - {product.product.price}</p>
+                <p>Бренд - {product.product.brand}</p>
+                <p>Размер - {product.size.sizes}</p>
+                <p>Цвет - {product.color.colors}</p>
               </div>
             ))}
           </div>
