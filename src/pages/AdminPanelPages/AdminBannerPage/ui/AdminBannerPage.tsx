@@ -32,34 +32,51 @@ export const AdminBannerPage = () => {
 
   return (
     <div className="container mx-auto">
+      {banners.length >= 4 ? null : (
+        <button
+          className="bg-green text-white border-dashed font-semibold py-3 px-4 border border-black rounded"
+          onClick={() => navigate("/admin_panel_banner/submit/")}
+        >
+          Создать баннера
+        </button>
+      )}
       <div>
-        {banners.map((banner) => (
-          <div className="relative" key={banner.id}>
-            <button
-              type="button"
-              onClick={() =>
-                navigate(`/admin_panel_banner/submit/${banner.id}`)
-              }
-              className="absolute top-[15px] right-[25px] bg-green text-white border-dashed font-semibold py-3 px-4 border border-black rounded"
-            >
-              Изменить
-            </button>
-            <p className="text-3xl">
-              Баннер{" "}
-              {banner.id === 1
-                ? "Главный"
-                : banner.id === 2
-                  ? "Коллекция 1"
-                  : banner.id === 3
-                    ? "Коллекция 2"
-                    : banner.id === 4
-                      ? "Коллекция 3"
-                      : " "}
-              <img src={banner.images} alt="banner" />
-            </p>
-            <h2 className="text-[24px]">Название: {banner.name}</h2>
-          </div>
-        ))}
+        {banners ? (
+          banners.map((banner) => (
+            <div className="relative" key={banner.id}>
+              <button
+                type="button"
+                onClick={() =>
+                  navigate(`/admin_panel_banner/submit/${banner.id}`)
+                }
+                className="absolute top-[15px] right-[25px] bg-green text-white border-dashed font-semibold py-3 px-4 border border-black rounded"
+              >
+                Изменить
+              </button>
+              <p className="text-3xl">
+                Баннер{" "}
+                {banner.id === 1
+                  ? "Главный"
+                  : banner.id === 2
+                    ? "Коллекция 1"
+                    : banner.id === 3
+                      ? "Коллекция 2"
+                      : banner.id === 4
+                        ? "Коллекция 3"
+                        : " "}
+                <img src={banner.images} alt="banner" />
+              </p>
+              <h2 className="text-[24px]">Название: {banner.name}</h2>
+            </div>
+          ))
+        ) : (
+          <button
+            className="bg-green text-white border-dashed font-semibold py-3 px-4 border border-black rounded"
+            onClick={() => navigate("/admin_panel_banner/submit/")}
+          >
+            Создать баннера
+          </button>
+        )}
       </div>
     </div>
   );
