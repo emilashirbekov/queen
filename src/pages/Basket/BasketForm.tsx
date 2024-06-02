@@ -159,8 +159,8 @@ const BasketForm: React.FC<Props> = ({ allCount, allPrice, allDiscount }) => {
       const productsIds = products.map((product) => {
         return {
           product: product.id,
-          color: product.color,
-          size: product.size,
+          color: product.color.id,
+          size: product.size.id,
         };
       });
       const order: OrderData = {

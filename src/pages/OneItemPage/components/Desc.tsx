@@ -19,8 +19,10 @@ const Desc = ({ product }: IDesc) => {
   const user = useAppSelector(selectUser);
   const [modalOpen, setModalOpen] = useState(false);
   const [count, setCount] = useState(1);
-  const [color, setColor] = useState<number | null>(null);
-  const [size, setSize] = useState<number | null>(null);
+  const [color, setColor] = useState<{ id: number; colors: string } | null>(
+    null,
+  );
+  const [size, setSize] = useState<{ id: number; sizes: string } | null>(null);
   const [borderColor, setBorderColor] = useState(-1);
   const [borderSz, setBorderSz] = useState(-1);
   const refModal = useRef<HTMLDivElement>(null);
@@ -30,18 +32,20 @@ const Desc = ({ product }: IDesc) => {
     setCount(count + 1);
   };
 
+  console.log(product);
+
   const decrement = () => {
     if (count > 1) {
       setCount(count - 1);
     }
   };
 
-  const handlerColor = (el: number, inx: number) => {
+  const handlerColor = (el: { id: number; colors: string }, inx: number) => {
     setColor(el);
     setBorderColor(inx);
   };
 
-  const handlerSz = (sz: number, inx: number) => {
+  const handlerSz = (sz: { id: number; sizes: string }, inx: number) => {
     setSize(sz);
     setBorderSz(inx);
   };
@@ -106,9 +110,9 @@ const Desc = ({ product }: IDesc) => {
         <div className="mt-[12px] flex w-[143px] gap-[12px]">
           {product.color.map((el, inx) => (
             <div
-              onClick={() => handlerColor(el.id, inx)}
+              onClick={() => handlerColor(el, inx)}
               key={inx}
-              className="block w-[37px] h-[37px] relative"
+              className="block w-[37px] h-[27px] relative"
               style={{
                 backgroundColor: el.colors,
                 borderRadius: "25px",
@@ -132,7 +136,7 @@ const Desc = ({ product }: IDesc) => {
           {product.size.map((sz, inx) => (
             <div
               key={sz.id}
-              onClick={() => handlerSz(sz.id, inx)}
+              onClick={() => handlerSz(sz, inx)}
               className="w-[100px] px-[10px] py-[10px] rounded-[10px] me-[13px] mb-[8px]"
               style={{
                 backgroundColor: "#F3F3EB",

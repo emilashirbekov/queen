@@ -1,8 +1,14 @@
 export interface IBasket {
   id: number;
   title: string;
-  size: string;
-  color: string;
+  size: {
+    id: number;
+    sizes: string;
+  };
+  color: {
+    id: number;
+    colors: string;
+  };
   price: number;
   total: number;
   description: string;
