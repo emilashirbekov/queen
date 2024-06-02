@@ -7,6 +7,7 @@ interface AuthState {
   user: User | null;
   registerLoading: boolean;
   loginLoading: boolean;
+  checkLoading: boolean;
   loginError: LoginError | null;
 }
 
@@ -14,6 +15,7 @@ const initialState: AuthState = {
   user: null,
   registerLoading: false,
   loginLoading: false,
+  checkLoading: false,
   loginError: null,
 };
 
@@ -39,17 +41,17 @@ const authSlice = createSlice({
       state.registerLoading = false;
     });
     builder.addCase(checkCode.pending, (state) => {
-      state.registerLoading = true;
+      state.checkLoading = true;
     });
     builder.addCase(
       checkCode.fulfilled,
       (state, { payload: data }: PayloadAction<User>) => {
-        state.registerLoading = false;
+        state.checkLoading = false;
         state.user = data;
       },
     );
     builder.addCase(checkCode.rejected, (state) => {
-      state.registerLoading = false;
+      state.checkLoading = false;
     });
     builder.addCase(login.pending, (state) => {
       state.loginLoading = true;
@@ -75,3 +77,4 @@ export const selectLoginLoading = (state: RootState) => state.auth.loginLoading;
 export const selectRegisterLoading = (state: RootState) =>
   state.auth.registerLoading;
 export const selectLoginError = (state: RootState) => state.auth.loginError;
+export const selectCheckLoading = (state: RootState) => state.auth.checkLoading;
