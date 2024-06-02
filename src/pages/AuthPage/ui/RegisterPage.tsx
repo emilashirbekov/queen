@@ -10,7 +10,10 @@ import { checkCode, register } from "@/pages/AuthPage/api/authThunk";
 import { useNavigate } from "react-router-dom";
 import { SealCheck, XCircle } from "@phosphor-icons/react";
 import { axiosApi } from "@/app/providers/http/axiosApi";
-import { selectRegisterLoading } from "@/pages/AuthPage/model/slice/authSlice";
+import {
+  selectCheckLoading,
+  selectRegisterLoading,
+} from "@/pages/AuthPage/model/slice/authSlice";
 
 export const RegisterPage = () => {
   const [state, setState] = useState<RegisterMutation>({
@@ -33,6 +36,7 @@ export const RegisterPage = () => {
   const [errorEmailFormat, setErrorEmailFormat] = useState(false);
   const [errorPassword, setErrorPassword] = useState(true);
   const loading = useAppSelector(selectRegisterLoading);
+  const checkLoading = useAppSelector(selectCheckLoading);
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -41,7 +45,6 @@ export const RegisterPage = () => {
         setSeconds((prevSeconds) => {
           if (prevSeconds === 0) {
             clearInterval(intervalId);
-            console.log("Timer reached zero!");
             return 0;
           }
           return prevSeconds - 1;
@@ -126,11 +129,10 @@ export const RegisterPage = () => {
     event.preventDefault();
     try {
       await dispatch(checkCode(code)).unwrap();
+      setStep("E");
     } catch (error) {
       setStep("Error");
       console.log(error);
-    } finally {
-      setStep("E");
     }
   };
 
@@ -265,11 +267,11 @@ export const RegisterPage = () => {
                 <p className="text-red">Не совпадают пароли!</p>
               )}
               <Button
-                disabled={!errorPassword}
+                disabled={!errorPassword && loading}
                 typeButton="primary"
                 type="submit"
               >
-                Далее
+                {loading ? "Loading" : "Далее"}
               </Button>
             </div>
           ) : null}
@@ -311,8 +313,12 @@ export const RegisterPage = () => {
                     : null}
                 </button>
               </div>
-              <Button typeButton="primary" type="submit" disabled={loading}>
-                Далее
+              <Button
+                typeButton="primary"
+                type="submit"
+                disabled={checkLoading}
+              >
+                {checkLoading ? "Loading" : "Далее"}
               </Button>
             </form>
           </div>
