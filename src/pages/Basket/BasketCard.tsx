@@ -40,7 +40,7 @@ const BasketCard: React.FC<Props> = ({
 
   const oneDelete = () => {
     window.location.reload();
-    deleteCard(index, basket.color, basket.size);
+    deleteCard(index, basket.color.colors, basket.size.sizes);
     setModal(false);
   };
 
@@ -90,10 +90,10 @@ const BasketCard: React.FC<Props> = ({
             {basket.title}
           </h1>
           <p className="text-[16px] text-[rgba(33, 33, 33, 1)] my-[2px]">
-            Размер {basket.size}
+            Размер {basket.size.sizes}
           </p>
           <p className="text-[16px] text-[rgba(33, 33, 33, 1)] ">
-            Цвет: {basket.color}
+            Цвет: {basket.color.colors}
           </p>
           <h3 className="text-[18px] text-[rgba(33, 33, 33, 1)] font-medium my-[3px]">
             {basket.price} сом
