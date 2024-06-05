@@ -24,9 +24,10 @@ const Basket = () => {
     const storedData = JSON.parse(
       localStorage.getItem("basket") || "[]",
     ) as IBasket[];
-    // const delCard = storedData.filter(item => !(item.id === id && item.color === color && item.size === size));
+
     const delCard = storedData.filter(
-      (item, i) => !(i === inx && item.color === color && item.size === size),
+      (item, i) =>
+        !(i === inx && item.color.colors === color && item.size.sizes === size),
     );
     setBasket(() => delCard);
     localStorage.setItem("basket", JSON.stringify(delCard));
